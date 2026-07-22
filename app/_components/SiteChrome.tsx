@@ -1,22 +1,23 @@
 import type { ReactNode } from "react";
 
 const navigation = [
-  { label: "Inicio", href: "/", key: "home" },
-  { label: "Mi historia", href: "/my-story", key: "story" },
+  { label: "Home", href: "/", key: "home" },
+  { label: "My Story", href: "/my-story", key: "story" },
   { label: "Chairwoman", href: "/chairwoman", key: "chairwoman" },
-  { label: "La Socia", href: "/la-socia", key: "partner" },
+  { label: "A Sócia", href: "/la-socia", key: "partner" },
   { label: "Lifestyle", href: "/lifestyle", key: "lifestyle" },
-  { label: "Newsletter", href: "/newsletter", key: "newsletter" },
-  { label: "Mi libro", href: "/my-book", key: "book" },
-  { label: "Prensa", href: "/press", key: "press" },
+  { label: "My Newsletter", href: "/newsletter", key: "newsletter" },
+  { label: "My Book", href: "/my-book", key: "book" },
+  { label: "Press", href: "/press", key: "press" },
 ] as const;
 
 export function SiteHeader({ active }: { active: string }) {
   return (
     <header className="site-header">
       <a className="brand" href="/" aria-label="Nina Quisinski — Inicio">
-        <span className="brand-mark">NQ</span>
-        <span className="brand-name">Nina Quisinski</span>
+        <span className="brand-script">Nina</span>
+        <span className="brand-name">Quisinski</span>
+        <span className="brand-subline">Leadership · Business · Lifestyle</span>
       </a>
 
       <nav className="desktop-nav" aria-label="Navegación principal">
@@ -32,7 +33,7 @@ export function SiteHeader({ active }: { active: string }) {
       </nav>
 
       <details className="mobile-nav">
-        <summary aria-label="Abrir menú">Menú</summary>
+        <summary aria-label="Abrir menú"><span>Menú</span><i aria-hidden="true">＋</i></summary>
         <nav aria-label="Navegación móvil">
           {navigation.map((item) => (
             <a
@@ -119,6 +120,7 @@ export function EditorialHero({
           <span>Archivo oficial</span>
         </div>
         <p className="section-kicker">{kicker}</p>
+        <span className="editorial-script" aria-hidden="true">Nina</span>
         <h1>{title}</h1>
         <p className="editorial-intro">{intro}</p>
       </div>

@@ -2,68 +2,80 @@ import assert from "node:assert/strict";
 import { access, readFile } from "node:fs/promises";
 import test from "node:test";
 
-async function render(path = "/") {
-  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
-  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}-${path}`);
-  const { default: worker } = await import(workerUrl.href);
+const output = new URL("../out/", import.meta.url);
 
-  return worker.fetch(
-    new Request(`http://localhost${path}`, { headers: { accept: "text/html" } }),
-    { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } },
-    { waitUntil() {}, passThroughOnException() {} },
-  );
+async function html(path) {
+  return readFile(new URL(path, output), "utf8");
 }
 
-test("server-renders the Nina Quisinski editorial homepage", async () => {
-  const response = await render();
-  assert.equal(response.status, 200);
-  assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
+function count(source, pattern) {
+  return [...source.matchAll(pattern)].length;
+}
 
-  const html = await response.text();
-  assert.match(html, /<html lang="es"/i);
-  assert.match(html, /Nina Quisinski/);
-  assert.match(html, /Las relaciones correctas no solo abren puertas/i);
-  assert.match(html, /Presidenta · CCI Brasil–Panamá/i);
-  assert.match(html, /COO &amp; Co-founder · StepUp &amp; Company/i);
-  assert.match(html, /Mi historia/);
-  assert.match(html, /Chairwoman/);
-  assert.match(html, /Lifestyle/);
-  assert.match(html, /Newsletter/);
-  assert.match(html, /Mi libro/);
-  assert.match(html, /Prensa/);
-  assert.doesNotMatch(html, /codex-preview|Your site is taking shape|react-loading-skeleton/i);
+test("exports a complete Spanish landing at the canonical root", async () => {
+  const source = await html("index.html");
+
+  assert.match(source, /<html lang="es-PA">/i);
+  assert.match(source, /NINA/);
+  assert.match(source, /QUISINSKI/);
+  assert.match(source, /FUNDADORA Y PRESIDENTA/);
+  assert.match(source, /SOCIA · STEPUP &amp; COMPANY/);
+  assert.match(source, /Liderazgo institucional · Relaciones estratégicas · Expansión empresarial/);
+  assert.match(source, /Capital &amp; Ownership Brief/);
+  assert.match(source, /Investor Lifestyle/);
+  assert.match(source, /Instagram/);
+  assert.match(source, /YouTube/);
+  assert.equal(count(source, /<h1\b/gi), 1);
 });
 
-test("all requested editorial routes render", async () => {
-  const routes = [
-    ["/my-story", /Una historia de/],
-    ["/chairwoman", /Brasil y Panamá/],
-    ["/la-socia", /La Socia/],
-    ["/lifestyle", /Plataforma editorial/],
-    ["/newsletter", /Archivo editorial/],
-    ["/my-book", /Libro en desarrollo/],
-    ["/press", /Prensa &amp; Contacto/],
+test("exports Portuguese and English routes with equivalent authority", async () => {
+  const [pt, en] = await Promise.all([html("pt/index.html"), html("en/index.html")]);
+
+  assert.match(pt, /<html lang="pt-BR">/i);
+  assert.match(pt, /FUNDADORA E PRESIDENTE/);
+  assert.match(pt, /Liderança institucional · Relações estratégicas · Expansão empresarial/);
+  assert.match(pt, /Este site não oferece intermediação financeira/);
+
+  assert.match(en, /<html lang="en-US">/i);
+  assert.match(en, /FOUNDER &amp; PRESIDENT/);
+  assert.match(en, /Institutional leadership · Strategic relationships · Business expansion/);
+  assert.match(en, /This site does not offer financial intermediation/);
+
+  assert.equal(count(pt, /<h1\b/gi), 1);
+  assert.equal(count(en, /<h1\b/gi), 1);
+});
+
+test("contains multilingual SEO, structured data and launch safety", async () => {
+  const source = await html("index.html");
+
+  assert.match(source, /hreflang="es-PA"/i);
+  assert.match(source, /hreflang="pt-BR"/i);
+  assert.match(source, /hreflang="en-US"/i);
+  assert.match(source, /application\/ld\+json/i);
+  assert.match(source, /"@type":"Person"/);
+  assert.match(source, /name="robots" content="noindex, nofollow, noarchive"/i);
+  assert.match(source, /nina-chairwoman-podium\.jpg/);
+});
+
+test("does not publish blocked claims, fake metrics or template debris", async () => {
+  const sources = await Promise.all([html("index.html"), html("pt/index.html"), html("en/index.html")]);
+  const joined = sources.join("\n");
+
+  assert.doesNotMatch(joined, /14\.?000|1[.,]300|board certified|conselheira certificada|certificada como board/i);
+  assert.doesNotMatch(joined, /garantiza|garantido|guaranteed return|access to capital guaranteed/i);
+  assert.doesNotMatch(joined, /email@example|Quincy|therapist|codex-preview|Your site is taking shape/i);
+  assert.doesNotMatch(joined, /documento confidencial|confidential invitation|convite confidencial/i);
+});
+
+test("ships required real assets and static Hostinger output", async () => {
+  const assets = [
+    "images/nina-chairwoman-podium.jpg",
+    "images/nina-press-hero.jpg",
+    "images/nina-business-speaking.jpg",
+    "images/nina-lifestyle-dinner.jpg",
   ];
-
-  for (const [path, expected] of routes) {
-    const response = await render(path);
-    assert.equal(response.status, 200, path);
-    assert.match(await response.text(), expected, path);
-  }
-});
-
-test("the starter preview was removed and publication-risk placeholders are absent", async () => {
-  const [page, layout, css] = await Promise.all([
-    readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
-    readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
-    readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
-  ]);
-
-  const source = `${page}\n${layout}\n${css}`;
-  assert.doesNotMatch(source, /SkeletonPreview|codex-preview|email@example|Quincy|therapist/i);
-  assert.match(layout, /index:\s*false/);
-  assert.match(layout, /lang="es"/);
-
-  await assert.rejects(access(new URL("../app/_sites-preview/SkeletonPreview.tsx", import.meta.url)));
-  await assert.rejects(access(new URL("../app/_sites-preview/preview.css", import.meta.url)));
+  await Promise.all(assets.map((asset) => access(new URL(asset, output))));
+  await access(new URL("index.html", output));
+  await access(new URL("pt/index.html", output));
+  await access(new URL("en/index.html", output));
 });

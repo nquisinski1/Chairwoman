@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/node_modules.*incomplete*/
 /.pnp
 .pnp.*
 .yarn/*
@@ -42,3 +43,6 @@ next-env.d.ts
 /.wrangler/
 /outputs/
 /work/
+
+# Local Fachada intake; the publishable brief lives in docs/
+/.fachada/
