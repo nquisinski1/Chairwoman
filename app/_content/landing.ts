@@ -101,7 +101,7 @@ const sharedMedia = [
 export const landingCopy: Record<Language, LandingCopy> = {
   es: {
     languageName: "Español",
-    nav: { mandate: "Presidencia", stepup: "StepUp & Company", ideas: "Ideas", media: "Prensa", lifestyle: "Lifestyle" },
+    nav: { mandate: "Chairwoman", stepup: "StepUp & Company", ideas: "Ideas", media: "Prensa", lifestyle: "Lifestyle" },
     menu: "Menú",
     skip: "Ir al contenido",
     hero: {
@@ -202,7 +202,7 @@ export const landingCopy: Record<Language, LandingCopy> = {
   },
   pt: {
     languageName: "Português",
-    nav: { mandate: "Presidência", stepup: "StepUp & Company", ideas: "Ideias", media: "Imprensa", lifestyle: "Lifestyle" },
+    nav: { mandate: "Chairwoman", stepup: "StepUp & Company", ideas: "Ideias", media: "Imprensa", lifestyle: "Lifestyle" },
     menu: "Menu",
     skip: "Ir para o conteúdo",
     hero: {
@@ -303,7 +303,7 @@ export const landingCopy: Record<Language, LandingCopy> = {
   },
   en: {
     languageName: "English",
-    nav: { mandate: "Chairmanship", stepup: "StepUp & Company", ideas: "Ideas", media: "Press", lifestyle: "Lifestyle" },
+    nav: { mandate: "Chairwoman", stepup: "StepUp & Company", ideas: "Ideas", media: "Press", lifestyle: "Lifestyle" },
     menu: "Menu",
     skip: "Skip to content",
     hero: {

@@ -4,6 +4,9 @@ const pages = [
   ["out/index.html", "es-PA"],
   ["out/pt/index.html", "pt-BR"],
   ["out/en/index.html", "en-US"],
+  ["out/chairwoman/index.html", "es-PA"],
+  ["out/pt/chairwoman/index.html", "pt-BR"],
+  ["out/en/chairwoman/index.html", "en-US"],
 ];
 
 for (const [path, language] of pages) {

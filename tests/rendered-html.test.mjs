@@ -120,3 +120,61 @@ test("keeps the approved Nina Quisinski typographic signature", async () => {
   assert.match(layout, /family=Pinyon\+Script/);
   assert.match(layout, /family=Bodoni\+Moda/);
 });
+
+test("exports the Chairwoman page in Spanish, Portuguese and English", async () => {
+  const [es, pt, en] = await Promise.all([
+    html("chairwoman/index.html"),
+    html("pt/chairwoman/index.html"),
+    html("en/chairwoman/index.html"),
+  ]);
+
+  assert.match(es, /FUNDADORA Y PRESIDENTA/);
+  assert.match(es.slice(0, 80), /<html lang="es-PA">/i);
+  assert.match(es, /Liderar es hacer que la/);
+  assert.match(es, /Una fotografía registra una agenda/);
+  assert.match(es, /\/pt\/chairwoman\//);
+  assert.match(es, /\/en\/chairwoman\//);
+
+  assert.match(pt, /FUNDADORA E PRESIDENTE/);
+  assert.match(pt.slice(0, 80), /<html lang="pt-BR">/i);
+  assert.match(pt, /Liderar é fazer a/);
+  assert.match(pt, /Uma fotografia registra uma agenda/);
+
+  assert.match(en, /FOUNDER &amp; PRESIDENT/);
+  assert.match(en.slice(0, 80), /<html lang="en-US">/i);
+  assert.match(en, /Leadership makes/);
+  assert.match(en, /A photograph records an agenda/);
+
+  for (const source of [es, pt, en]) {
+    assert.match(source, /nina-chairwoman-podium\.jpg/);
+    assert.match(source, /ccibrasilpanama\.org\/2026-lid-nina/);
+    assert.match(source, /mici\.gob\.pa\/2025\/08\/18/);
+    assert.match(source, /presidencia\.gob\.pa\/storage\/documentos/);
+    assert.match(source, /portalegis\.alesc\.sc\.gov\.br\/documentos\/N09JP/);
+    assert.doesNotMatch(source, /Startup Summit|convite da CNI|invited by CAF/i);
+    assert.equal(count(source, /<h1\b/gi), 1);
+  }
+});
+
+test("links each home language to its dedicated Chairwoman route", async () => {
+  const [es, pt, en] = await Promise.all([
+    html("index.html"),
+    html("pt/index.html"),
+    html("en/index.html"),
+  ]);
+
+  assert.match(es, /href="\/chairwoman\/"/);
+  assert.match(pt, /href="\/pt\/chairwoman\/"/);
+  assert.match(en, /href="\/en\/chairwoman\/"/);
+});
+
+test("keeps the Chairwoman page inside the burgundy ivory and gold territory", async () => {
+  const css = await readFile(new URL("app/globals.css", project), "utf8");
+
+  assert.match(css, /\.cw-site\s*\{[^}]*background:\s*var\(--white\)/s);
+  assert.match(css, /\.cw-hero\s*\{[^}]*background:\s*var\(--burgundy\)/s);
+  assert.match(css, /\.cw-record\s*\{[^}]*background:\s*var\(--burgundy-deep\)/s);
+  assert.match(css, /\.cw-button-gold\s*\{[^}]*background:\s*var\(--gold\)/s);
+  assert.match(css, /\.cw-wordmark span\s*\{[^}]*font-family:\s*var\(--script\)/s);
+  assert.match(css, /\.cw-wordmark strong\s*\{[^}]*font-size:/s);
+});

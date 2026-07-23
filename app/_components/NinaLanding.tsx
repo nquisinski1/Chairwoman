@@ -1,6 +1,11 @@
 import { landingCopy, type Language } from "../_content/landing";
 
 const languagePaths: Record<Language, string> = { es: "/", pt: "/pt/", en: "/en/" };
+const chairwomanPaths: Record<Language, string> = {
+  es: "/chairwoman/",
+  pt: "/pt/chairwoman/",
+  en: "/en/chairwoman/",
+};
 
 const sourceLinks = [
   {
@@ -46,7 +51,7 @@ export function NinaLanding({ language }: { language: Language }) {
   const copy = landingCopy[language];
   const locale = language === "es" ? "es-PA" : language === "pt" ? "pt-BR" : "en-US";
   const navItems = [
-    [copy.nav.mandate, "#presidencia"],
+    [copy.nav.mandate, chairwomanPaths[language]],
     [copy.nav.stepup, "#stepup"],
     [copy.nav.ideas, "#ideas"],
     [copy.nav.media, "#prensa"],
@@ -109,7 +114,7 @@ export function NinaLanding({ language }: { language: Language }) {
             <p className="nq-descriptor">{copy.hero.descriptor}</p>
             <p className="nq-hero-thesis">{copy.hero.thesis}</p>
             <div className="nq-actions">
-              <a className="nq-button nq-button-primary" href="#presidencia">{copy.hero.primary}<Arrow /></a>
+              <a className="nq-button nq-button-primary" href={chairwomanPaths[language]}>{copy.hero.primary}<Arrow /></a>
               <a className="nq-button nq-button-quiet" href="#ideas">{copy.hero.secondary}<Arrow /></a>
             </div>
           </div>
