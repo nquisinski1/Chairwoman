@@ -1,8 +1,8 @@
 # Nina Quisinski — Manual visual para aprobación v4
 
-**Estado:** pendiente de aprobación explícita
+**Estado:** paleta corregida el 23 de julio de 2026; los demás criterios siguen pendientes de aprobación explícita
 
-**Alcance:** dirección de marca y experiencia; no autoriza cambios en la landing ni publicación
+**Alcance:** dirección de marca y experiencia; la actualización cromática v5 se aplica a la landing local y no autoriza publicación
 
 **Concepto recomendado:** **Autoridad editorial. Poder institucional silencioso.**
 
@@ -23,18 +23,18 @@ No debe parecer una coach, una influencer de lujo, una política ni una boutique
 
 No copiamos textos, logos, símbolos, fotografías, cifras ni layouts completos.
 
-## 3. Sistema cromático
+## 3. Sistema cromático — actualización v5
 
 | Token | Hex | Proporción | Uso |
 |---|---|---:|---|
-| Porcelain | `#F4F0E7` | 54% | base editorial y lectura |
-| Carbon | `#121416` | 24% | header, títulos, módulos de autoridad |
-| Atlantic | `#173B4B` | 12% | institucional, enlaces y StepUp |
-| Oxblood | `#8A3034` | 7% | presidencia, énfasis y campañas selectivas |
-| Mineral Blue | `#BAC7D3` | 2% | notas, archivo y respiración visual |
-| Antique Brass | `#B49A70` | 1% | líneas y microdetalles; nunca como efecto de lujo |
+| Beige | `#E8E0D3` | 30% | base editorial y territorio StepUp |
+| Green | `#17351F` | 24% | marca, navegación y lifestyle |
+| Burgundy | `#4B1F2A` | 20% | Presidencia y mandato institucional |
+| Mineral Blue | `#AEC1D3` | 16% | ideas y detalles de lifestyle |
+| Soft Blue | `#D7E1E7` | 8% | prensa |
+| Gold | `#C2A367` | 2% | líneas y microdetalles; nunca como efecto de lujo |
 
-El verde heritage queda reservado para cápsulas editoriales o colaboraciones; no compite con el azul institucional de la marca central.
+Aplicación obligatoria: Presidencia en burdeos; StepUp en beige; ideas y prensa en azul con verde; lifestyle en verde con azul; dorado únicamente como acabado institucional.
 
 ## 4. Tipografía y firma
 
@@ -58,9 +58,11 @@ El móvil debe mostrar nombre, mandato y al menos una porción significativa de 
 
 ## 6. Ritmo editorial
 
-- **Modo claro:** identidad, tesis, pensamiento y lectura.
-- **Modo oscuro:** presidencia, StepUp, prensa y momentos de autoridad.
-- **Oxblood:** cortes de capítulo y campañas, nunca fondo permanente.
+- **Beige:** identidad, StepUp y lectura editorial.
+- **Burdeos:** Presidencia y archivo del mandato.
+- **Azul con verde:** ideas, prensa y conocimiento.
+- **Verde con azul:** lifestyle y colaboraciones.
+- **Dorado:** filetes, numeración y microdetalles; nunca un fondo dominante.
 - **Fotografía:** 60% documental institucional, 25% retrato editorial, 15% lifestyle real.
 - **Cifras:** solo con fuente, fecha y verificación; hasta entonces se usan roles, apariciones y documentos.
 
@@ -81,14 +83,13 @@ El lenguaje de quiet luxury puede aparecer en editoriales y colaboraciones, pero
 
 ## 9. Gate de aprobación
 
-La dirección queda aprobada solo cuando Nina confirma explícitamente:
+La paleta v5 queda registrada por instrucción de Nina. La dirección completa queda aprobada solo cuando Nina confirma explícitamente los criterios restantes:
 
 1. concepto;
-2. paleta;
-3. pareja tipográfica;
-4. wordmark y criterio de monograma;
-5. proporción claro/oscuro;
-6. tratamiento fotográfico;
-7. jerarquía móvil, iPad y desktop.
+2. pareja tipográfica;
+3. wordmark y criterio de monograma;
+4. proporción cromática final;
+5. tratamiento fotográfico;
+6. jerarquía móvil, iPad y desktop.
 
-La aprobación habilita una revisión posterior de la landing. No habilita despliegue, dominio ni indexación.
+La aprobación completa habilita el cierre visual de la landing. No habilita despliegue, dominio ni indexación.

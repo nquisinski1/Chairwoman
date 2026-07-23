@@ -3,6 +3,7 @@ import { access, readFile } from "node:fs/promises";
 import test from "node:test";
 
 const output = new URL("../out/", import.meta.url);
+const project = new URL("../", import.meta.url);
 
 async function html(path) {
   return readFile(new URL(path, output), "utf8");
@@ -78,4 +79,19 @@ test("ships required real assets and static Hostinger output", async () => {
   await access(new URL("index.html", output));
   await access(new URL("pt/index.html", output));
   await access(new URL("en/index.html", output));
+});
+
+test("keeps the approved color territories explicit in the design system", async () => {
+  const css = await readFile(new URL("app/globals.css", project), "utf8");
+
+  assert.match(css, /--burgundy:\s*#4b1f2a/i);
+  assert.match(css, /--beige:\s*#e8e0d3/i);
+  assert.match(css, /--green:\s*#17351f/i);
+  assert.match(css, /--gold:\s*#c2a367/i);
+  assert.match(css, /--blue:\s*#aec1d3/i);
+  assert.match(css, /\.nq-mandate\s*\{[^}]*background:\s*var\(--burgundy\)/s);
+  assert.match(css, /\.nq-stepup\s*\{[^}]*background:\s*var\(--beige\)/s);
+  assert.match(css, /\.nq-ideas\s*\{[^}]*background:\s*var\(--blue\)/s);
+  assert.match(css, /\.nq-media\s*\{[^}]*background:\s*var\(--blue-soft\)/s);
+  assert.match(css, /\.nq-lifestyle\s*\{[^}]*background:\s*var\(--green\)/s);
 });
