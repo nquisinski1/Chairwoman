@@ -112,7 +112,7 @@ export function ChairwomanLanding({ language }: { language: Language }) {
       <main id="conteudo">
         <section className="cw-hero" aria-labelledby="cw-hero-title">
           <div className="cw-hero-copy">
-            <p className="cw-eyebrow">{copy.hero.eyebrow}</p>
+            <p className="cw-role-line">{copy.hero.role}</p>
             <h1 id="cw-hero-title">
               <span>{copy.hero.titleBefore}</span>
               <em>{copy.hero.titleAccent}</em>
@@ -127,7 +127,6 @@ export function ChairwomanLanding({ language }: { language: Language }) {
                 {copy.hero.secondary}<Arrow />
               </a>
             </div>
-            <small>{copy.hero.sourceNote}</small>
           </div>
 
           <figure className="cw-hero-photo">
@@ -138,15 +137,11 @@ export function ChairwomanLanding({ language }: { language: Language }) {
               priority
               sizes="(max-width: 760px) 100vw, 52vw"
             />
-            <figcaption>{copy.hero.caption}</figcaption>
-            <span aria-hidden="true">CHAIRWOMAN</span>
           </figure>
         </section>
 
         <section className="cw-mandate" id="mandato" aria-labelledby="cw-mandate-title">
           <div className="cw-section-heading">
-            <p className="cw-index">{copy.mandate.index}</p>
-            <p className="cw-eyebrow">{copy.mandate.eyebrow}</p>
             <h2 id="cw-mandate-title">{copy.mandate.title}</h2>
           </div>
           <div className="cw-mandate-copy">
@@ -166,8 +161,6 @@ export function ChairwomanLanding({ language }: { language: Language }) {
 
         <section className="cw-record" id="historico" aria-labelledby="cw-record-title">
           <div className="cw-record-intro">
-            <p className="cw-index">{copy.record.index}</p>
-            <p className="cw-eyebrow">{copy.record.eyebrow}</p>
             <h2 id="cw-record-title">{copy.record.title}</h2>
             <p>{copy.record.intro}</p>
           </div>
@@ -195,8 +188,6 @@ export function ChairwomanLanding({ language }: { language: Language }) {
         <section className="cw-letters" id="cartas" aria-labelledby="cw-letters-title">
           <div className="cw-letters-heading">
             <div>
-              <p className="cw-index">{copy.letters.index}</p>
-              <p className="cw-eyebrow">{copy.letters.eyebrow}</p>
               <h2 id="cw-letters-title">{copy.letters.title}</h2>
             </div>
             <div className="cw-letters-intro">
@@ -229,8 +220,6 @@ export function ChairwomanLanding({ language }: { language: Language }) {
 
         <section className="cw-protocol" id="criterio" aria-labelledby="cw-protocol-title">
           <div className="cw-protocol-heading">
-            <p className="cw-index">{copy.protocol.index}</p>
-            <p className="cw-eyebrow">{copy.protocol.eyebrow}</p>
             <h2 id="cw-protocol-title">{copy.protocol.title}</h2>
           </div>
           <div className="cw-protocol-copy">
@@ -251,7 +240,6 @@ export function ChairwomanLanding({ language }: { language: Language }) {
         </section>
 
         <section className="cw-chamber" aria-labelledby="cw-chamber-title">
-          <p className="cw-eyebrow">{copy.chamber.eyebrow}</p>
           <h2 id="cw-chamber-title">{copy.chamber.title}</h2>
           <p>{copy.chamber.body}</p>
           <div className="cw-actions">

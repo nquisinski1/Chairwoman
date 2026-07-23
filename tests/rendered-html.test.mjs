@@ -128,7 +128,7 @@ test("exports the Chairwoman page in Spanish, Portuguese and English", async () 
     html("en/chairwoman/index.html"),
   ]);
 
-  assert.match(es, /FUNDADORA Y PRESIDENTA/);
+  assert.match(es, /Fundadora y presidenta/);
   assert.match(es.slice(0, 80), /<html lang="es-PA">/i);
   assert.match(es, /Liderar es hacer que la/);
   assert.match(es, /Cuando una institución escribe, el contexto importa/);
@@ -136,13 +136,13 @@ test("exports the Chairwoman page in Spanish, Portuguese and English", async () 
   assert.match(es, /\/pt\/chairwoman\//);
   assert.match(es, /\/en\/chairwoman\//);
 
-  assert.match(pt, /FUNDADORA E PRESIDENTE/);
+  assert.match(pt, /Fundadora e presidente/);
   assert.match(pt.slice(0, 80), /<html lang="pt-BR">/i);
   assert.match(pt, /Liderar é fazer a/);
   assert.match(pt, /Quando uma instituição escreve, o contexto importa/);
   assert.match(pt, /Uma fotografia registra uma agenda/);
 
-  assert.match(en, /FOUNDER &amp; PRESIDENT/);
+  assert.match(en, /Founder and president/);
   assert.match(en.slice(0, 80), /<html lang="en-US">/i);
   assert.match(en, /Leadership makes/);
   assert.match(en, /When an institution writes, context matters/);
@@ -162,6 +162,9 @@ test("exports the Chairwoman page in Spanish, Portuguese and English", async () 
     assert.match(source, /Carlos Henrique Moojen de Abreu e Silva/);
     assert.match(source, /Julio A\. Moltó/);
     assert.doesNotMatch(source, /Startup Summit|Carta-Oficial-de-Invitacion-Clicksign|preto-scaled|Confidencial/i);
+    assert.doesNotMatch(source, /class="cw-(?:index|eyebrow)"/);
+    assert.doesNotMatch(source, /01 \/ (?:EL MANDATO|O MANDATO|THE MANDATE)/);
+    assert.doesNotMatch(source, /(?:Cargo, trayectoria|Cargo, trajetória|Role, record).*revisad|reviewed against/i);
     assert.equal(count(source, /<h1\b/gi), 1);
     assert.equal(count(source, /<img\b/gi), 1);
   }
@@ -183,7 +186,9 @@ test("keeps the Chairwoman page inside the burgundy ivory and gold territory", a
   const css = await readFile(new URL("app/globals.css", project), "utf8");
 
   assert.match(css, /\.cw-site\s*\{[^}]*background:\s*var\(--white\)/s);
-  assert.match(css, /\.cw-hero\s*\{[^}]*background:\s*var\(--burgundy\)/s);
+  assert.match(css, /\.cw-hero\s*\{[^}]*background:\s*var\(--white\)/s);
+  assert.match(css, /\.cw-hero\s*\{[^}]*color:\s*var\(--burgundy\)/s);
+  assert.match(css, /\.cw-role-line\s*\{[^}]*color:\s*rgba\(75,\s*31,\s*42,/s);
   assert.match(css, /\.cw-record\s*\{[^}]*background:\s*var\(--burgundy-deep\)/s);
   assert.match(css, /\.cw-button-gold\s*\{[^}]*background:\s*var\(--gold\)/s);
   assert.match(css, /\.cw-wordmark span\s*\{[^}]*font-family:\s*var\(--script\)/s);

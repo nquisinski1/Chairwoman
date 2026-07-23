@@ -35,7 +35,7 @@ export type ChairwomanCopy = {
     chamber: string;
   };
   hero: {
-    eyebrow: string;
+    role: string;
     titleBefore: string;
     titleAccent: string;
     titleAfter: string;
@@ -43,28 +43,20 @@ export type ChairwomanCopy = {
     primary: string;
     secondary: string;
     alt: string;
-    caption: string;
-    sourceNote: string;
   };
   mandate: {
-    index: string;
-    eyebrow: string;
     title: string;
     lead: string;
     body: string;
     pillars: Pillar[];
   };
   record: {
-    index: string;
-    eyebrow: string;
     title: string;
     intro: string;
     sourceAction: string;
     items: RecordItem[];
   };
   letters: {
-    index: string;
-    eyebrow: string;
     title: string;
     intro: string;
     sourceAction: string;
@@ -73,15 +65,12 @@ export type ChairwomanCopy = {
     items: LetterItem[];
   };
   protocol: {
-    index: string;
-    eyebrow: string;
     title: string;
     body: string;
     labels: Pillar[];
     note: string;
   };
   chamber: {
-    eyebrow: string;
     title: string;
     body: string;
     primary: string;
@@ -135,7 +124,7 @@ export const chairwomanCopy: Record<Language, ChairwomanCopy> = {
       chamber: "Cámara oficial",
     },
     hero: {
-      eyebrow: "FUNDADORA Y PRESIDENTA · CÁMARA DE COMERCIO E INDUSTRIA BRASIL–PANAMÁ",
+      role: "Fundadora y presidenta · Cámara de Comercio e Industria Brasil–Panamá",
       titleBefore: "Liderar es hacer que la",
       titleAccent: "confianza",
       titleAfter: "llegue antes que la oportunidad.",
@@ -143,12 +132,8 @@ export const chairwomanCopy: Record<Language, ChairwomanCopy> = {
       primary: "Conocer el mandato",
       secondary: "Ir a la Cámara oficial",
       alt: "Nina Quisinski hablando en un encuentro institucional en Panamá",
-      caption: "Nina Quisinski · agenda institucional Brasil–Panamá",
-      sourceNote: "Cargo, trayectoria y correspondencia revisados en fuentes institucionales el 23.07.2026.",
     },
     mandate: {
-      index: "01 / EL MANDATO",
-      eyebrow: "NEGOCIOS, CONTEXTO Y REPRESENTACIÓN",
       title: "Una presidencia construida para conectar dos mercados.",
       lead: "La Cámara existe para convertir proximidad entre países en una agenda empresarial con continuidad.",
       body: "Como fundadora y presidenta, Nina ocupa una posición institucional: convoca conversaciones, articula contextos y representa una agenda bilateral. Esta página presenta ese trabajo por medio de hechos documentados, no de promesas de acceso ni de avales personales.",
@@ -168,8 +153,6 @@ export const chairwomanCopy: Record<Language, ChairwomanCopy> = {
       ],
     },
     record: {
-      index: "02 / TRAYECTORIA DOCUMENTADA",
-      eyebrow: "EL HISTORIAL, EN SU FUENTE ORIGINAL",
       title: "Autoridad que puede ser comprobada.",
       intro: "La cronología separa cargo, reconocimiento y participación pública. Cada registro abre la página oficial que sustenta su formulación.",
       sourceAction: "Ver fuente original",
@@ -219,8 +202,6 @@ export const chairwomanCopy: Record<Language, ChairwomanCopy> = {
       ],
     },
     letters: {
-      index: "03 / CARTAS Y RECONOCIMIENTOS",
-      eyebrow: "CORRESPONDENCIA OFICIAL, SIN EXTRAPOLACIÓN",
       title: "Cuando una institución escribe, el contexto importa.",
       intro: "Cinco documentos publicables confirman una invitación nominal a Nina y apoyos institucionales dirigidos a la Cámara. Cada registro abre el archivo conservado por la Cámara.",
       sourceAction: "Abrir documento",
@@ -270,8 +251,6 @@ export const chairwomanCopy: Record<Language, ChairwomanCopy> = {
       ],
     },
     protocol: {
-      index: "04 / CRITERIO DE REPRESENTACIÓN",
-      eyebrow: "PERSONAS, CARGOS Y CONTEXTO",
       title: "Una fotografía registra una agenda. No fabrica un aval.",
       body: "Presidentes, ministros, embajadores y líderes empresariales aparecen únicamente cuando una fuente pública documenta el encuentro y su finalidad. La relación pertenece al mandato institucional de la Cámara; no se presenta como respaldo personal, político, comercial o de inversión.",
       labels: [
@@ -291,7 +270,6 @@ export const chairwomanCopy: Record<Language, ChairwomanCopy> = {
       note: "Criterio editorial permanente para publicaciones, prensa, redes y colaboraciones vinculadas con la Presidencia.",
     },
     chamber: {
-      eyebrow: "ORIGEN INSTITUCIONAL",
       title: "La historia completa pertenece al archivo oficial de la Cámara.",
       body: "Nina amplifica esa agenda desde su marca personal y dirige siempre al originador para preservar la integridad de documentos, reconocimientos y actividades institucionales.",
       primary: "Visitar la Cámara oficial",
@@ -315,7 +293,7 @@ export const chairwomanCopy: Record<Language, ChairwomanCopy> = {
       chamber: "Câmara oficial",
     },
     hero: {
-      eyebrow: "FUNDADORA E PRESIDENTE · CÂMARA DE COMÉRCIO E INDÚSTRIA BRASIL–PANAMÁ",
+      role: "Fundadora e presidente · Câmara de Comércio e Indústria Brasil–Panamá",
       titleBefore: "Liderar é fazer a",
       titleAccent: "confiança",
       titleAfter: "chegar antes da oportunidade.",
@@ -323,12 +301,8 @@ export const chairwomanCopy: Record<Language, ChairwomanCopy> = {
       primary: "Conhecer o mandato",
       secondary: "Ir para a Câmara oficial",
       alt: "Nina Quisinski falando em um encontro institucional no Panamá",
-      caption: "Nina Quisinski · agenda institucional Brasil–Panamá",
-      sourceNote: "Cargo, trajetória e correspondência revisados em fontes institucionais em 23.07.2026.",
     },
     mandate: {
-      index: "01 / O MANDATO",
-      eyebrow: "NEGÓCIOS, CONTEXTO E REPRESENTAÇÃO",
       title: "Uma presidência construída para conectar dois mercados.",
       lead: "A Câmara existe para transformar proximidade entre países em uma agenda empresarial com continuidade.",
       body: "Como fundadora e presidente, Nina ocupa uma posição institucional: convoca conversas, articula contextos e representa uma agenda bilateral. Esta página apresenta esse trabalho por meio de fatos documentados, não de promessas de acesso nem de endossos pessoais.",
@@ -348,8 +322,6 @@ export const chairwomanCopy: Record<Language, ChairwomanCopy> = {
       ],
     },
     record: {
-      index: "02 / HISTÓRICO DOCUMENTADO",
-      eyebrow: "A TRAJETÓRIA, NA FONTE ORIGINAL",
       title: "Autoridade que pode ser comprovada.",
       intro: "A cronologia separa cargo, reconhecimento e participação pública. Cada registro abre a página oficial que sustenta a formulação.",
       sourceAction: "Ver fonte original",
@@ -399,8 +371,6 @@ export const chairwomanCopy: Record<Language, ChairwomanCopy> = {
       ],
     },
     letters: {
-      index: "03 / CARTAS E RECONHECIMENTOS",
-      eyebrow: "CORRESPONDÊNCIA OFICIAL, SEM EXTRAPOLAÇÃO",
       title: "Quando uma instituição escreve, o contexto importa.",
       intro: "Cinco documentos publicáveis confirmam um convite nominal a Nina e apoios institucionais dirigidos à Câmara. Cada registro abre o arquivo mantido pela Câmara.",
       sourceAction: "Abrir documento",
@@ -450,8 +420,6 @@ export const chairwomanCopy: Record<Language, ChairwomanCopy> = {
       ],
     },
     protocol: {
-      index: "04 / CRITÉRIO DE REPRESENTAÇÃO",
-      eyebrow: "PESSOAS, CARGOS E CONTEXTO",
       title: "Uma fotografia registra uma agenda. Não fabrica um endosso.",
       body: "Presidentes, ministros, embaixadores e líderes empresariais aparecem somente quando uma fonte pública documenta o encontro e sua finalidade. A relação pertence ao mandato institucional da Câmara; não é apresentada como apoio pessoal, político, comercial ou de investimento.",
       labels: [
@@ -471,7 +439,6 @@ export const chairwomanCopy: Record<Language, ChairwomanCopy> = {
       note: "Critério editorial permanente para publicações, imprensa, redes e colaborações ligadas à Presidência.",
     },
     chamber: {
-      eyebrow: "ORIGEM INSTITUCIONAL",
       title: "A história completa pertence ao arquivo oficial da Câmara.",
       body: "Nina amplifica essa agenda a partir da sua marca pessoal e remete sempre ao originador para preservar a integridade de documentos, reconhecimentos e atividades institucionais.",
       primary: "Visitar a Câmara oficial",
@@ -495,7 +462,7 @@ export const chairwomanCopy: Record<Language, ChairwomanCopy> = {
       chamber: "Official Chamber",
     },
     hero: {
-      eyebrow: "FOUNDER & PRESIDENT · BRAZIL–PANAMA CHAMBER OF COMMERCE AND INDUSTRY",
+      role: "Founder and president · Brazil–Panama Chamber of Commerce and Industry",
       titleBefore: "Leadership makes",
       titleAccent: "trust",
       titleAfter: "arrive before opportunity.",
@@ -503,12 +470,8 @@ export const chairwomanCopy: Record<Language, ChairwomanCopy> = {
       primary: "Explore the mandate",
       secondary: "Go to the official Chamber",
       alt: "Nina Quisinski speaking at an institutional event in Panama",
-      caption: "Nina Quisinski · Brazil–Panama institutional agenda",
-      sourceNote: "Role, record and correspondence reviewed against institutional sources on July 23, 2026.",
     },
     mandate: {
-      index: "01 / THE MANDATE",
-      eyebrow: "BUSINESS, CONTEXT AND REPRESENTATION",
       title: "A presidency built to connect two markets.",
       lead: "The Chamber exists to turn proximity between countries into a business agenda with continuity.",
       body: "As founder and president, Nina holds an institutional position: she convenes conversations, connects contexts and represents a bilateral agenda. This page presents that work through documented facts—not promises of access or personal endorsement.",
@@ -528,8 +491,6 @@ export const chairwomanCopy: Record<Language, ChairwomanCopy> = {
       ],
     },
     record: {
-      index: "02 / DOCUMENTED RECORD",
-      eyebrow: "THE HISTORY, AT ITS ORIGINAL SOURCE",
       title: "Authority that can be verified.",
       intro: "The timeline separates role, recognition and public participation. Each record opens the official page supporting its wording.",
       sourceAction: "View original source",
@@ -579,8 +540,6 @@ export const chairwomanCopy: Record<Language, ChairwomanCopy> = {
       ],
     },
     letters: {
-      index: "03 / LETTERS AND RECOGNITION",
-      eyebrow: "OFFICIAL CORRESPONDENCE, WITHOUT EXTRAPOLATION",
       title: "When an institution writes, context matters.",
       intro: "Five publishable documents confirm one invitation addressed to Nina by name and institutional support directed to the Chamber. Each record opens the file preserved by the Chamber.",
       sourceAction: "Open document",
@@ -630,8 +589,6 @@ export const chairwomanCopy: Record<Language, ChairwomanCopy> = {
       ],
     },
     protocol: {
-      index: "04 / REPRESENTATION STANDARD",
-      eyebrow: "PEOPLE, OFFICES AND CONTEXT",
       title: "A photograph records an agenda. It does not manufacture endorsement.",
       body: "Presidents, ministers, ambassadors and business leaders appear only when a public source documents the meeting and its purpose. The relationship belongs to the Chamber’s institutional mandate; it is not presented as personal, political, commercial or investment endorsement.",
       labels: [
@@ -651,7 +608,6 @@ export const chairwomanCopy: Record<Language, ChairwomanCopy> = {
       note: "A permanent editorial standard for publications, press, social channels and collaborations connected with the Presidency.",
     },
     chamber: {
-      eyebrow: "INSTITUTIONAL ORIGIN",
       title: "The full history belongs to the Chamber’s official archive.",
       body: "Nina amplifies that agenda through her personal brand and always points back to the originator, preserving the integrity of documents, recognitions and institutional activity.",
       primary: "Visit the official Chamber",

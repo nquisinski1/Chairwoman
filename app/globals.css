@@ -451,18 +451,16 @@ summary:focus-visible {
 .cw-site ::selection { background: var(--gold); color: var(--burgundy-deep); }
 .cw-site a:focus-visible,
 .cw-site summary:focus-visible { outline-color: var(--gold); }
-.cw-eyebrow,
-.cw-index {
+.cw-role-line {
+  max-width: 690px;
   margin: 0;
-  font-family: var(--condensed);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
+  color: rgba(75, 31, 42, 0.78);
+  font-family: var(--serif);
+  font-size: clamp(1rem, 1.2vw, 1.18rem);
+  font-weight: 500;
+  letter-spacing: 0;
   line-height: 1.5;
-  text-transform: uppercase;
 }
-.cw-eyebrow { color: var(--gold-light); }
-.cw-index { color: var(--gold-ink); }
 .cw-lead {
   font-family: var(--serif);
   font-size: clamp(1.35rem, 2.05vw, 2rem);
@@ -478,7 +476,7 @@ summary:focus-visible {
   gap: 34px;
   align-items: center;
   min-height: 80px;
-  padding: 10px max(28px, calc((100vw - var(--page)) / 2));
+  padding: 10px max(28px, calc((100vw - 1420px) / 2));
   border-bottom: 1px solid rgba(75, 31, 42, 0.16);
   background: rgba(252, 248, 240, 0.97);
   color: var(--burgundy);
@@ -565,10 +563,12 @@ summary:focus-visible {
 
 .cw-hero {
   display: grid;
-  grid-template-columns: minmax(520px, 0.96fr) minmax(560px, 1.04fr);
-  min-height: calc(100svh - 80px);
-  background: var(--burgundy);
-  color: var(--white);
+  grid-template-columns: minmax(510px, 1.04fr) minmax(520px, 0.96fr);
+  gap: clamp(42px, 6vw, 106px);
+  min-height: clamp(680px, calc(100svh - 80px), 820px);
+  padding: 34px max(28px, calc((100vw - 1420px) / 2));
+  background: var(--white);
+  color: var(--burgundy);
 }
 .cw-hero-copy {
   position: relative;
@@ -576,17 +576,17 @@ summary:focus-visible {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(72px, 7.2vw, 138px) clamp(42px, 6.3vw, 124px);
+  padding: clamp(62px, 7vw, 118px) 0;
 }
 .cw-hero h1 {
   display: grid;
-  max-width: 810px;
-  margin: clamp(34px, 5.4vh, 62px) 0 0;
+  max-width: 760px;
+  margin: clamp(32px, 4.5vh, 48px) 0 0;
   font-family: var(--serif);
-  font-size: clamp(4rem, 6.6vw, 8.2rem);
+  font-size: clamp(3.6rem, 5.1vw, 6.4rem);
   font-weight: 400;
-  letter-spacing: -0.06em;
-  line-height: 0.82;
+  letter-spacing: -0.055em;
+  line-height: 0.91;
 }
 .cw-hero h1 span:first-child { max-width: 700px; }
 .cw-hero h1 em {
@@ -594,7 +594,7 @@ summary:focus-visible {
   z-index: 1;
   width: max-content;
   margin: 0.04em 0 -0.02em 0.18em;
-  color: var(--gold-light);
+  color: var(--burgundy);
   font-family: var(--script);
   font-size: 0.82em;
   font-style: normal;
@@ -605,9 +605,9 @@ summary:focus-visible {
   transform-origin: left bottom;
 }
 .cw-hero-descriptor {
-  max-width: 680px;
-  margin: 42px 0 0;
-  color: rgba(252, 248, 240, 0.78);
+  max-width: 620px;
+  margin: 36px 0 0;
+  color: rgba(52, 20, 31, 0.7);
   font-family: var(--serif);
   font-size: clamp(1.18rem, 1.7vw, 1.72rem);
   line-height: 1.45;
@@ -621,11 +621,9 @@ summary:focus-visible {
   min-height: 50px;
   padding: 13px 18px;
   border: 1px solid transparent;
-  font-family: var(--condensed);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
 }
 .cw-button span { transition: transform 180ms ease; }
 .cw-button:hover span { transform: translate(3px, -3px); }
@@ -633,16 +631,13 @@ summary:focus-visible {
 .cw-button-gold:hover { background: var(--gold-light); }
 .cw-button-outline { border-color: rgba(252, 248, 240, 0.38); color: var(--white); }
 .cw-button-outline:hover { border-color: var(--gold); color: var(--gold-light); }
-.cw-hero-copy > small {
-  max-width: 610px;
-  margin-top: 30px;
-  color: rgba(252, 248, 240, 0.48);
-  font-size: 0.68rem;
-  line-height: 1.6;
-}
+.cw-hero .cw-button-gold { background: var(--burgundy); color: var(--white); }
+.cw-hero .cw-button-gold:hover { background: var(--burgundy-deep); }
+.cw-hero .cw-button-outline { border-color: rgba(75, 31, 42, 0.38); color: var(--burgundy); }
+.cw-hero .cw-button-outline:hover { border-color: var(--burgundy); color: var(--burgundy-deep); }
 .cw-hero-photo {
   position: relative;
-  min-height: 700px;
+  min-height: 660px;
   margin: 0;
   overflow: hidden;
   background: var(--burgundy-deep);
@@ -650,7 +645,7 @@ summary:focus-visible {
 .cw-hero-photo::after {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(52, 20, 31, 0.35), transparent 32%, transparent 72%, rgba(52, 20, 31, 0.18));
+  background: linear-gradient(90deg, rgba(252, 248, 240, 0.12), transparent 25%, transparent 78%, rgba(52, 20, 31, 0.1));
   content: "";
   pointer-events: none;
 }
@@ -659,31 +654,7 @@ summary:focus-visible {
   height: 100%;
   object-fit: cover;
   object-position: 54% 50%;
-  filter: saturate(0.78) contrast(1.04);
-}
-.cw-hero-photo figcaption {
-  position: absolute;
-  right: 26px;
-  bottom: 22px;
-  z-index: 2;
-  padding: 11px 14px;
-  background: rgba(52, 20, 31, 0.9);
-  color: var(--white);
-  font-size: 0.62rem;
-  letter-spacing: 0.11em;
-  text-transform: uppercase;
-}
-.cw-hero-photo > span {
-  position: absolute;
-  top: 28px;
-  right: -0.04em;
-  z-index: 2;
-  color: rgba(252, 248, 240, 0.7);
-  font-family: var(--serif);
-  font-size: clamp(3.2rem, 6vw, 7.6rem);
-  letter-spacing: -0.04em;
-  line-height: 1;
-  writing-mode: vertical-rl;
+  filter: saturate(0.72) contrast(1.02);
 }
 
 .cw-mandate {
@@ -698,19 +669,12 @@ summary:focus-visible {
 .cw-letters-heading h2,
 .cw-protocol-heading h2,
 .cw-chamber h2 {
-  margin: 25px 0 0;
+  margin: 0;
   font-family: var(--serif);
   font-size: clamp(3.5rem, 6.2vw, 7rem);
   font-weight: 400;
   letter-spacing: -0.06em;
   line-height: 0.92;
-}
-.cw-section-heading .cw-eyebrow,
-.cw-record-intro .cw-eyebrow,
-.cw-letters-heading .cw-eyebrow,
-.cw-protocol-heading .cw-eyebrow {
-  margin-top: 62px;
-  color: var(--burgundy);
 }
 .cw-mandate-copy {
   align-self: end;
@@ -762,13 +726,11 @@ summary:focus-visible {
   background: var(--burgundy-deep);
   color: var(--white);
 }
-.cw-record .cw-index { color: var(--gold); }
 .cw-record-intro {
   position: sticky;
   top: 132px;
   align-self: start;
 }
-.cw-record-intro .cw-eyebrow { color: var(--gold-light); }
 .cw-record-intro h2 { font-size: clamp(3.2rem, 5.2vw, 6rem); }
 .cw-record-intro > p:last-child {
   max-width: 520px;
@@ -799,11 +761,9 @@ summary:focus-visible {
 }
 .cw-timeline-meta span {
   color: rgba(252, 248, 240, 0.46);
-  font-family: var(--condensed);
-  font-size: 0.64rem;
-  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+  letter-spacing: 0.015em;
   line-height: 1.4;
-  text-transform: uppercase;
 }
 .cw-timeline-copy h3 {
   margin: 0;
@@ -822,11 +782,9 @@ summary:focus-visible {
   padding: 10px 0;
   border-bottom: 1px solid var(--gold);
   color: var(--gold-light);
-  font-family: var(--condensed);
-  font-size: 0.69rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 .cw-letters {
@@ -840,7 +798,6 @@ summary:focus-visible {
   gap: clamp(60px, 9vw, 160px);
   align-items: end;
 }
-.cw-letters-heading .cw-eyebrow { color: var(--burgundy); }
 .cw-letters-heading h2 {
   max-width: 880px;
   font-size: clamp(3.4rem, 6vw, 7rem);
@@ -863,11 +820,9 @@ summary:focus-visible {
   min-height: 44px;
   border-bottom: 1px solid var(--gold-ink);
   color: var(--burgundy);
-  font-family: var(--condensed);
-  font-size: 0.69rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 .cw-letters-intro > a { margin-top: 28px; }
 .cw-letter-list {
@@ -911,21 +866,17 @@ summary:focus-visible {
 }
 .cw-letter-meta span {
   color: var(--gold-ink);
-  font-family: var(--condensed);
-  font-size: 0.67rem;
-  font-weight: 700;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 .cw-letter-issuer {
   margin: 30px 0 0;
   color: rgba(52, 20, 31, 0.5);
-  font-family: var(--condensed);
-  font-size: 0.69rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
   line-height: 1.55;
-  text-transform: uppercase;
 }
 .cw-letter-list h3 {
   max-width: 780px;
@@ -985,8 +936,6 @@ summary:focus-visible {
     repeating-linear-gradient(90deg, transparent 0 72px, rgba(194, 163, 103, 0.18) 72px 73px);
   color: var(--white);
 }
-.cw-protocol-heading .cw-index { color: var(--gold); }
-.cw-protocol-heading .cw-eyebrow { color: var(--gold-light); }
 .cw-protocol-heading h2 { max-width: 780px; }
 .cw-protocol-copy {
   display: flex;
@@ -1032,7 +981,7 @@ summary:focus-visible {
   text-align: center;
 }
 .cw-chamber h2 { max-width: 1120px; }
-.cw-chamber > p:not(.cw-eyebrow) {
+.cw-chamber > p {
   max-width: 780px;
   margin: 38px auto 0;
   color: rgba(252, 248, 240, 0.7);
@@ -1070,8 +1019,10 @@ summary:focus-visible {
 @media (max-width: 1220px) {
   .cw-header { grid-template-columns: 220px 1fr auto; gap: 20px; }
   .cw-desktop-nav { gap: 15px; }
-  .cw-hero { grid-template-columns: minmax(470px, 0.92fr) minmax(500px, 1.08fr); }
-  .cw-hero-copy { padding-right: 48px; padding-left: 48px; }
+  .cw-hero {
+    grid-template-columns: minmax(450px, 1fr) minmax(460px, 0.95fr);
+    gap: 48px;
+  }
   .cw-timeline li { grid-template-columns: 42px 125px minmax(0, 1fr); }
   .cw-timeline li > a { grid-column: 3; width: max-content; }
 }
@@ -1116,10 +1067,15 @@ summary:focus-visible {
     font-family: var(--serif);
   }
   .cw-mobile-menu .cw-languages { margin-top: 14px; }
-  .cw-hero { grid-template-columns: 0.96fr 1.04fr; min-height: 780px; }
-  .cw-hero-copy { padding: 72px 34px; }
-  .cw-hero h1 { font-size: clamp(3.7rem, 8.5vw, 6.5rem); }
-  .cw-hero-photo { min-height: 780px; }
+  .cw-hero {
+    grid-template-columns: 0.98fr 1.02fr;
+    gap: 32px;
+    min-height: 720px;
+    padding: 28px;
+  }
+  .cw-hero-copy { padding: 58px 0; }
+  .cw-hero h1 { font-size: clamp(3.5rem, 7.5vw, 5.5rem); }
+  .cw-hero-photo { min-height: 664px; }
   .cw-mandate,
   .cw-record { grid-template-columns: 1fr; }
   .cw-mandate-copy { padding-top: 0; }
@@ -1137,21 +1093,16 @@ summary:focus-visible {
   .cw-wordmark { min-width: 170px; }
   .cw-wordmark span { top: 1px; font-size: 1.36rem; }
   .cw-wordmark strong { font-size: 1.2rem; }
-  .cw-hero { grid-template-columns: 1fr; min-height: auto; }
+  .cw-hero { grid-template-columns: 1fr; gap: 0; min-height: auto; padding: 0; }
   .cw-hero-copy { min-height: auto; padding: 58px 24px 50px; }
-  .cw-hero h1 { margin-top: 46px; font-size: clamp(3.55rem, 16vw, 6.8rem); }
+  .cw-role-line { font-size: 0.96rem; }
+  .cw-hero h1 { margin-top: 34px; font-size: clamp(3.35rem, 15vw, 5.5rem); }
   .cw-hero h1 em { margin-left: 0.06em; }
   .cw-hero-descriptor { margin-top: 34px; }
-  .cw-hero-photo { min-height: 68svh; }
-  .cw-hero-photo > span { top: 18px; font-size: clamp(2.7rem, 12vw, 5rem); }
-  .cw-hero-photo figcaption { right: 15px; bottom: 15px; left: 15px; }
+  .cw-hero-photo { min-height: 62svh; }
   .cw-mandate,
   .cw-record { gap: 62px; padding: 92px 24px; }
   .cw-letters { padding: 92px 24px; }
-  .cw-section-heading .cw-eyebrow,
-  .cw-record-intro .cw-eyebrow,
-  .cw-letters-heading .cw-eyebrow,
-  .cw-protocol-heading .cw-eyebrow { margin-top: 42px; }
   .cw-section-heading h2,
   .cw-record-intro h2,
   .cw-letters-heading h2,
