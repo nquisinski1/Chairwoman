@@ -106,7 +106,7 @@ test("keeps the approved color territories explicit in the design system", async
   assert.match(css, /\.nq-lifestyle\s*\{[^}]*background:\s*var\(--green\)/s);
 });
 
-test("keeps the approved Nina Quisinski typographic signature", async () => {
+test("keeps one approved typographic system across every route", async () => {
   const [source, css, layout] = await Promise.all([
     html("index.html"),
     readFile(new URL("app/globals.css", project), "utf8"),
@@ -114,12 +114,20 @@ test("keeps the approved Nina Quisinski typographic signature", async () => {
   ]);
 
   assert.match(source, /<span>Nina<\/span><strong>QUISINSKI<\/strong>/);
-  assert.match(css, /--script:\s*"Pinyon Script"/);
-  assert.match(css, /--serif:\s*"Noto Serif Display"/);
-  assert.match(css, /--condensed:\s*"Inter"/);
-  assert.match(css, /\.nq-hero h1 span\s*\{[^}]*font-family:\s*var\(--script\)/s);
+  assert.match(css, /--font-signature:\s*"Pinyon Script"/);
+  assert.match(css, /--font-display:\s*"Noto Serif Display"/);
+  assert.match(css, /--font-body:\s*"Inter"/);
+  assert.match(css, /--font-interface:\s*var\(--font-body\)/);
+  assert.match(css, /\.nq-hero h1 span\s*\{[^}]*font-family:\s*var\(--font-signature\)/s);
+  assert.match(css, /\.nq-mobile-menu nav:not\(\.language-switcher\) a\s*\{[^}]*font-family:\s*var\(--font-interface\)/s);
+  assert.match(css, /\.cw-mobile-menu nav:first-child a\s*\{[^}]*font-family:\s*var\(--font-interface\)/s);
+  for (const [, family] of css.matchAll(/font-family:\s*([^;]+);/g)) {
+    assert.match(family.trim(), /^var\(--font-(?:signature|display|body|interface)\)$/);
+  }
+  assert.doesNotMatch(css, /var\(--(?:script|serif|condensed|sans)\)/);
   assert.match(layout, /family=Pinyon\+Script/);
   assert.match(layout, /family=Noto\+Serif\+Display/);
+  assert.match(layout, /family=Inter/);
   assert.doesNotMatch(layout, /Bodoni\+Moda|Barlow\+Condensed/);
 });
 
@@ -194,7 +202,7 @@ test("keeps the Chairwoman page inside the burgundy ivory and gold territory", a
   assert.match(css, /\.cw-role-line\s*\{[^}]*color:\s*rgba\(75,\s*31,\s*42,/s);
   assert.match(css, /\.cw-record\s*\{[^}]*background:\s*var\(--burgundy-deep\)/s);
   assert.match(css, /\.cw-button-gold\s*\{[^}]*background:\s*var\(--gold\)/s);
-  assert.match(css, /\.cw-wordmark-script\s*\{[^}]*font-family:\s*var\(--script\)/s);
+  assert.match(css, /\.cw-wordmark-script\s*\{[^}]*font-family:\s*var\(--font-signature\)/s);
   assert.match(css, /\.cw-wordmark-type strong\s*\{[^}]*font-size:/s);
   assert.match(css, /\.cw-emblem\s*\{[^}]*mask:\s*url\("\/brand\/nina-chairwoman-emblem\.svg"\)/s);
 });
