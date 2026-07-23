@@ -23,8 +23,8 @@
   --line: rgba(24, 32, 39, 0.19);
   --line-light: rgba(252, 248, 240, 0.24);
   --script: "Pinyon Script", "Snell Roundhand", "Segoe Script", cursive;
-  --serif: "Bodoni Moda", Didot, "Bodoni 72", "Times New Roman", serif;
-  --condensed: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --serif: "Noto Serif Display", Didot, "Times New Roman", serif;
+  --condensed: "Inter", "Helvetica Neue", Arial, sans-serif;
   --sans: "Inter", "Helvetica Neue", Arial, sans-serif;
   --page: 1560px;
 }
@@ -483,17 +483,33 @@ summary:focus-visible {
   backdrop-filter: blur(16px);
 }
 .cw-wordmark {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  width: max-content;
+  min-width: 220px;
+  min-height: 56px;
+}
+.cw-emblem {
+  display: block;
+  flex: 0 0 auto;
+  width: 32px;
+  aspect-ratio: 1;
+  background: var(--gold-ink);
+  mask: url("/brand/nina-chairwoman-emblem.svg") center / contain no-repeat;
+  -webkit-mask: url("/brand/nina-chairwoman-emblem.svg") center / contain no-repeat;
+}
+.cw-wordmark-type {
   position: relative;
   display: grid;
   align-content: center;
-  width: max-content;
-  min-width: 190px;
-  min-height: 56px;
+  min-width: 176px;
+  min-height: 52px;
   padding-top: 11px;
   font-family: var(--serif);
   line-height: 0.82;
 }
-.cw-wordmark span {
+.cw-wordmark-script {
   position: absolute;
   top: -2px;
   left: 12px;
@@ -506,18 +522,28 @@ summary:focus-visible {
   transform: rotate(-3deg);
   transform-origin: left bottom;
 }
-.cw-wordmark strong {
+.cw-wordmark-type strong {
   font-size: 1.42rem;
   font-weight: 500;
   letter-spacing: 0.12em;
 }
-.cw-wordmark i {
+.cw-wordmark-type i {
   position: absolute;
   right: -2px;
   bottom: -7px;
   width: 58px;
   height: 2px;
   background: var(--gold);
+}
+.cw-hero-role {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  max-width: 720px;
+}
+.cw-emblem-hero {
+  width: 46px;
+  background: var(--burgundy);
 }
 .cw-desktop-nav {
   display: flex;
@@ -1090,11 +1116,14 @@ summary:focus-visible {
 
 @media (max-width: 760px) {
   .cw-header { min-height: 70px; padding-right: 20px; padding-left: 20px; }
-  .cw-wordmark { min-width: 170px; }
-  .cw-wordmark span { top: 1px; font-size: 1.36rem; }
-  .cw-wordmark strong { font-size: 1.2rem; }
+  .cw-wordmark { gap: 9px; min-width: 188px; }
+  .cw-emblem { width: 27px; }
+  .cw-wordmark-type { min-width: 150px; }
+  .cw-wordmark-script { top: 1px; font-size: 1.36rem; }
+  .cw-wordmark-type strong { font-size: 1.2rem; }
   .cw-hero { grid-template-columns: 1fr; gap: 0; min-height: auto; padding: 0; }
   .cw-hero-copy { min-height: auto; padding: 58px 24px 50px; }
+  .cw-emblem-hero { width: 40px; }
   .cw-role-line { font-size: 0.96rem; }
   .cw-hero h1 { margin-top: 34px; font-size: clamp(3.35rem, 15vw, 5.5rem); }
   .cw-hero h1 em { margin-left: 0.06em; }

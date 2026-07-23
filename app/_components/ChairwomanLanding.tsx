@@ -17,9 +17,12 @@ function Arrow() {
 function Wordmark({ href }: { href: string }) {
   return (
     <a className="cw-wordmark" href={href} aria-label="Nina Quisinski — Home">
-      <span>Nina</span>
-      <strong>QUISINSKI</strong>
-      <i aria-hidden="true" />
+      <span className="cw-emblem" aria-hidden="true" />
+      <span className="cw-wordmark-type">
+        <span className="cw-wordmark-script">Nina</span>
+        <strong>QUISINSKI</strong>
+        <i aria-hidden="true" />
+      </span>
     </a>
   );
 }
@@ -112,7 +115,10 @@ export function ChairwomanLanding({ language }: { language: Language }) {
       <main id="conteudo">
         <section className="cw-hero" aria-labelledby="cw-hero-title">
           <div className="cw-hero-copy">
-            <p className="cw-role-line">{copy.hero.role}</p>
+            <div className="cw-hero-role">
+              <span className="cw-emblem cw-emblem-hero" aria-hidden="true" />
+              <p className="cw-role-line">{copy.hero.role}</p>
+            </div>
             <h1 id="cw-hero-title">
               <span>{copy.hero.titleBefore}</span>
               <em>{copy.hero.titleAccent}</em>

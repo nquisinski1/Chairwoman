@@ -12,10 +12,11 @@ A página posiciona Nina Quisinski como liderança empresarial institucional. O 
 O menu usa a assinatura tipográfica:
 
 - `Nina` em Pinyon Script;
-- `QUISINSKI` em Bodoni Moda;
+- `QUISINSKI` e títulos em Noto Serif Display;
+- navegação e leitura em Inter;
 - filete dourado como selo de continuidade.
 
-A assinatura é o logo principal da marca pessoal. Logos de governos, ministérios, presidências e embaixadas não são usados como aval pessoal.
+A assinatura é o logo principal da marca pessoal. O emblema fornecido em `1.svg` identifica o território Chairwoman em bordô ou dourado; não representa governo, nobreza, cargo público ou aval institucional. Logos de governos, ministérios, presidências e embaixadas não são usados como aval pessoal.
 
 ## Paleta exclusiva da Presidência
 

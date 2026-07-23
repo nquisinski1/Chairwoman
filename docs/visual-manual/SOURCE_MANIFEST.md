@@ -15,7 +15,15 @@
 | R05 | `05-striped-brand-palette.webp` | 736 × 920 | `e8e3d775579ea5521ec82799fa21ef31b99000b7125dfd6a5013f058d0404b2a` | relación burdeos, marfil y azul mineral |
 | R06 | `06-stepup-dark-editorial.jpg` | 736 × 1104 | `f0112f31bf55729799053bb58e13d74a3a8298280c1954204fe7525d627baea8` | ritmo claro/oscuro, retrato documental, bandas editoriales |
 | R07 | `07-president-dark-modular.webp` | 736 × 1309 | `8da0c52fdf85be30637877d51c1a90562168b47b46a19c96aaee5ac0042d1b61` | hero enmarcado, módulos sobrios, contraste carbón–oxblood |
+| R08 | `Fontes.jpg` | 625 × 1000 | `2d5a297ae983c25e16d0f51bcb9d5fd7897bc81738fd7b2c08dc11910fc1e830` | selección tipográfica old money y balance entre serif y caligrafía |
+| R09 | `-2.webp` | 736 × 1104 | `c615a8a9419fefa7fbc8682574491b9252dc7b68295b0a56e8a0066507ea2a30` | proporción y contención de símbolos y logomarcas; no copiar identidades |
+
+## Activo original autorizado
+
+| ID | Archivo de origen | SHA-256 | Derivado web | Uso autorizado |
+|---|---|---|---|---|
+| O01 | `Logo Nina Quisinski/1.svg` | `c96955e1f1983ab4e7233a01b43c08a6067e99471101a8a41835af5554f41223` | `public/brand/nina-chairwoman-emblem.svg` | emblema Chairwoman, en bordó o dorado, junto a la firma personal |
 
 ## Límite de derechos
 
-Estas referencias no acreditan derechos de reproducción. Antes de trasladar cualquier imagen, logotipo o composición reconocible a una pieza pública, se requiere licencia o sustitución por activos originales de Nina.
+Las referencias R01–R09 no acreditan derechos de reproducción. Antes de trasladar cualquier imagen, logotipo o composición reconocible a una pieza pública, se requiere licencia o sustitución por activos originales de Nina. O01 fue suministrado como activo de marca y autorizado para la página Chairwoman por instrucción directa del 23 de julio de 2026.

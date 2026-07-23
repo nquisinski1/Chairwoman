@@ -1,0 +1,37 @@
+# Nina Quisinski — Sistema tipográfico v7
+
+**Estado:** combinação aprovada por Nina em 23 de julho de 2026 e aplicada globalmente ao site.
+
+## Assinatura do nome
+
+| Parte | Fonte | Uso |
+|---|---|---|
+| `Nina` | `Pinyon Script` | gesto caligráfico do wordmark |
+| `QUISINSKI` | `Noto Serif Display` | sobrenome em caixa-alta e contraste editorial |
+
+A construção traduz a relação visual da referência recebida: caligrafia sobre uma serifada editorial. O desenho, as proporções e o nome são próprios de Nina; os logotipos da prancha de referência não são reproduzidos.
+
+## Sistema do site
+
+| Função | Fonte |
+|---|---|
+| Títulos editoriais, nomes e números de destaque | `Noto Serif Display` |
+| Gesto caligráfico controlado | `Pinyon Script` |
+| Navegação, botões, categorias, microtextos e corpo | `Inter` |
+
+## Emblema Chairwoman
+
+- ativo de origem: `1.svg`, fornecido por Nina;
+- função: selo exclusivo da página Chairwoman, junto à assinatura e ao mandato;
+- aplicação cromática: bordô ou dourado por máscara CSS, preservando o desenho original;
+- não é monograma `NQ`, brasão governamental nem símbolo de endosso institucional.
+
+## Regras
+
+- A caligrafia aparece somente em `Nina`, no cabeçalho, hero e rodapé.
+- `QUISINSKI` permanece em caixa-alta.
+- A caligrafia nunca substitui textos de interface ou conteúdo.
+- Títulos combinam `Noto Serif Display` com, no máximo, uma palavra em `Pinyon Script`.
+- `The Seasons`, `Calgary`, `Citadel Script` e `Perandory` permanecem referências de ritmo; não entram no site sem arquivos web e licença de uso.
+- O wordmark deve continuar legível a partir de 320 px.
+- As fontes são carregadas pelo Google Fonts e possuem alternativas locais no CSS.

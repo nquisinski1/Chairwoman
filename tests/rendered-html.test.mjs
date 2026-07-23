@@ -83,6 +83,7 @@ test("ships required real assets and static Hostinger output", async () => {
     "logos/cci-brasil-panama-white-horizontal.png",
     "logos/investor-lifestyle.png",
     "logos/telemetro-white-on-charcoal.png",
+    "brand/nina-chairwoman-emblem.svg",
   ];
   await Promise.all(assets.map((asset) => access(new URL(asset, output))));
   await access(new URL("index.html", output));
@@ -114,11 +115,12 @@ test("keeps the approved Nina Quisinski typographic signature", async () => {
 
   assert.match(source, /<span>Nina<\/span><strong>QUISINSKI<\/strong>/);
   assert.match(css, /--script:\s*"Pinyon Script"/);
-  assert.match(css, /--serif:\s*"Bodoni Moda"/);
-  assert.match(css, /--condensed:\s*"Barlow Condensed"/);
+  assert.match(css, /--serif:\s*"Noto Serif Display"/);
+  assert.match(css, /--condensed:\s*"Inter"/);
   assert.match(css, /\.nq-hero h1 span\s*\{[^}]*font-family:\s*var\(--script\)/s);
   assert.match(layout, /family=Pinyon\+Script/);
-  assert.match(layout, /family=Bodoni\+Moda/);
+  assert.match(layout, /family=Noto\+Serif\+Display/);
+  assert.doesNotMatch(layout, /Bodoni\+Moda|Barlow\+Condensed/);
 });
 
 test("exports the Chairwoman page in Spanish, Portuguese and English", async () => {
@@ -165,6 +167,7 @@ test("exports the Chairwoman page in Spanish, Portuguese and English", async () 
     assert.doesNotMatch(source, /class="cw-(?:index|eyebrow)"/);
     assert.doesNotMatch(source, /01 \/ (?:EL MANDATO|O MANDATO|THE MANDATE)/);
     assert.doesNotMatch(source, /(?:Cargo, trayectoria|Cargo, trajetória|Role, record).*revisad|reviewed against/i);
+    assert.equal(count(source, /class="cw-emblem(?:\s|")/g), 3);
     assert.equal(count(source, /<h1\b/gi), 1);
     assert.equal(count(source, /<img\b/gi), 1);
   }
@@ -191,6 +194,7 @@ test("keeps the Chairwoman page inside the burgundy ivory and gold territory", a
   assert.match(css, /\.cw-role-line\s*\{[^}]*color:\s*rgba\(75,\s*31,\s*42,/s);
   assert.match(css, /\.cw-record\s*\{[^}]*background:\s*var\(--burgundy-deep\)/s);
   assert.match(css, /\.cw-button-gold\s*\{[^}]*background:\s*var\(--gold\)/s);
-  assert.match(css, /\.cw-wordmark span\s*\{[^}]*font-family:\s*var\(--script\)/s);
-  assert.match(css, /\.cw-wordmark strong\s*\{[^}]*font-size:/s);
+  assert.match(css, /\.cw-wordmark-script\s*\{[^}]*font-family:\s*var\(--script\)/s);
+  assert.match(css, /\.cw-wordmark-type strong\s*\{[^}]*font-size:/s);
+  assert.match(css, /\.cw-emblem\s*\{[^}]*mask:\s*url\("\/brand\/nina-chairwoman-emblem\.svg"\)/s);
 });

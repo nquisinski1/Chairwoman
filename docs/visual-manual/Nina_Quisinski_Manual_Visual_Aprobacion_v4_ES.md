@@ -36,15 +36,15 @@ No copiamos textos, logos, símbolos, fotografías, cifras ni layouts completos.
 
 Aplicación obligatoria: Presidencia en burdeos; StepUp en beige; ideas y prensa en azul con verde; lifestyle en verde con azul; dorado únicamente como acabado institucional.
 
-## 4. Tipografía y firma — actualización v6
+## 4. Tipografía y firma — actualización v7
 
 - **Firma “Nina”:** `Pinyon Script`, con uso limitado al wordmark en header, hero y footer.
-- **Display “QUISINSKI” y títulos:** `Bodoni Moda`, serif de alto contraste.
-- **Microtexto editorial, navegación y botones:** `Barlow Condensed`.
-- **Texto corrido:** `Inter`.
+- **Display “QUISINSKI” y títulos:** `Noto Serif Display`, serif editorial de alto contraste y lectura más equilibrada.
+- **Navegación, botones, microtexto y texto corrido:** `Inter`.
 - **Wordmark aprobado para iteración:** `Nina` caligráfico sobre `QUISINSKI` en mayúsculas de alto contraste.
 - **Límite:** la caligrafía no aparece en párrafos, navegación, botones ni títulos de sección.
-- **Monograma:** `NQ` dentro de un óvalo fino únicamente después de diseño original; evitar escudos inventados.
+- **Emblema Chairwoman:** el activo `1.svg` suministrado por Nina se usa como sello de esta página, en bordó o dorado. No es un escudo institucional ni un aval gubernamental.
+- **Fuentes de referencia:** `The Seasons`, `Calgary`, `Citadel Script` y `Perandory` no se incorporan sin archivos web y licencia.
 
 ## 5. Jerarquía de la primera pantalla
 
@@ -85,10 +85,10 @@ El lenguaje de quiet luxury puede aparecer en editoriales y colaboraciones, pero
 
 ## 9. Gate de aprobación
 
-La paleta v5 y la combinación tipográfica v6 quedan registradas por instrucción de Nina. La dirección completa queda aprobada solo cuando Nina confirma explícitamente los criterios restantes:
+La paleta v5 y la combinación tipográfica v7 quedan registradas por instrucción de Nina. La dirección completa queda aprobada solo cuando Nina confirma explícitamente los criterios restantes:
 
 1. concepto;
-2. wordmark final y criterio de monograma;
+2. wordmark final y proporción del emblema Chairwoman;
 3. proporción cromática final;
 4. tratamiento fotográfico;
 5. jerarquía móvil, iPad y desktop.
