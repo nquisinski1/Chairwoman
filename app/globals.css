@@ -71,111 +71,6 @@ summary:focus-visible {
 .nq-eyebrow-terra { color: var(--terracotta); }
 .nq-lead { font-family: var(--font-display); font-size: clamp(1.22rem, 1.65vw, 1.72rem); line-height: 1.42; }
 
-/* Nina Quisinski — primary wordmark and compact NQ monogram. */
-.nina-logo {
-  --logo-monogram-width: 40px;
-  --logo-monogram-height: 50px;
-  --logo-name-size: 1.24rem;
-  --logo-script-size: 1.5rem;
-  --logo-accent: var(--gold);
-  display: inline-flex;
-  gap: 12px;
-  align-items: center;
-  width: max-content;
-  min-height: 54px;
-  color: inherit;
-  line-height: 1;
-}
-.nina-logo-monogram {
-  position: relative;
-  display: block;
-  flex: 0 0 auto;
-  width: var(--logo-monogram-width);
-  height: var(--logo-monogram-height);
-  border: 1px solid color-mix(in srgb, currentColor 34%, transparent);
-  border-radius: 50%;
-}
-.nina-logo-monogram::before,
-.nina-logo-monogram::after {
-  position: absolute;
-  z-index: 0;
-  height: 1px;
-  background: var(--logo-accent);
-  content: "";
-}
-.nina-logo-monogram::before {
-  top: 12px;
-  right: -5px;
-  width: 18px;
-  transform: rotate(-24deg);
-}
-.nina-logo-monogram::after {
-  bottom: 11px;
-  left: -5px;
-  width: 17px;
-  transform: rotate(-24deg);
-}
-.nina-logo-letter {
-  position: absolute;
-  z-index: 1;
-  font-family: var(--font-display);
-  font-size: 1.72rem;
-  font-weight: 400;
-  letter-spacing: -0.11em;
-  line-height: 1;
-}
-.nina-logo-letter-n { top: 7px; left: 5px; }
-.nina-logo-letter-q {
-  right: 5px;
-  bottom: 5px;
-  color: var(--logo-accent);
-  font-style: italic;
-}
-.nina-logo-lockup {
-  position: relative;
-  display: grid;
-  align-content: center;
-  min-width: 165px;
-  min-height: 52px;
-  padding-top: 13px;
-  font-family: var(--font-display);
-}
-.nina-logo-script {
-  position: absolute;
-  top: -1px;
-  left: 9px;
-  z-index: 1;
-  color: var(--logo-accent);
-  font-family: var(--font-signature);
-  font-size: var(--logo-script-size);
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: 1;
-  transform: rotate(-3deg);
-  transform-origin: left bottom;
-}
-.nina-logo-lockup strong {
-  font-size: var(--logo-name-size);
-  font-weight: 500;
-  letter-spacing: 0.13em;
-  line-height: 0.9;
-}
-.nina-logo-lockup::after {
-  position: absolute;
-  right: 2px;
-  bottom: -6px;
-  width: 48px;
-  height: 1px;
-  background: var(--logo-accent);
-  content: "";
-}
-.nina-logo-large {
-  --logo-monogram-width: 47px;
-  --logo-monogram-height: 58px;
-  --logo-name-size: 1.65rem;
-  --logo-script-size: 1.92rem;
-}
-
 .nq-header {
   position: sticky;
   top: 0;
@@ -190,7 +85,10 @@ summary:focus-visible {
   background: rgba(19, 26, 31, 0.97);
   color: var(--white);
 }
-.nq-brand { color: var(--white); }
+.nq-brand { position: relative; display: grid; align-content: center; width: max-content; min-width: 190px; min-height: 54px; padding-top: 10px; font-family: var(--font-display); line-height: 0.82; }
+.nq-brand span { position: absolute; top: -3px; left: 12px; z-index: 1; font-family: var(--font-signature); font-size: 1.55rem; font-weight: 400; letter-spacing: 0; line-height: 1; transform: rotate(-3deg); transform-origin: left bottom; }
+.nq-brand strong { font-size: 1.4rem; font-weight: 500; letter-spacing: 0.12em; }
+.nq-brand i { position: absolute; right: -2px; bottom: -8px; width: 56px; height: 2px; background: var(--gold); }
 .nq-nav { display: flex; justify-content: center; gap: clamp(18px, 2.2vw, 40px); }
 .nq-nav a,
 .language-switcher a {
@@ -405,13 +303,19 @@ summary:focus-visible {
 .nq-channels nav a strong { font-family: var(--font-display); font-size: clamp(1.55rem, 2.5vw, 2.4rem); font-weight: 400; }
 
 .nq-footer { display: grid; grid-template-columns: 280px 1fr; gap: 45px; padding: 72px max(32px, calc((100vw - 1420px) / 2)); background: var(--atlantic); color: var(--white); }
-.nq-footer-brand { color: var(--white); }
+.nq-footer-brand { position: relative; display: grid; width: max-content; min-width: 245px; padding-top: 18px; font-family: var(--font-display); line-height: 0.84; }
+.nq-footer-brand span { position: absolute; top: -5px; left: 16px; z-index: 1; font-family: var(--font-signature); font-size: 2.15rem; font-weight: 400; letter-spacing: 0; line-height: 1; transform: rotate(-3deg); transform-origin: left bottom; }
+.nq-footer-brand strong { font-size: 2rem; font-weight: 500; letter-spacing: 0.1em; }
+.nq-footer-brand i { position: absolute; right: 0; bottom: -10px; width: 68px; height: 2px; background: var(--gold); }
 .nq-footer > p { margin: 0; align-self: center; font-family: var(--font-display); font-size: 1.15rem; }
 .nq-footer > div:last-child { grid-column: 1 / -1; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 15px 30px; padding-top: 32px; border-top: 1px solid var(--line-light); color: rgba(255, 253, 248, 0.48); font-size: 0.65rem; }
 
 /* Minimal compatibility for the archived editorial routes while the landing remains canonical. */
 .site-header { display: flex; gap: 30px; align-items: center; justify-content: space-between; min-height: 74px; padding: 14px 5vw; background: var(--ink); color: var(--white); }
-.brand { color: var(--white); }
+.brand { display: grid; }
+.brand-script { font-family: var(--font-signature); font-style: normal; }
+.brand-name { font-family: var(--font-display); font-size: 1.25rem; }
+.brand-subline { font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; }
 .desktop-nav { display: flex; flex-wrap: wrap; gap: 20px; }
 .desktop-nav a { min-height: 44px; font-size: 0.72rem; }
 .mobile-nav { display: none; }
@@ -421,7 +325,6 @@ summary:focus-visible {
 .editorial-visual { margin: 0; }
 .editorial-visual img { width: 100%; height: 100%; object-fit: cover; }
 .site-footer { padding: 70px 5vw; background: var(--ink); color: var(--white); }
-.footer-logo { margin-bottom: 24px; color: var(--white); }
 .footer-links { display: flex; flex-wrap: wrap; gap: 24px; margin: 30px 0; }
 .source-link { display: inline-flex; gap: 10px; border-bottom: 1px solid; }
 .status-tag { display: inline-flex; padding: 5px 9px; border: 1px solid var(--line); font-size: 0.7rem; }
@@ -470,24 +373,10 @@ summary:focus-visible {
 }
 
 @media (max-width: 760px) {
-  .nq-header { gap: 12px; min-height: 70px; padding-right: 20px; padding-left: 20px; }
-  .nina-logo {
-    --logo-monogram-width: 34px;
-    --logo-monogram-height: 42px;
-    --logo-name-size: 1.04rem;
-    --logo-script-size: 1.26rem;
-    gap: 9px;
-  }
-  .nina-logo-lockup { min-width: 140px; min-height: 46px; }
-  .nina-logo-letter { font-size: 1.42rem; }
-  .nina-logo-letter-n { top: 6px; left: 4px; }
-  .nina-logo-letter-q { right: 4px; bottom: 4px; }
-  .nina-logo-large {
-    --logo-monogram-width: 42px;
-    --logo-monogram-height: 52px;
-    --logo-name-size: 1.38rem;
-    --logo-script-size: 1.62rem;
-  }
+  .nq-header { min-height: 70px; padding-right: 20px; padding-left: 20px; }
+  .nq-brand { min-width: 170px; }
+  .nq-brand span { top: 1px; font-size: 1.35rem; }
+  .nq-brand strong { font-size: 1.2rem; }
   .nq-hero { grid-template-columns: 1fr; min-height: auto; }
   .nq-hero-copy { min-height: auto; padding: 56px 24px 46px; }
   .nq-hero h1 { margin: 45px 0 28px; }
@@ -594,8 +483,12 @@ summary:focus-visible {
   backdrop-filter: blur(16px);
 }
 .cw-wordmark {
-  --logo-accent: var(--gold-ink);
-  color: var(--burgundy);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  width: max-content;
+  min-width: 220px;
+  min-height: 56px;
 }
 .cw-emblem {
   display: block;
@@ -605,6 +498,42 @@ summary:focus-visible {
   background: var(--gold-ink);
   mask: url("/brand/nina-chairwoman-emblem.svg") center / contain no-repeat;
   -webkit-mask: url("/brand/nina-chairwoman-emblem.svg") center / contain no-repeat;
+}
+.cw-wordmark-type {
+  position: relative;
+  display: grid;
+  align-content: center;
+  min-width: 176px;
+  min-height: 52px;
+  padding-top: 11px;
+  font-family: var(--font-display);
+  line-height: 0.82;
+}
+.cw-wordmark-script {
+  position: absolute;
+  top: -2px;
+  left: 12px;
+  z-index: 1;
+  font-family: var(--font-signature);
+  font-size: 1.62rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1;
+  transform: rotate(-3deg);
+  transform-origin: left bottom;
+}
+.cw-wordmark-type strong {
+  font-size: 1.42rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+}
+.cw-wordmark-type i {
+  position: absolute;
+  right: -2px;
+  bottom: -7px;
+  width: 58px;
+  height: 2px;
+  background: var(--gold);
 }
 .cw-hero-role {
   display: flex;
@@ -1186,8 +1115,12 @@ summary:focus-visible {
 }
 
 @media (max-width: 760px) {
-  .cw-header { gap: 12px; min-height: 70px; padding-right: 20px; padding-left: 20px; }
+  .cw-header { min-height: 70px; padding-right: 20px; padding-left: 20px; }
+  .cw-wordmark { gap: 9px; min-width: 188px; }
   .cw-emblem { width: 27px; }
+  .cw-wordmark-type { min-width: 150px; }
+  .cw-wordmark-script { top: 1px; font-size: 1.36rem; }
+  .cw-wordmark-type strong { font-size: 1.2rem; }
   .cw-hero { grid-template-columns: 1fr; gap: 0; min-height: auto; padding: 0; }
   .cw-hero-copy { min-height: auto; padding: 58px 24px 50px; }
   .cw-emblem-hero { width: 40px; }
