@@ -8,6 +8,7 @@ import type { Language } from "../_content/landing";
 
 const chamberHome = "https://ccibrasilpanama.org/";
 const chamberProfile = "https://ccibrasilpanama.org/2026-lid-nina/";
+const chamberHonours = "https://ccibrasilpanama.org/2026-camara/#honras";
 
 function Arrow() {
   return <span aria-hidden="true">↗</span>;
@@ -47,6 +48,7 @@ export function ChairwomanLanding({ language }: { language: Language }) {
     { label: copy.nav.home, href: homePaths[language] },
     { label: copy.nav.mandate, href: "#mandato" },
     { label: copy.nav.record, href: "#historico" },
+    { label: copy.nav.letters, href: "#cartas" },
     { label: copy.nav.protocol, href: "#criterio" },
     { label: copy.nav.chamber, href: chamberHome, external: true },
   ];
@@ -188,6 +190,41 @@ export function ChairwomanLanding({ language }: { language: Language }) {
               </li>
             ))}
           </ol>
+        </section>
+
+        <section className="cw-letters" id="cartas" aria-labelledby="cw-letters-title">
+          <div className="cw-letters-heading">
+            <div>
+              <p className="cw-index">{copy.letters.index}</p>
+              <p className="cw-eyebrow">{copy.letters.eyebrow}</p>
+              <h2 id="cw-letters-title">{copy.letters.title}</h2>
+            </div>
+            <div className="cw-letters-intro">
+              <p>{copy.letters.intro}</p>
+              <a href={chamberHonours} target="_blank" rel="noreferrer">
+                {copy.letters.archiveAction}<Arrow />
+              </a>
+            </div>
+          </div>
+
+          <ol className="cw-letter-list">
+            {copy.letters.items.map((item, index) => (
+              <li className={index === 1 ? "cw-letter-featured" : undefined} key={`${item.date}-${item.title}`}>
+                <div className="cw-letter-meta">
+                  <time>{item.date}</time>
+                  <span>{item.category}</span>
+                </div>
+                <p className="cw-letter-issuer">{item.issuer}</p>
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+                <a href={item.href} target="_blank" rel="noreferrer" aria-label={`${copy.letters.sourceAction}: ${item.title}`}>
+                  {copy.letters.sourceAction}<Arrow />
+                </a>
+              </li>
+            ))}
+          </ol>
+
+          <p className="cw-letters-disclaimer">{copy.letters.disclaimer}</p>
         </section>
 
         <section className="cw-protocol" id="criterio" aria-labelledby="cw-protocol-title">

@@ -19,7 +19,9 @@ Também há prova oficial de atuação institucional com:
 
 O lançamento da Câmara, em outubro de 2024, foi citado no comunicado conjunto dos presidentes do Panamá e do Brasil em janeiro de 2026. Isso valida a relevância institucional da Câmara, **mas não equivale a endosso pessoal dos presidentes a Nina**.
 
-Não foi localizada prova pública oficial de convite pessoal a Nina pela CNI/CAF, de convite do CAF para evento no Brasil, nem de participação/convite do Startup Summit/Sebrae. Esses itens devem permanecer fora da página até que exista documento arquivado, autorização de publicação e contexto exato.
+O arquivo oficial da Câmara publica cinco correspondências utilizáveis: uma carta do presidente da CNI convidando Nina nominalmente, como presidente da Câmara, para integrar uma missão empresarial ao fórum do CAF no Panamá; duas cartas da Embaixada do Brasil no Panamá; uma carta da Embaixada do Panamá no Brasil; e uma nota do MICI. As quatro últimas reconhecem ou apoiam o trabalho **da Câmara** e não devem ser convertidas em aval pessoal a Nina.
+
+Permanece sem prova pública autorizada um convite individual do CAF para Nina participar de evento no Brasil. A carta do Startup Summit encontrada no arquivo da Câmara está marcada como **confidencial** e, por isso, permanece bloqueada para reprodução, descrição pública ou uso na página pessoal.
 
 ## Matriz de evidências verificadas
 
@@ -201,6 +203,45 @@ O requerimento de aplausos da Alesc reconhece Nina por seu trabalho na promoçã
 - “Premiada pela Alesc” sem explicar que se trata de um requerimento de aplausos.
 - “Condecorada pelo Estado de Santa Catarina” sem existir ato específico de condecoração.
 
+### 8. Cartas e reconhecimentos no arquivo oficial da Câmara
+
+**Fatos verificados**
+
+O bloco “Honores y reconocimientos” da Câmara preserva documentos dirigidos a Janaina/Nina na condição de presidente:
+
+- em 4 de junho de 2025, Carlos Henrique Moojen de Abreu e Silva, então embaixador do Brasil no Panamá, expressou apoio institucional às atividades da Câmara;
+- em 25 de novembro de 2025, Antonio Ricardo Álvarez Alban, presidente da CNI, convidou Nina nominalmente para integrar a missão empresarial da CNI ao Fórum Econômico Internacional América Latina e Caribe, organizado pelo CAF no Panamá, de 27 a 30 de janeiro de 2026;
+- em 14 de abril de 2026, o embaixador João Mendes Pereira expressou apoio institucional da Embaixada do Brasil no Panamá à Câmara;
+- em 11 de maio de 2026, o embaixador Flavio Gabriel Méndez Altamirano registrou apoio da Embaixada do Panamá no Brasil à continuidade do trabalho da Câmara;
+- em 27 de maio de 2026, o ministro Julio A. Moltó registrou reconhecimento e respaldo institucional do MICI à atuação da Câmara.
+
+**Fontes oficiais**
+
+- Arquivo da Câmara:
+  https://ccibrasilpanama.org/2026-camara/#honras
+- Convite nominal da Presidência da CNI:
+  https://ccibrasilpanama.org/wp-content/uploads/2026/05/CNI.jpg
+- Embaixada do Brasil no Panamá, Carlos Henrique Moojen de Abreu e Silva:
+  https://ccibrasilpanama.org/wp-content/uploads/2026/05/embaixada-brasil-panama-25.jpg
+- Embaixada do Brasil no Panamá, João Mendes Pereira:
+  https://ccibrasilpanama.org/wp-content/uploads/2026/05/embaixada-brasil-panama-26.jpg
+- Embaixada do Panamá no Brasil, Flavio Gabriel Méndez Altamirano:
+  https://ccibrasilpanama.org/wp-content/uploads/2026/05/embajada-panama-brasil.jpg
+- MICI Panamá, Julio A. Moltó:
+  https://ccibrasilpanama.org/wp-content/uploads/2026/07/NOTA-MICI-CAMARA-COMERCIO-BRASIL-PANAMA-scaled.jpg
+
+**Uso editorial seguro**
+
+- “A Presidência da CNI convidou Nina nominalmente, como presidente da Câmara, para integrar uma missão empresarial ao fórum do CAF no Panamá.”
+- “Embaixadas do Brasil e do Panamá e o MICI registraram apoio ou reconhecimento institucional ao trabalho da Câmara em cartas dirigidas a Nina como presidente.”
+
+**Não publicar**
+
+- “Nina recebeu o aval dos embaixadores ou do ministro.”
+- “A CNI ou o CAF são parceiros de Nina.”
+- “Nina participou do fórum” sem comprovação de presença.
+- “Nina foi convidada pelo CAF” quando a carta localizada é da Presidência da CNI.
+
 ## CNI, CAF e Startup Summit — auditoria de alegações
 
 ### Diálogo Brasil–Panamá da CNI/CAF
@@ -229,27 +270,30 @@ O nome de Nina não aparece no programa oficial localizado, nem nos textos ofici
 
 ### Convite da CNI e convite do CAF
 
-**Alegação sem prova pública localizada**
+**Convite da CNI comprovado**
 
-Não foi encontrada página oficial que confirme:
+A carta da Presidência da CNI, datada de 25 de novembro de 2025, é dirigida nominalmente a Janaina Quisinski, identificada como presidente da Câmara. O documento a convida para integrar a missão empresarial da CNI ao Fórum Econômico Internacional América Latina e Caribe no Panamá, de 27 a 30 de janeiro de 2026.
 
-- carta do presidente da CNI convidando Nina;
-- convite individual do CAF para Nina;
-- participação oficial de Nina em evento do CAF no Brasil.
+O documento comprova o **convite da CNI**. Não comprova:
 
-**Gate para publicação**
+- presença ou participação efetiva de Nina no evento;
+- convite individual emitido pelo CAF;
+- participação de Nina em evento do CAF no Brasil;
+- parceria, representação formal ou aval da CNI ou do CAF.
 
-Arquivar o documento integral, confirmar remetente, data, destinatária, evento, natureza do convite e permissão de divulgação. Mesmo com documento válido, usar “convidada” ou “recebeu convite”; não transformar convite em parceria, representação formal ou aval.
+**Uso editorial**
+
+Usar “recebeu convite da Presidência da CNI” ou “foi convidada pela Presidência da CNI”. Não substituir o remetente por CAF.
 
 ### Startup Summit / Sebrae
 
-**Alegação sem prova pública localizada**
+**Documento localizado, mas bloqueado**
 
-Não foi encontrada página oficial do Startup Summit, Sebrae ou ecossistema oficial associado que nomeie Nina como convidada, palestrante ou representante do Panamá.
+O arquivo da Câmara expõe uma carta oficial do Startup Summit/Sebrae dirigida à Câmara, não a Nina pessoalmente. O documento está marcado como **confidencial** e não pode ser usado na página pessoal, reproduzido ou resumido como prova pública de representação de país.
 
 **Gate para publicação**
 
-Exigir convite/credencial/programa oficial publicável. Documento marcado como confidencial não deve ser reproduzido nem descrito além do permitido pelo emissor.
+Exigir autorização expressa do emissor ou uma versão pública do convite/programa. Mesmo após autorização, preservar o destinatário correto — a Câmara — e não transformar liderança de delegação institucional em nomeação governamental.
 
 ## Separação obrigatória entre fato, inferência e alegação
 
@@ -260,8 +304,10 @@ Exigir convite/credencial/programa oficial publicável. Documento marcado como c
 | Fato verificado | “Moderou painel no PBID 2025.” | Pode ser publicado com o programa oficial. |
 | Inferência segura | “Sob sua presidência, a Câmara desenvolveu agendas com a PROPANAMA.” | Publicar com linguagem institucional, sem atribuir presença pessoal não documentada. |
 | Inferência proibida | “Os presidentes apoiam Nina.” | Não publicar; o comunicado valida a Câmara, não um endosso pessoal. |
-| Alegação pendente | “Foi convidada pelo presidente da CNI/CAF.” | Bloqueada sem documento autorizado. |
-| Alegação pendente | “Representou o Panamá no Startup Summit.” | Bloqueada sem programa/convite oficial publicável. |
+| Fato verificado | “Recebeu convite da Presidência da CNI para integrar uma missão empresarial ao fórum do CAF no Panamá.” | Pode ser publicado com link à carta, sem afirmar presença, parceria ou convite do CAF. |
+| Alegação pendente | “Foi convidada pelo CAF para evento no Brasil.” | Bloqueada sem documento autorizado emitido pelo CAF. |
+| Documento confidencial | “A Câmara foi convidada pelo Startup Summit.” | Não publicar até autorização expressa ou versão pública do emissor. |
+| Inferência proibida | “Nina representou o Panamá no Startup Summit.” | Não publicar; a carta é dirigida à Câmara e não comprova nomeação governamental. |
 
 ## Arquitetura editorial recomendada para a página
 
@@ -347,4 +393,3 @@ CTAs recomendados:
    https://www.balneariocamboriu.sc.gov.br/imprensa_detalhe.cfm?codigo=39059
 10. PROPANAMA — cooperação institucional:  
     https://www.propanama.gob.pa/news/camara-de-comercio-e-industria-brasil-panama-evalua-oportunidades-de-negocio/
-

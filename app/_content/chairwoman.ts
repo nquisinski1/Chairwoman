@@ -14,6 +14,15 @@ type RecordItem = {
   href: string;
 };
 
+type LetterItem = {
+  date: string;
+  category: string;
+  issuer: string;
+  title: string;
+  body: string;
+  href: string;
+};
+
 export type ChairwomanCopy = {
   menu: string;
   skip: string;
@@ -21,6 +30,7 @@ export type ChairwomanCopy = {
     home: string;
     mandate: string;
     record: string;
+    letters: string;
     protocol: string;
     chamber: string;
   };
@@ -51,6 +61,16 @@ export type ChairwomanCopy = {
     intro: string;
     sourceAction: string;
     items: RecordItem[];
+  };
+  letters: {
+    index: string;
+    eyebrow: string;
+    title: string;
+    intro: string;
+    sourceAction: string;
+    archiveAction: string;
+    disclaimer: string;
+    items: LetterItem[];
   };
   protocol: {
     index: string;
@@ -95,6 +115,11 @@ const sources = {
   mission: "https://www.balneariocamboriu.sc.gov.br/imprensa_detalhe.cfm?codigo=39059",
   presidential: "https://www.presidencia.gob.pa/storage/documentos/1176/comunicado-conjunto-panama-brasil-1769644119.pdf",
   alesc: "https://portalegis.alesc.sc.gov.br/documentos/N09JP",
+  cniLetter: "https://ccibrasilpanama.org/wp-content/uploads/2026/05/CNI.jpg",
+  brazilEmbassy2025: "https://ccibrasilpanama.org/wp-content/uploads/2026/05/embaixada-brasil-panama-25.jpg",
+  brazilEmbassy2026: "https://ccibrasilpanama.org/wp-content/uploads/2026/05/embaixada-brasil-panama-26.jpg",
+  panamaEmbassy2026: "https://ccibrasilpanama.org/wp-content/uploads/2026/05/embajada-panama-brasil.jpg",
+  miciLetter: "https://ccibrasilpanama.org/wp-content/uploads/2026/07/NOTA-MICI-CAMARA-COMERCIO-BRASIL-PANAMA-scaled.jpg",
 };
 
 export const chairwomanCopy: Record<Language, ChairwomanCopy> = {
@@ -105,6 +130,7 @@ export const chairwomanCopy: Record<Language, ChairwomanCopy> = {
       home: "Inicio",
       mandate: "El mandato",
       record: "Trayectoria",
+      letters: "Cartas",
       protocol: "Criterio",
       chamber: "Cámara oficial",
     },
@@ -118,7 +144,7 @@ export const chairwomanCopy: Record<Language, ChairwomanCopy> = {
       secondary: "Ir a la Cámara oficial",
       alt: "Nina Quisinski hablando en un encuentro institucional en Panamá",
       caption: "Nina Quisinski · agenda institucional Brasil–Panamá",
-      sourceNote: "Cargo y trayectoria revisados en fuentes institucionales el 22.07.2026.",
+      sourceNote: "Cargo, trayectoria y correspondencia revisados en fuentes institucionales el 23.07.2026.",
     },
     mandate: {
       index: "01 / EL MANDATO",
@@ -192,8 +218,59 @@ export const chairwomanCopy: Record<Language, ChairwomanCopy> = {
         },
       ],
     },
+    letters: {
+      index: "03 / CARTAS Y RECONOCIMIENTOS",
+      eyebrow: "CORRESPONDENCIA OFICIAL, SIN EXTRAPOLACIÓN",
+      title: "Cuando una institución escribe, el contexto importa.",
+      intro: "Cinco documentos publicables confirman una invitación nominal a Nina y apoyos institucionales dirigidos a la Cámara. Cada registro abre el archivo conservado por la Cámara.",
+      sourceAction: "Abrir documento",
+      archiveAction: "Ver archivo oficial",
+      disclaimer: "Las cartas de las embajadas y del MICI reconocen o respaldan la labor de la Cámara; no constituyen avales personales a Nina. La carta de la CNI es una invitación nominal dirigida a ella en su calidad de presidenta.",
+      items: [
+        {
+          date: "04.06.2025",
+          category: "Apoyo institucional",
+          issuer: "Embajada de Brasil en Panamá · Carlos Henrique Moojen de Abreu e Silva",
+          title: "Apoyo a las actividades de la Cámara",
+          body: "Carta dirigida a Nina, como presidenta, que reconoce el trabajo de la Cámara y manifiesta apoyo a sus proyectos institucionales dentro de las competencias de la Embajada.",
+          href: sources.brazilEmbassy2025,
+        },
+        {
+          date: "25.11.2025",
+          category: "Invitación nominal",
+          issuer: "Presidencia de la CNI · Antonio Ricardo Álvarez Alban",
+          title: "Misión empresarial al foro económico de CAF",
+          body: "La Presidencia de la CNI invitó nominalmente a Nina, como presidenta de la Cámara, a integrar su misión empresarial al foro de CAF en Ciudad de Panamá, del 27 al 30 de enero de 2026.",
+          href: sources.cniLetter,
+        },
+        {
+          date: "14.04.2026",
+          category: "Apoyo institucional",
+          issuer: "Embajada de Brasil en Panamá · João Mendes Pereira",
+          title: "Reconocimiento a la agenda bilateral",
+          body: "La Embajada expresó apoyo institucional a las actividades de la Cámara y reconoció su relevancia para las relaciones económicas entre Brasil y Panamá.",
+          href: sources.brazilEmbassy2026,
+        },
+        {
+          date: "11.05.2026",
+          category: "Apoyo institucional",
+          issuer: "Embajada de Panamá en Brasil · Flavio Gabriel Méndez Altamirano",
+          title: "Respaldo a la continuidad del trabajo",
+          body: "Carta dirigida a Nina que valora el papel de la Cámara en el fortalecimiento de los vínculos comerciales y económicos e impulsa la continuidad de su labor institucional.",
+          href: sources.panamaEmbassy2026,
+        },
+        {
+          date: "27.05.2026",
+          category: "Reconocimiento institucional",
+          issuer: "MICI Panamá · Ministro Julio A. Moltó",
+          title: "Reconocimiento y respaldo del MICI",
+          body: "El Ministerio reconoció el trabajo de la Cámara en ambos países y expresó respaldo institucional a su agenda de relaciones económicas y comerciales.",
+          href: sources.miciLetter,
+        },
+      ],
+    },
     protocol: {
-      index: "03 / CRITERIO DE REPRESENTACIÓN",
+      index: "04 / CRITERIO DE REPRESENTACIÓN",
       eyebrow: "PERSONAS, CARGOS Y CONTEXTO",
       title: "Una fotografía registra una agenda. No fabrica un aval.",
       body: "Presidentes, ministros, embajadores y líderes empresariales aparecen únicamente cuando una fuente pública documenta el encuentro y su finalidad. La relación pertenece al mandato institucional de la Cámara; no se presenta como respaldo personal, político, comercial o de inversión.",
@@ -222,7 +299,7 @@ export const chairwomanCopy: Record<Language, ChairwomanCopy> = {
     },
     footer: {
       statement: "Presidencia · Relaciones institucionales · Agenda empresarial Brasil–Panamá",
-      evidence: "Claims y fuentes revisados el 22 de julio de 2026.",
+      evidence: "Claims y fuentes revisados el 23 de julio de 2026.",
       rights: "Fotografía sujeta al gate final de derechos antes de publicación.",
     },
   },
@@ -233,6 +310,7 @@ export const chairwomanCopy: Record<Language, ChairwomanCopy> = {
       home: "Início",
       mandate: "O mandato",
       record: "Histórico",
+      letters: "Cartas",
       protocol: "Critério",
       chamber: "Câmara oficial",
     },
@@ -246,7 +324,7 @@ export const chairwomanCopy: Record<Language, ChairwomanCopy> = {
       secondary: "Ir para a Câmara oficial",
       alt: "Nina Quisinski falando em um encontro institucional no Panamá",
       caption: "Nina Quisinski · agenda institucional Brasil–Panamá",
-      sourceNote: "Cargo e trajetória revisados em fontes institucionais em 22.07.2026.",
+      sourceNote: "Cargo, trajetória e correspondência revisados em fontes institucionais em 23.07.2026.",
     },
     mandate: {
       index: "01 / O MANDATO",
@@ -320,8 +398,59 @@ export const chairwomanCopy: Record<Language, ChairwomanCopy> = {
         },
       ],
     },
+    letters: {
+      index: "03 / CARTAS E RECONHECIMENTOS",
+      eyebrow: "CORRESPONDÊNCIA OFICIAL, SEM EXTRAPOLAÇÃO",
+      title: "Quando uma instituição escreve, o contexto importa.",
+      intro: "Cinco documentos publicáveis confirmam um convite nominal a Nina e apoios institucionais dirigidos à Câmara. Cada registro abre o arquivo mantido pela Câmara.",
+      sourceAction: "Abrir documento",
+      archiveAction: "Ver arquivo oficial",
+      disclaimer: "As cartas das embaixadas e do MICI reconhecem ou apoiam o trabalho da Câmara; não constituem endossos pessoais a Nina. A carta da CNI é um convite nominal dirigido a ela na condição de presidente.",
+      items: [
+        {
+          date: "04.06.2025",
+          category: "Apoio institucional",
+          issuer: "Embaixada do Brasil no Panamá · Carlos Henrique Moojen de Abreu e Silva",
+          title: "Apoio às atividades da Câmara",
+          body: "Carta dirigida a Nina, como presidente, que reconhece o trabalho da Câmara e manifesta apoio aos seus projetos institucionais dentro das competências da Embaixada.",
+          href: sources.brazilEmbassy2025,
+        },
+        {
+          date: "25.11.2025",
+          category: "Convite nominal",
+          issuer: "Presidência da CNI · Antonio Ricardo Álvarez Alban",
+          title: "Missão empresarial ao fórum econômico do CAF",
+          body: "A Presidência da CNI convidou nominalmente Nina, como presidente da Câmara, para integrar sua missão empresarial ao fórum do CAF na Cidade do Panamá, de 27 a 30 de janeiro de 2026.",
+          href: sources.cniLetter,
+        },
+        {
+          date: "14.04.2026",
+          category: "Apoio institucional",
+          issuer: "Embaixada do Brasil no Panamá · João Mendes Pereira",
+          title: "Reconhecimento à agenda bilateral",
+          body: "A Embaixada expressou apoio institucional às atividades da Câmara e reconheceu sua relevância para as relações econômicas entre Brasil e Panamá.",
+          href: sources.brazilEmbassy2026,
+        },
+        {
+          date: "11.05.2026",
+          category: "Apoio institucional",
+          issuer: "Embaixada do Panamá no Brasil · Flavio Gabriel Méndez Altamirano",
+          title: "Apoio à continuidade do trabalho",
+          body: "Carta dirigida a Nina que valoriza o papel da Câmara no fortalecimento dos vínculos comerciais e econômicos e incentiva a continuidade da sua atuação institucional.",
+          href: sources.panamaEmbassy2026,
+        },
+        {
+          date: "27.05.2026",
+          category: "Reconhecimento institucional",
+          issuer: "MICI Panamá · Ministro Julio A. Moltó",
+          title: "Reconhecimento e apoio do MICI",
+          body: "O Ministério reconheceu o trabalho da Câmara nos dois países e expressou apoio institucional à sua agenda de relações econômicas e comerciais.",
+          href: sources.miciLetter,
+        },
+      ],
+    },
     protocol: {
-      index: "03 / CRITÉRIO DE REPRESENTAÇÃO",
+      index: "04 / CRITÉRIO DE REPRESENTAÇÃO",
       eyebrow: "PESSOAS, CARGOS E CONTEXTO",
       title: "Uma fotografia registra uma agenda. Não fabrica um endosso.",
       body: "Presidentes, ministros, embaixadores e líderes empresariais aparecem somente quando uma fonte pública documenta o encontro e sua finalidade. A relação pertence ao mandato institucional da Câmara; não é apresentada como apoio pessoal, político, comercial ou de investimento.",
@@ -350,7 +479,7 @@ export const chairwomanCopy: Record<Language, ChairwomanCopy> = {
     },
     footer: {
       statement: "Presidência · Relações institucionais · Agenda empresarial Brasil–Panamá",
-      evidence: "Claims e fontes revisados em 22 de julho de 2026.",
+      evidence: "Claims e fontes revisados em 23 de julho de 2026.",
       rights: "Fotografia sujeita ao gate final de direitos antes da publicação.",
     },
   },
@@ -361,6 +490,7 @@ export const chairwomanCopy: Record<Language, ChairwomanCopy> = {
       home: "Home",
       mandate: "The mandate",
       record: "Record",
+      letters: "Letters",
       protocol: "Standard",
       chamber: "Official Chamber",
     },
@@ -374,7 +504,7 @@ export const chairwomanCopy: Record<Language, ChairwomanCopy> = {
       secondary: "Go to the official Chamber",
       alt: "Nina Quisinski speaking at an institutional event in Panama",
       caption: "Nina Quisinski · Brazil–Panama institutional agenda",
-      sourceNote: "Role and record reviewed against institutional sources on July 22, 2026.",
+      sourceNote: "Role, record and correspondence reviewed against institutional sources on July 23, 2026.",
     },
     mandate: {
       index: "01 / THE MANDATE",
@@ -448,8 +578,59 @@ export const chairwomanCopy: Record<Language, ChairwomanCopy> = {
         },
       ],
     },
+    letters: {
+      index: "03 / LETTERS AND RECOGNITION",
+      eyebrow: "OFFICIAL CORRESPONDENCE, WITHOUT EXTRAPOLATION",
+      title: "When an institution writes, context matters.",
+      intro: "Five publishable documents confirm one invitation addressed to Nina by name and institutional support directed to the Chamber. Each record opens the file preserved by the Chamber.",
+      sourceAction: "Open document",
+      archiveAction: "View official archive",
+      disclaimer: "The embassy and MICI letters recognise or support the Chamber’s work; they are not personal endorsements of Nina. The CNI letter is an invitation addressed to her by name in her capacity as president.",
+      items: [
+        {
+          date: "04.06.2025",
+          category: "Institutional support",
+          issuer: "Embassy of Brazil in Panama · Carlos Henrique Moojen de Abreu e Silva",
+          title: "Support for the Chamber’s activities",
+          body: "A letter addressed to Nina as president recognising the Chamber’s work and expressing support for its institutional projects within the Embassy’s remit.",
+          href: sources.brazilEmbassy2025,
+        },
+        {
+          date: "25.11.2025",
+          category: "Named invitation",
+          issuer: "CNI Presidency · Antonio Ricardo Álvarez Alban",
+          title: "Business mission to the CAF economic forum",
+          body: "The CNI Presidency invited Nina by name, as president of the Chamber, to join its business mission to the CAF forum in Panama City from January 27 to 30, 2026.",
+          href: sources.cniLetter,
+        },
+        {
+          date: "14.04.2026",
+          category: "Institutional support",
+          issuer: "Embassy of Brazil in Panama · João Mendes Pereira",
+          title: "Recognition of the bilateral agenda",
+          body: "The Embassy expressed institutional support for the Chamber’s activities and recognised its relevance to economic relations between Brazil and Panama.",
+          href: sources.brazilEmbassy2026,
+        },
+        {
+          date: "11.05.2026",
+          category: "Institutional support",
+          issuer: "Embassy of Panama in Brazil · Flavio Gabriel Méndez Altamirano",
+          title: "Support for the continuity of the work",
+          body: "A letter addressed to Nina valuing the Chamber’s role in strengthening trade and economic ties and encouraging the continuity of its institutional work.",
+          href: sources.panamaEmbassy2026,
+        },
+        {
+          date: "27.05.2026",
+          category: "Institutional recognition",
+          issuer: "MICI Panama · Minister Julio A. Moltó",
+          title: "Recognition and support from MICI",
+          body: "The Ministry recognised the Chamber’s work in both countries and expressed institutional support for its economic and commercial relations agenda.",
+          href: sources.miciLetter,
+        },
+      ],
+    },
     protocol: {
-      index: "03 / REPRESENTATION STANDARD",
+      index: "04 / REPRESENTATION STANDARD",
       eyebrow: "PEOPLE, OFFICES AND CONTEXT",
       title: "A photograph records an agenda. It does not manufacture endorsement.",
       body: "Presidents, ministers, ambassadors and business leaders appear only when a public source documents the meeting and its purpose. The relationship belongs to the Chamber’s institutional mandate; it is not presented as personal, political, commercial or investment endorsement.",
@@ -478,7 +659,7 @@ export const chairwomanCopy: Record<Language, ChairwomanCopy> = {
     },
     footer: {
       statement: "Presidency · Institutional relationships · Brazil–Panama business agenda",
-      evidence: "Claims and sources reviewed on July 22, 2026.",
+      evidence: "Claims and sources reviewed on July 23, 2026.",
       rights: "Photography remains subject to the final rights gate before publication.",
     },
   },

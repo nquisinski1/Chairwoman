@@ -131,6 +131,7 @@ test("exports the Chairwoman page in Spanish, Portuguese and English", async () 
   assert.match(es, /FUNDADORA Y PRESIDENTA/);
   assert.match(es.slice(0, 80), /<html lang="es-PA">/i);
   assert.match(es, /Liderar es hacer que la/);
+  assert.match(es, /Cuando una institución escribe, el contexto importa/);
   assert.match(es, /Una fotografía registra una agenda/);
   assert.match(es, /\/pt\/chairwoman\//);
   assert.match(es, /\/en\/chairwoman\//);
@@ -138,21 +139,31 @@ test("exports the Chairwoman page in Spanish, Portuguese and English", async () 
   assert.match(pt, /FUNDADORA E PRESIDENTE/);
   assert.match(pt.slice(0, 80), /<html lang="pt-BR">/i);
   assert.match(pt, /Liderar é fazer a/);
+  assert.match(pt, /Quando uma instituição escreve, o contexto importa/);
   assert.match(pt, /Uma fotografia registra uma agenda/);
 
   assert.match(en, /FOUNDER &amp; PRESIDENT/);
   assert.match(en.slice(0, 80), /<html lang="en-US">/i);
   assert.match(en, /Leadership makes/);
+  assert.match(en, /When an institution writes, context matters/);
   assert.match(en, /A photograph records an agenda/);
 
   for (const source of [es, pt, en]) {
     assert.match(source, /nina-chairwoman-podium\.jpg/);
     assert.match(source, /ccibrasilpanama\.org\/2026-lid-nina/);
+    assert.match(source, /ccibrasilpanama\.org\/2026-camara\/#honras/);
     assert.match(source, /mici\.gob\.pa\/2025\/08\/18/);
     assert.match(source, /presidencia\.gob\.pa\/storage\/documentos/);
     assert.match(source, /portalegis\.alesc\.sc\.gov\.br\/documentos\/N09JP/);
-    assert.doesNotMatch(source, /Startup Summit|convite da CNI|invited by CAF/i);
+    assert.match(source, /wp-content\/uploads\/2026\/05\/CNI\.jpg/);
+    assert.match(source, /Antonio Ricardo Álvarez Alban/);
+    assert.match(source, /João Mendes Pereira/);
+    assert.match(source, /Flavio Gabriel Méndez Altamirano/);
+    assert.match(source, /Carlos Henrique Moojen de Abreu e Silva/);
+    assert.match(source, /Julio A\. Moltó/);
+    assert.doesNotMatch(source, /Startup Summit|Carta-Oficial-de-Invitacion-Clicksign|preto-scaled|Confidencial/i);
     assert.equal(count(source, /<h1\b/gi), 1);
+    assert.equal(count(source, /<img\b/gi), 1);
   }
 });
 
