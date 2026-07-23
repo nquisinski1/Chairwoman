@@ -22,7 +22,9 @@
   --muted: #5f625e;
   --line: rgba(24, 32, 39, 0.19);
   --line-light: rgba(252, 248, 240, 0.24);
-  --serif: "IBM Plex Serif", "Iowan Old Style", Georgia, serif;
+  --script: "Pinyon Script", "Snell Roundhand", "Segoe Script", cursive;
+  --serif: "Bodoni Moda", Didot, "Bodoni 72", "Times New Roman", serif;
+  --condensed: "Barlow Condensed", "Arial Narrow", sans-serif;
   --sans: "Inter", "Helvetica Neue", Arial, sans-serif;
   --page: 1560px;
 }
@@ -59,9 +61,10 @@ summary:focus-visible {
 .nq-eyebrow {
   margin: 0;
   color: rgba(255, 253, 248, 0.72);
-  font-size: 0.66rem;
+  font-family: var(--condensed);
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
   line-height: 1.55;
   text-transform: uppercase;
 }
@@ -82,9 +85,9 @@ summary:focus-visible {
   background: rgba(19, 26, 31, 0.97);
   color: var(--white);
 }
-.nq-brand { position: relative; display: grid; align-content: center; width: max-content; min-height: 44px; font-family: var(--serif); line-height: 0.88; }
-.nq-brand span { font-family: var(--sans); font-size: 0.58rem; font-weight: 700; letter-spacing: 0.48em; }
-.nq-brand strong { font-size: 1.55rem; font-weight: 400; letter-spacing: 0.11em; }
+.nq-brand { position: relative; display: grid; align-content: center; width: max-content; min-width: 190px; min-height: 54px; padding-top: 10px; font-family: var(--serif); line-height: 0.82; }
+.nq-brand span { position: absolute; top: -3px; left: 12px; z-index: 1; font-family: var(--script); font-size: 1.55rem; font-weight: 400; letter-spacing: 0; line-height: 1; transform: rotate(-3deg); transform-origin: left bottom; }
+.nq-brand strong { font-size: 1.4rem; font-weight: 500; letter-spacing: 0.12em; }
 .nq-brand i { position: absolute; right: -2px; bottom: -8px; width: 56px; height: 2px; background: var(--gold); }
 .nq-nav { display: flex; justify-content: center; gap: clamp(18px, 2.2vw, 40px); }
 .nq-nav a,
@@ -92,7 +95,8 @@ summary:focus-visible {
   display: inline-flex;
   align-items: center;
   min-height: 44px;
-  font-size: 0.68rem;
+  font-family: var(--condensed);
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.08em;
 }
@@ -124,10 +128,10 @@ summary:focus-visible {
   font-family: var(--serif);
   font-weight: 400;
   letter-spacing: -0.055em;
-  line-height: 0.76;
+  line-height: 0.78;
 }
-.nq-hero h1 span { padding-left: 0.11em; font-family: var(--sans); font-size: clamp(1.45rem, 2.2vw, 2.5rem); font-weight: 600; letter-spacing: 0.42em; line-height: 1; }
-.nq-hero h1 strong { font-size: clamp(4.8rem, 8vw, 10.6rem); font-weight: 400; }
+.nq-hero h1 span { position: relative; z-index: 1; width: max-content; margin: 0 0 -0.08em 0.16em; padding: 0; font-family: var(--script); font-size: clamp(3.9rem, 6vw, 7.4rem); font-weight: 400; letter-spacing: 0; line-height: 0.72; transform: rotate(-3deg); transform-origin: left bottom; }
+.nq-hero h1 strong { font-size: clamp(4.7rem, 7.7vw, 10.2rem); font-weight: 500; letter-spacing: -0.045em; }
 .nq-descriptor { max-width: 680px; margin: 0; color: var(--atlantic); font-family: var(--serif); font-size: clamp(1.15rem, 1.75vw, 1.8rem); letter-spacing: 0.07em; line-height: 1.38; }
 .nq-hero-thesis { max-width: 620px; margin: 32px 0 0; color: var(--muted); font-size: clamp(1rem, 1.15vw, 1.2rem); line-height: 1.7; }
 .nq-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 38px; }
@@ -139,7 +143,8 @@ summary:focus-visible {
   justify-content: space-between;
   min-height: 48px;
   padding: 13px 18px;
-  font-size: 0.69rem;
+  font-family: var(--condensed);
+  font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -169,13 +174,13 @@ summary:focus-visible {
   background: var(--green);
   color: var(--white);
 }
-.nq-proof > p { display: grid; place-items: center; margin: 0; border-right: 1px solid var(--line-light); color: var(--gold-light); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; }
+.nq-proof > p { display: grid; place-items: center; margin: 0; border-right: 1px solid var(--line-light); color: var(--gold-light); font-family: var(--condensed); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; }
 .nq-proof-window { min-width: 0; overflow: hidden; }
 .nq-proof-track { display: flex; width: max-content; animation: proof-loop 34s linear infinite; }
 .nq-proof-group { display: flex; }
 .nq-proof-group a { display: flex; flex-direction: column; justify-content: center; min-width: 260px; min-height: 108px; padding: 18px 32px; border-right: 1px solid var(--line-light); }
 .nq-proof-group strong { font-family: var(--serif); font-size: 1.08rem; font-weight: 400; }
-.nq-proof-group span { color: rgba(255, 253, 248, 0.54); font-size: 0.63rem; letter-spacing: 0.1em; text-transform: uppercase; }
+.nq-proof-group span { color: rgba(255, 253, 248, 0.54); font-family: var(--condensed); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; }
 @keyframes proof-loop { to { transform: translateX(-50%); } }
 
 .nq-executive {
@@ -294,9 +299,9 @@ summary:focus-visible {
 .nq-channels nav a strong { font-family: var(--serif); font-size: clamp(1.55rem, 2.5vw, 2.4rem); font-weight: 400; }
 
 .nq-footer { display: grid; grid-template-columns: 280px 1fr; gap: 45px; padding: 72px max(32px, calc((100vw - 1420px) / 2)); background: var(--atlantic); color: var(--white); }
-.nq-footer-brand { position: relative; display: grid; width: max-content; font-family: var(--serif); line-height: 0.88; }
-.nq-footer-brand span { font-family: var(--sans); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.5em; }
-.nq-footer-brand strong { font-size: 2rem; font-weight: 400; letter-spacing: 0.1em; }
+.nq-footer-brand { position: relative; display: grid; width: max-content; min-width: 245px; padding-top: 18px; font-family: var(--serif); line-height: 0.84; }
+.nq-footer-brand span { position: absolute; top: -5px; left: 16px; z-index: 1; font-family: var(--script); font-size: 2.15rem; font-weight: 400; letter-spacing: 0; line-height: 1; transform: rotate(-3deg); transform-origin: left bottom; }
+.nq-footer-brand strong { font-size: 2rem; font-weight: 500; letter-spacing: 0.1em; }
 .nq-footer-brand i { position: absolute; right: 0; bottom: -10px; width: 68px; height: 2px; background: var(--gold); }
 .nq-footer > p { margin: 0; align-self: center; font-family: var(--serif); font-size: 1.15rem; }
 .nq-footer > div:last-child { grid-column: 1 / -1; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 15px 30px; padding-top: 32px; border-top: 1px solid var(--line-light); color: rgba(255, 253, 248, 0.48); font-size: 0.65rem; }
@@ -304,7 +309,7 @@ summary:focus-visible {
 /* Minimal compatibility for the archived editorial routes while the landing remains canonical. */
 .site-header { display: flex; gap: 30px; align-items: center; justify-content: space-between; min-height: 74px; padding: 14px 5vw; background: var(--ink); color: var(--white); }
 .brand { display: grid; }
-.brand-script { font-family: var(--serif); font-style: italic; }
+.brand-script { font-family: var(--script); font-style: normal; }
 .brand-name { font-family: var(--serif); font-size: 1.25rem; }
 .brand-subline { font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; }
 .desktop-nav { display: flex; flex-wrap: wrap; gap: 20px; }
@@ -365,12 +370,14 @@ summary:focus-visible {
 
 @media (max-width: 760px) {
   .nq-header { min-height: 70px; padding-right: 20px; padding-left: 20px; }
-  .nq-brand strong { font-size: 1.3rem; }
+  .nq-brand { min-width: 170px; }
+  .nq-brand span { top: 1px; font-size: 1.35rem; }
+  .nq-brand strong { font-size: 1.2rem; }
   .nq-hero { grid-template-columns: 1fr; min-height: auto; }
   .nq-hero-copy { min-height: auto; padding: 56px 24px 46px; }
   .nq-hero h1 { margin: 45px 0 28px; }
   .nq-hero h1 strong { font-size: clamp(3.7rem, 18vw, 7.2rem); }
-  .nq-hero h1 span { font-size: 1.25rem; }
+  .nq-hero h1 span { margin-left: 0.08em; font-size: clamp(3.2rem, 15vw, 5.4rem); }
   .nq-hero-visual { min-height: 72svh; }
   .nq-hero-signal { top: 16px; left: 16px; }
   .nq-proof { grid-template-columns: 1fr; }

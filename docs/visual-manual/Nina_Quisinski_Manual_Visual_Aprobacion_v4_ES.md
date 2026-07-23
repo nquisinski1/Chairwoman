@@ -36,12 +36,14 @@ No copiamos textos, logos, símbolos, fotografías, cifras ni layouts completos.
 
 Aplicación obligatoria: Presidencia en burdeos; StepUp en beige; ideas y prensa en azul con verde; lifestyle en verde con azul; dorado únicamente como acabado institucional.
 
-## 4. Tipografía y firma
+## 4. Tipografía y firma — actualización v6
 
-- **Display:** serif de alto contraste, con `Canela` o `IvyPresto Display` bajo licencia; `Cormorant Garamond` como fallback.
-- **Texto e interfaz:** `Inter`.
-- **Acento:** itálica editorial, no una script genérica. Máximo una frase corta por pantalla.
-- **Wordmark recomendado:** `NINA` pequeño y espaciado sobre `QUISINSKI` en serif de alto contraste.
+- **Firma “Nina”:** `Pinyon Script`, con uso limitado al wordmark en header, hero y footer.
+- **Display “QUISINSKI” y títulos:** `Bodoni Moda`, serif de alto contraste.
+- **Microtexto editorial, navegación y botones:** `Barlow Condensed`.
+- **Texto corrido:** `Inter`.
+- **Wordmark aprobado para iteración:** `Nina` caligráfico sobre `QUISINSKI` en mayúsculas de alto contraste.
+- **Límite:** la caligrafía no aparece en párrafos, navegación, botones ni títulos de sección.
 - **Monograma:** `NQ` dentro de un óvalo fino únicamente después de diseño original; evitar escudos inventados.
 
 ## 5. Jerarquía de la primera pantalla
@@ -83,13 +85,12 @@ El lenguaje de quiet luxury puede aparecer en editoriales y colaboraciones, pero
 
 ## 9. Gate de aprobación
 
-La paleta v5 queda registrada por instrucción de Nina. La dirección completa queda aprobada solo cuando Nina confirma explícitamente los criterios restantes:
+La paleta v5 y la combinación tipográfica v6 quedan registradas por instrucción de Nina. La dirección completa queda aprobada solo cuando Nina confirma explícitamente los criterios restantes:
 
 1. concepto;
-2. pareja tipográfica;
-3. wordmark y criterio de monograma;
-4. proporción cromática final;
-5. tratamiento fotográfico;
-6. jerarquía móvil, iPad y desktop.
+2. wordmark final y criterio de monograma;
+3. proporción cromática final;
+4. tratamiento fotográfico;
+5. jerarquía móvil, iPad y desktop.
 
 La aprobación completa habilita el cierre visual de la landing. No habilita despliegue, dominio ni indexación.

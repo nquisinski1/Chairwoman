@@ -72,7 +72,7 @@ export function NinaLanding({ language }: { language: Language }) {
 
       <header className="nq-header">
         <a className="nq-brand" href={languagePaths[language]} aria-label="Nina Quisinski — Home">
-          <span>NINA</span>
+          <span>Nina</span>
           <strong>QUISINSKI</strong>
           <i aria-hidden="true" />
         </a>
@@ -98,7 +98,7 @@ export function NinaLanding({ language }: { language: Language }) {
         <section className="nq-hero" aria-labelledby="hero-title">
           <div className="nq-hero-copy">
             <p className="nq-eyebrow">{copy.hero.eyebrow}</p>
-            <h1 id="hero-title"><span>NINA</span><strong>QUISINSKI</strong></h1>
+            <h1 id="hero-title"><span>Nina</span><strong>QUISINSKI</strong></h1>
             <p className="nq-descriptor">{copy.hero.descriptor}</p>
             <p className="nq-hero-thesis">{copy.hero.thesis}</p>
             <div className="nq-actions">
@@ -242,7 +242,7 @@ export function NinaLanding({ language }: { language: Language }) {
       </main>
 
       <footer className="nq-footer">
-        <div className="nq-footer-brand"><span>NINA</span><strong>QUISINSKI</strong><i aria-hidden="true" /></div>
+        <div className="nq-footer-brand"><span>Nina</span><strong>QUISINSKI</strong><i aria-hidden="true" /></div>
         <p>{copy.footer.statement}</p>
         <div><span>{copy.footer.evidence}</span><span>{copy.footer.rights}</span><span>© 2026 Nina Quisinski</span></div>
       </footer>

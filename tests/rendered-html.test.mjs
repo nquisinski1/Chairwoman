@@ -17,7 +17,7 @@ test("exports a complete Spanish landing at the canonical root", async () => {
   const source = await html("index.html");
 
   assert.match(source, /<html lang="es-PA">/i);
-  assert.match(source, /NINA/);
+  assert.match(source, /Nina/);
   assert.match(source, /QUISINSKI/);
   assert.match(source, /FUNDADORA Y PRESIDENTA/);
   assert.match(source, /SOCIA · STEPUP &amp; COMPANY/);
@@ -94,4 +94,20 @@ test("keeps the approved color territories explicit in the design system", async
   assert.match(css, /\.nq-ideas\s*\{[^}]*background:\s*var\(--blue\)/s);
   assert.match(css, /\.nq-media\s*\{[^}]*background:\s*var\(--blue-soft\)/s);
   assert.match(css, /\.nq-lifestyle\s*\{[^}]*background:\s*var\(--green\)/s);
+});
+
+test("keeps the approved Nina Quisinski typographic signature", async () => {
+  const [source, css, layout] = await Promise.all([
+    html("index.html"),
+    readFile(new URL("app/globals.css", project), "utf8"),
+    readFile(new URL("app/layout.tsx", project), "utf8"),
+  ]);
+
+  assert.match(source, /<span>Nina<\/span><strong>QUISINSKI<\/strong>/);
+  assert.match(css, /--script:\s*"Pinyon Script"/);
+  assert.match(css, /--serif:\s*"Bodoni Moda"/);
+  assert.match(css, /--condensed:\s*"Barlow Condensed"/);
+  assert.match(css, /\.nq-hero h1 span\s*\{[^}]*font-family:\s*var\(--script\)/s);
+  assert.match(layout, /family=Pinyon\+Script/);
+  assert.match(layout, /family=Bodoni\+Moda/);
 });
