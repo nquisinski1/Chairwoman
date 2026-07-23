@@ -1,4 +1,5 @@
 import { landingCopy, type Language } from "../_content/landing";
+import { NinaLogo } from "./NinaLogo";
 
 const languagePaths: Record<Language, string> = { es: "/", pt: "/pt/", en: "/en/" };
 const chairwomanPaths: Record<Language, string> = {
@@ -83,11 +84,7 @@ export function NinaLanding({ language }: { language: Language }) {
       <a className="skip-link" href="#contenido">{copy.skip}</a>
 
       <header className="nq-header">
-        <a className="nq-brand" href={languagePaths[language]} aria-label="Nina Quisinski — Home">
-          <span>Nina</span>
-          <strong>QUISINSKI</strong>
-          <i aria-hidden="true" />
-        </a>
+        <NinaLogo className="nq-brand" href={languagePaths[language]} />
 
         <nav className="nq-nav" aria-label={copy.menu}>
           {navItems.map(([label, href]) => <a href={href} key={href}>{label}</a>)}
@@ -258,7 +255,7 @@ export function NinaLanding({ language }: { language: Language }) {
       </main>
 
       <footer className="nq-footer">
-        <div className="nq-footer-brand"><span>Nina</span><strong>QUISINSKI</strong><i aria-hidden="true" /></div>
+        <NinaLogo className="nq-footer-brand nina-logo-large" href={languagePaths[language]} />
         <p>{copy.footer.statement}</p>
         <div><span>{copy.footer.evidence}</span><span>{copy.footer.rights}</span><span>© 2026 Nina Quisinski</span></div>
       </footer>

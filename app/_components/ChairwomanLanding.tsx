@@ -5,6 +5,7 @@ import {
   homePaths,
 } from "../_content/chairwoman";
 import type { Language } from "../_content/landing";
+import { NinaLogo } from "./NinaLogo";
 
 const chamberHome = "https://ccibrasilpanama.org/";
 const chamberProfile = "https://ccibrasilpanama.org/2026-lid-nina/";
@@ -12,19 +13,6 @@ const chamberHonours = "https://ccibrasilpanama.org/2026-camara/#honras";
 
 function Arrow() {
   return <span aria-hidden="true">↗</span>;
-}
-
-function Wordmark({ href }: { href: string }) {
-  return (
-    <a className="cw-wordmark" href={href} aria-label="Nina Quisinski — Home">
-      <span className="cw-emblem" aria-hidden="true" />
-      <span className="cw-wordmark-type">
-        <span className="cw-wordmark-script">Nina</span>
-        <strong>QUISINSKI</strong>
-        <i aria-hidden="true" />
-      </span>
-    </a>
-  );
 }
 
 function LanguageSwitcher({ language }: { language: Language }) {
@@ -75,7 +63,7 @@ export function ChairwomanLanding({ language }: { language: Language }) {
       <a className="skip-link" href="#conteudo">{copy.skip}</a>
 
       <header className="cw-header">
-        <Wordmark href={homePaths[language]} />
+        <NinaLogo className="cw-wordmark" href={homePaths[language]} />
 
         <nav className="cw-desktop-nav" aria-label={copy.menu}>
           {navigation.map((item) => (
@@ -260,7 +248,7 @@ export function ChairwomanLanding({ language }: { language: Language }) {
       </main>
 
       <footer className="cw-footer">
-        <Wordmark href={homePaths[language]} />
+        <NinaLogo className="cw-wordmark nina-logo-large" href={homePaths[language]} />
         <p>{copy.footer.statement}</p>
         <div>
           <span>{copy.footer.evidence}</span>

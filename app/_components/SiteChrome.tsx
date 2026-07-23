@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { NinaLogo } from "./NinaLogo";
 
 const navigation = [
   { label: "Home", href: "/", key: "home" },
@@ -14,11 +15,7 @@ const navigation = [
 export function SiteHeader({ active }: { active: string }) {
   return (
     <header className="site-header">
-      <a className="brand" href="/" aria-label="Nina Quisinski — Inicio">
-        <span className="brand-script">Nina</span>
-        <span className="brand-name">Quisinski</span>
-        <span className="brand-subline">Leadership · Business · Lifestyle</span>
-      </a>
+      <NinaLogo className="brand" />
 
       <nav className="desktop-nav" aria-label="Navegación principal">
         {navigation.map((item) => (
@@ -54,7 +51,7 @@ export function SiteFooter() {
   return (
     <footer className="site-footer">
       <div className="footer-statement">
-        <span className="section-kicker">Nina Quisinski</span>
+        <NinaLogo className="footer-logo" />
         <p>Capital relacional · Diplomacia empresarial · Expansión</p>
       </div>
       <div className="footer-links" aria-label="Canales oficiales">

@@ -131,6 +131,35 @@ test("keeps one approved typographic system across every route", async () => {
   assert.doesNotMatch(layout, /Bodoni\+Moda|Barlow\+Condensed/);
 });
 
+test("uses one Nina Quisinski logo system across every public page", async () => {
+  const routePaths = [
+    "index.html",
+    "chairwoman/index.html",
+    "my-story/index.html",
+    "la-socia/index.html",
+    "lifestyle/index.html",
+    "newsletter/index.html",
+    "my-book/index.html",
+    "press/index.html",
+  ];
+  const [routes, css] = await Promise.all([
+    Promise.all(routePaths.map(html)),
+    readFile(new URL("app/globals.css", project), "utf8"),
+  ]);
+
+  for (const source of routes) {
+    assert.equal(count(source, /class="nina-logo /g), 2);
+    assert.equal(count(source, /class="nina-logo-monogram"/g), 2);
+    assert.match(source, /nina-logo-letter-n">N<\/span>/);
+    assert.match(source, /nina-logo-letter-q">Q<\/span>/);
+    assert.match(source, /nina-logo-script">Nina<\/span>/);
+  }
+
+  assert.match(css, /\.nina-logo-monogram\s*\{[^}]*border-radius:\s*50%/s);
+  assert.match(css, /\.nina-logo-script\s*\{[^}]*font-family:\s*var\(--font-signature\)/s);
+  assert.match(css, /\.nina-logo-lockup strong\s*\{[^}]*font-size:\s*var\(--logo-name-size\)/s);
+});
+
 test("exports the Chairwoman page in Spanish, Portuguese and English", async () => {
   const [es, pt, en] = await Promise.all([
     html("chairwoman/index.html"),
@@ -175,7 +204,7 @@ test("exports the Chairwoman page in Spanish, Portuguese and English", async () 
     assert.doesNotMatch(source, /class="cw-(?:index|eyebrow)"/);
     assert.doesNotMatch(source, /01 \/ (?:EL MANDATO|O MANDATO|THE MANDATE)/);
     assert.doesNotMatch(source, /(?:Cargo, trayectoria|Cargo, trajetória|Role, record).*revisad|reviewed against/i);
-    assert.equal(count(source, /class="cw-emblem(?:\s|")/g), 3);
+    assert.equal(count(source, /class="cw-emblem(?:\s|")/g), 1);
     assert.equal(count(source, /<h1\b/gi), 1);
     assert.equal(count(source, /<img\b/gi), 1);
   }
@@ -202,7 +231,6 @@ test("keeps the Chairwoman page inside the burgundy ivory and gold territory", a
   assert.match(css, /\.cw-role-line\s*\{[^}]*color:\s*rgba\(75,\s*31,\s*42,/s);
   assert.match(css, /\.cw-record\s*\{[^}]*background:\s*var\(--burgundy-deep\)/s);
   assert.match(css, /\.cw-button-gold\s*\{[^}]*background:\s*var\(--gold\)/s);
-  assert.match(css, /\.cw-wordmark-script\s*\{[^}]*font-family:\s*var\(--font-signature\)/s);
-  assert.match(css, /\.cw-wordmark-type strong\s*\{[^}]*font-size:/s);
+  assert.match(css, /\.cw-wordmark\s*\{[^}]*--logo-accent:\s*var\(--gold-ink\)/s);
   assert.match(css, /\.cw-emblem\s*\{[^}]*mask:\s*url\("\/brand\/nina-chairwoman-emblem\.svg"\)/s);
 });
