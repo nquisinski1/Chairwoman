@@ -175,12 +175,16 @@ summary:focus-visible {
   color: var(--white);
 }
 .nq-proof > p { display: grid; place-items: center; margin: 0; border-right: 1px solid var(--line-light); color: var(--gold-light); font-family: var(--condensed); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; }
-.nq-proof-window { min-width: 0; overflow: hidden; }
+.nq-proof-window { min-width: 0; overflow: hidden; background: #454141; }
 .nq-proof-track { display: flex; width: max-content; animation: proof-loop 34s linear infinite; }
 .nq-proof-group { display: flex; }
-.nq-proof-group a { display: flex; flex-direction: column; justify-content: center; min-width: 260px; min-height: 108px; padding: 18px 32px; border-right: 1px solid var(--line-light); }
-.nq-proof-group strong { font-family: var(--serif); font-size: 1.08rem; font-weight: 400; }
-.nq-proof-group span { color: rgba(255, 253, 248, 0.54); font-family: var(--condensed); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; }
+.nq-proof-group a { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; min-width: 300px; min-height: 108px; padding: 14px 28px; border-right: 1px solid var(--line-light); background: #454141; }
+.nq-proof-logo { display: block; width: min(210px, 100%); height: 46px; object-fit: contain; object-position: left center; filter: brightness(0) invert(1); opacity: 0.94; }
+.nq-proof-logo-stepup { width: min(205px, 100%); height: 42px; }
+.nq-proof-logo-cci { width: min(240px, 100%); height: 38px; }
+.nq-proof-logo-investor { width: 72px; height: 58px; filter: invert(1); mix-blend-mode: screen; }
+.nq-proof-logo-telemetro { width: min(205px, 100%); height: 48px; filter: none; opacity: 1; }
+.nq-proof-group span { margin-top: 7px; color: rgba(255, 253, 248, 0.58); font-family: var(--condensed); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; }
 @keyframes proof-loop { to { transform: translateX(-50%); } }
 
 .nq-executive {
@@ -382,7 +386,7 @@ summary:focus-visible {
   .nq-hero-signal { top: 16px; left: 16px; }
   .nq-proof { grid-template-columns: 1fr; }
   .nq-proof > p { min-height: 46px; border-right: 0; border-bottom: 1px solid var(--line-light); }
-  .nq-proof-group a { min-width: 230px; }
+  .nq-proof-group a { min-width: 265px; padding-right: 22px; padding-left: 22px; }
   .nq-executive,
   .nq-ideas,
   .nq-media,

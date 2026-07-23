@@ -19,6 +19,13 @@ const sourceLinks = [
 
 const institutionalContexts = ["CCI Brasil–Panamá", "MICI Panamá", "Embajada de Brasil", "Embajada de Panamá"];
 
+const proofMarks = [
+  { copyIndex: 1, src: "/logos/stepup-co-white.png", className: "nq-proof-logo-stepup" },
+  { copyIndex: 0, src: "/logos/cci-brasil-panama-white-horizontal.png", className: "nq-proof-logo-cci" },
+  { copyIndex: 2, src: "/logos/investor-lifestyle.png", className: "nq-proof-logo-investor" },
+  { copyIndex: 3, src: "/logos/telemetro-white-on-charcoal.png", className: "nq-proof-logo-telemetro" },
+] as const;
+
 function Arrow() {
   return <span aria-hidden="true">↗</span>;
 }
@@ -120,11 +127,15 @@ export function NinaLanding({ language }: { language: Language }) {
             <div className="nq-proof-track">
               {[0, 1].map((group) => (
                 <div className="nq-proof-group" key={group} aria-hidden={group === 1 ? "true" : undefined}>
-                  {copy.proof.map((item) => (
-                    <a href={item.href} key={`${group}-${item.label}`} target={item.href?.startsWith("http") ? "_blank" : undefined} rel={item.href?.startsWith("http") ? "noreferrer" : undefined}>
-                      <strong>{item.label}</strong><span>{item.detail}</span>
-                    </a>
-                  ))}
+                  {proofMarks.map((mark) => {
+                    const item = copy.proof[mark.copyIndex];
+                    return (
+                      <a href={item.href} key={`${group}-${item.label}`} target="_blank" rel="noreferrer" tabIndex={group === 1 ? -1 : undefined}>
+                        <img className={`nq-proof-logo ${mark.className}`} src={mark.src} alt={item.label} />
+                        <span>{item.detail}</span>
+                      </a>
+                    );
+                  })}
                 </div>
               ))}
             </div>

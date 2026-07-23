@@ -24,6 +24,11 @@ test("exports a complete Spanish landing at the canonical root", async () => {
   assert.match(source, /Liderazgo institucional · Relaciones estratégicas · Expansión empresarial/);
   assert.match(source, /Capital &amp; Ownership Brief/);
   assert.match(source, /Investor Lifestyle/);
+  assert.match(source, /\/logos\/stepup-co-white\.png/);
+  assert.match(source, /\/logos\/cci-brasil-panama-white-horizontal\.png/);
+  assert.match(source, /\/logos\/investor-lifestyle\.png/);
+  assert.match(source, /\/logos\/telemetro-white-on-charcoal\.png/);
+  assert.equal(count(source, /class="nq-proof-logo /g), 8);
   assert.match(source, /Instagram/);
   assert.match(source, /YouTube/);
   assert.equal(count(source, /<h1\b/gi), 1);
@@ -74,6 +79,10 @@ test("ships required real assets and static Hostinger output", async () => {
     "images/nina-press-hero.jpg",
     "images/nina-business-speaking.jpg",
     "images/nina-lifestyle-dinner.jpg",
+    "logos/stepup-co-white.png",
+    "logos/cci-brasil-panama-white-horizontal.png",
+    "logos/investor-lifestyle.png",
+    "logos/telemetro-white-on-charcoal.png",
   ];
   await Promise.all(assets.map((asset) => access(new URL(asset, output))));
   await access(new URL("index.html", output));

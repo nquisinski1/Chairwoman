@@ -120,7 +120,6 @@ export const landingCopy: Record<Language, LandingCopy> = {
       { label: "StepUp & Company", detail: "Socia", href: "https://site.stepup10x.com/" },
       { label: "Investor Lifestyle", detail: "Perspectiva publicada", href: sharedMedia[0].href },
       { label: "Telemetro", detail: "Agenda empresarial", href: sharedMedia[1].href },
-      { label: "Capital & Ownership Brief", detail: "Archivo editorial", href: "#ideas" },
     ],
     executive: {
       eyebrow: "LA PREGUNTA EJECUTIVA",
@@ -222,7 +221,6 @@ export const landingCopy: Record<Language, LandingCopy> = {
       { label: "StepUp & Company", detail: "Sócia", href: "https://site.stepup10x.com/" },
       { label: "Investor Lifestyle", detail: "Perspectiva publicada", href: sharedMedia[0].href },
       { label: "Telemetro", detail: "Agenda empresarial", href: sharedMedia[1].href },
-      { label: "Capital & Ownership Brief", detail: "Arquivo editorial", href: "#ideas" },
     ],
     executive: {
       eyebrow: "A PERGUNTA EXECUTIVA",
@@ -324,7 +322,6 @@ export const landingCopy: Record<Language, LandingCopy> = {
       { label: "StepUp & Company", detail: "Partner", href: "https://site.stepup10x.com/" },
       { label: "Investor Lifestyle", detail: "Published perspective", href: sharedMedia[0].href },
       { label: "Telemetro", detail: "Business agenda", href: sharedMedia[1].href },
-      { label: "Capital & Ownership Brief", detail: "Editorial archive", href: "#ideas" },
     ],
     executive: {
       eyebrow: "THE EXECUTIVE QUESTION",
