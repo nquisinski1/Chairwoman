@@ -653,9 +653,9 @@ export function chairwomanMetadata(language: Language): Metadata {
       description: descriptions[language],
       images: [
         {
-          url: "/images/nina-chairwoman-podium.jpg",
-          width: 2200,
-          height: 1467,
+          url: "/images/nina-chairwoman-original.jpg",
+          width: 2400,
+          height: 1800,
           alt: chairwomanCopy[language].hero.alt,
         },
       ],

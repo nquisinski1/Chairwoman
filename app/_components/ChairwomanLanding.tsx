@@ -5,6 +5,8 @@ import {
   homePaths,
 } from "../_content/chairwoman";
 import type { Language } from "../_content/landing";
+import { NinaFooter } from "./NinaFooter";
+import { getPrimaryNavigation, NinaHeader } from "./NinaHeader";
 
 const chamberHome = "https://ccibrasilpanama.org/";
 const chamberProfile = "https://ccibrasilpanama.org/2026-lid-nina/";
@@ -14,54 +16,17 @@ function Arrow() {
   return <span aria-hidden="true">↗</span>;
 }
 
-function Wordmark({ href }: { href: string }) {
-  return (
-    <a className="cw-wordmark" href={href} aria-label="Nina Quisinski — Home">
-      <span className="cw-emblem" aria-hidden="true" />
-      <span className="cw-wordmark-type">
-        <span className="cw-wordmark-script">Nina</span>
-        <strong>QUISINSKI</strong>
-        <i aria-hidden="true" />
-      </span>
-    </a>
-  );
-}
-
-function LanguageSwitcher({ language }: { language: Language }) {
-  return (
-    <nav className="cw-languages" aria-label="Language">
-      {(["es", "pt", "en"] as const).map((item) => (
-        <a
-          href={chairwomanPaths[item]}
-          hrefLang={item}
-          aria-current={language === item ? "page" : undefined}
-          key={item}
-        >
-          {item.toUpperCase()}
-        </a>
-      ))}
-    </nav>
-  );
-}
-
 export function ChairwomanLanding({ language }: { language: Language }) {
   const copy = chairwomanCopy[language];
   const locale = language === "es" ? "es-PA" : language === "pt" ? "pt-BR" : "en-US";
-  const navigation = [
-    { label: copy.nav.home, href: homePaths[language] },
-    { label: copy.nav.mandate, href: "#mandato" },
-    { label: copy.nav.record, href: "#historico" },
-    { label: copy.nav.letters, href: "#cartas" },
-    { label: copy.nav.protocol, href: "#criterio" },
-    { label: copy.nav.chamber, href: chamberHome, external: true },
-  ];
+  const navigation = getPrimaryNavigation(language);
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Nina Quisinski",
     alternateName: "Janaina Tobia Quisinski",
     url: `https://ninaquisinski.com${chairwomanPaths[language]}`,
-    image: "https://ninaquisinski.com/images/nina-chairwoman-podium.jpg",
+    image: "https://ninaquisinski.com/images/nina-chairwoman-original.jpg",
     jobTitle: language === "en" ? "Founder and President" : language === "pt" ? "Fundadora e Presidente" : "Fundadora y Presidenta",
     memberOf: {
       "@type": "Organization",
@@ -74,51 +39,18 @@ export function ChairwomanLanding({ language }: { language: Language }) {
     <div className="cw-site" lang={locale}>
       <a className="skip-link" href="#conteudo">{copy.skip}</a>
 
-      <header className="cw-header">
-        <Wordmark href={homePaths[language]} />
-
-        <nav className="cw-desktop-nav" aria-label={copy.menu}>
-          {navigation.map((item) => (
-            <a
-              href={item.href}
-              target={item.external ? "_blank" : undefined}
-              rel={item.external ? "noreferrer" : undefined}
-              key={item.href}
-            >
-              {item.label}
-            </a>
-          ))}
-        </nav>
-
-        <LanguageSwitcher language={language} />
-
-        <details className="cw-mobile-menu">
-          <summary>{copy.menu}<span aria-hidden="true">＋</span></summary>
-          <div>
-            <nav aria-label={copy.menu}>
-              {navigation.map((item) => (
-                <a
-                  href={item.href}
-                  target={item.external ? "_blank" : undefined}
-                  rel={item.external ? "noreferrer" : undefined}
-                  key={item.href}
-                >
-                  {item.label}
-                </a>
-              ))}
-            </nav>
-            <LanguageSwitcher language={language} />
-          </div>
-        </details>
-      </header>
+      <NinaHeader
+        language={language}
+        languagePaths={chairwomanPaths}
+        brandHref={homePaths[language]}
+        menuLabel={copy.menu}
+        navigation={navigation}
+        variant="chairwoman"
+      />
 
       <main id="conteudo">
         <section className="cw-hero" aria-labelledby="cw-hero-title">
           <div className="cw-hero-copy">
-            <div className="cw-hero-role">
-              <span className="cw-emblem cw-emblem-hero" aria-hidden="true" />
-              <p className="cw-role-line">{copy.hero.role}</p>
-            </div>
             <h1 id="cw-hero-title">
               <span>{copy.hero.titleBefore}</span>
               <em>{copy.hero.titleAccent}</em>
@@ -126,7 +58,7 @@ export function ChairwomanLanding({ language }: { language: Language }) {
             </h1>
             <p className="cw-hero-descriptor">{copy.hero.descriptor}</p>
             <div className="cw-actions">
-              <a className="cw-button cw-button-gold" href="#mandato">
+              <a className="cw-button cw-button-accent" href="#mandato">
                 {copy.hero.primary}<Arrow />
               </a>
               <a className="cw-button cw-button-outline" href={chamberHome} target="_blank" rel="noreferrer">
@@ -137,7 +69,7 @@ export function ChairwomanLanding({ language }: { language: Language }) {
 
           <figure className="cw-hero-photo">
             <Image
-              src="/images/nina-chairwoman-podium.jpg"
+              src="/images/nina-chairwoman-original.jpg"
               alt={copy.hero.alt}
               fill
               priority
@@ -249,7 +181,7 @@ export function ChairwomanLanding({ language }: { language: Language }) {
           <h2 id="cw-chamber-title">{copy.chamber.title}</h2>
           <p>{copy.chamber.body}</p>
           <div className="cw-actions">
-            <a className="cw-button cw-button-gold" href={chamberHome} target="_blank" rel="noreferrer">
+            <a className="cw-button cw-button-accent" href={chamberHome} target="_blank" rel="noreferrer">
               {copy.chamber.primary}<Arrow />
             </a>
             <a className="cw-button cw-button-outline" href={chamberProfile} target="_blank" rel="noreferrer">
@@ -259,15 +191,12 @@ export function ChairwomanLanding({ language }: { language: Language }) {
         </section>
       </main>
 
-      <footer className="cw-footer">
-        <Wordmark href={homePaths[language]} />
-        <p>{copy.footer.statement}</p>
-        <div>
-          <span>{copy.footer.evidence}</span>
-          <span>{copy.footer.rights}</span>
-          <span>© 2026 Nina Quisinski</span>
-        </div>
-      </footer>
+      <NinaFooter
+        language={language}
+        evidence={copy.footer.evidence}
+        rights={copy.footer.rights}
+        hideLegal
+      />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
     </div>

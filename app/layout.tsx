@@ -9,10 +9,6 @@ export const metadata: Metadata = {
   },
   description:
     "Liderazgo institucional, relaciones estratégicas y expansión empresarial entre Brasil, Panamá y América Latina.",
-  icons: {
-    icon: "/images/nina-portrait.jpg",
-    apple: "/images/nina-portrait.jpg",
-  },
   robots: process.env.NEXT_PUBLIC_SITE_INDEXABLE === "true"
     ? { index: true, follow: true }
     : { index: false, follow: false, noarchive: true },
@@ -28,7 +24,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es">
+    <html lang="es-PA" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

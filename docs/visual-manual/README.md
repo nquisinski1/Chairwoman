@@ -1,12 +1,14 @@
-# Manual visual y actualización cromática
+# Manual visual y branding canónico
 
-Entregable de decisión construido a partir de las siete referencias recibidas el 22 de julio de 2026.
+Sistema visual aprobado para la implementación local de Nina Quisinski.
 
 ## Abrir
 
+- `approvals/Nina_Quisinski_Branding_Canonico_FINAL.png` — fuente visual canónica aprobada.
+- `BRANDING_CANONICO_APROBADO.md` — contrato operativo que prevalece sobre versiones anteriores.
 - `Nina_Quisinski_Manual_Visual_Aprobacion_v4.pptx` — manual visual editable de 9 láminas.
-- `Nina_Quisinski_Manual_Visual_Aprobacion_v4_ES.md` — contrato de diseño con la actualización cromática v5.
-- `PALETA_CROMATICA_v5_PT.md` — especificación canónica de colores y aplicación por territorio.
+- `Nina_Quisinski_Manual_Visual_Aprobacion_v4_ES.md` — contrato de diseño con la actualización cromática v6.
+- `PALETA_CROMATICA_v6_PT.md` — paleta principal y camada executiva adicional por território.
 - `TIPOGRAFIA_v7_PT.md` — sistema global aprovado: Pinyon Script + Noto Serif Display + Inter, com emblema Chairwoman.
 - `LOGOS_LOOP_v7_PT.md` — ordem, arquivos, integridade e critério de uso das quatro marcas da home.
 - `SOURCE_MANIFEST.md` — procedencia, hashes y límites de reproducción.
@@ -14,6 +16,6 @@ Entregable de decisión construido a partir de las siete referencias recibidas e
 
 ## Estado
 
-A paleta v5, a combinação tipográfica v7 e o loop de marcas v7 foram aplicados à versão local da landing em 23 de julho de 2026. A publicação continua pendente.
+O branding, a paleta em ouro rosa, a combinação tipográfica e o loop de marcas estão aprovados para a implementação local. A publicação continua pendente.
 
-O arquivo `.pptx` preserva a apresentação v4 original; para qualquer implementação, as especificações cromática v5 e tipográfica v7 em Markdown prevalecem.
+`Nina_Quisinski_Aplicacoes_Marca_v1.png` permanece apenas como histórico e foi substituído pela imagem canônica final. Em caso de conflito, `BRANDING_CANONICO_APROBADO.md` prevalece.

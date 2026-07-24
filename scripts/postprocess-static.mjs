@@ -11,11 +11,12 @@ const pages = [
 
 for (const [path, language] of pages) {
   const source = await readFile(path, "utf8");
-  const localized = source.replace(/<html lang="[^"]+">/i, `<html lang="${language}">`);
+  const htmlTag = source.match(/<html lang="[^"]+">/i);
 
-  if (localized === source) {
+  if (!htmlTag) {
     throw new Error(`Could not localize the HTML language for ${path}`);
   }
 
+  const localized = source.replace(htmlTag[0], `<html lang="${language}">`);
   await writeFile(path, localized);
 }

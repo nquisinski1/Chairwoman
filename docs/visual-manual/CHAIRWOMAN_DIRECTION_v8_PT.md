@@ -9,14 +9,14 @@ A página posiciona Nina Quisinski como liderança empresarial institucional. O 
 
 ## Assinatura
 
-O menu usa a assinatura tipográfica:
+O menu usa o wordmark institucional completo `NINA QUISINSKI`, em Noto Serif
+Display. A assinatura manuscrita `Nina Quisinski` é uma aplicação independente e
+somente aparece por extenso.
 
-- `Nina` em Pinyon Script;
-- `QUISINSKI` e títulos em Noto Serif Display;
-- navegação e leitura em Inter;
-- filete dourado como selo de continuidade.
-
-A assinatura é o logo principal da marca pessoal. O emblema fornecido em `1.svg` identifica o território Chairwoman em bordô ou dourado; não representa governo, nobreza, cargo público ou aval institucional. Logos de governos, ministérios, presidências e embaixadas não são usados como aval pessoal.
+Navegação e leitura usam Inter. O emblema fornecido em `1.svg` identifica o
+território Chairwoman em bordô ou ouro rosa; não representa governo, nobreza,
+cargo público ou aval institucional. Logos de governos, ministérios,
+presidências e embaixadas não são usados como aval pessoal.
 
 ## Paleta exclusiva da Presidência
 
@@ -25,10 +25,10 @@ A assinatura é o logo principal da marca pessoal. O emblema fornecido em `1.svg
 | Território principal | Bordô | `#4B1F2A` |
 | Profundidade | Bordô profundo | `#34141F` |
 | Fundo e leitura | Marfim | `#FCF8F0` |
-| Autoridade e detalhe | Dourado | `#C2A367` |
-| Dourado de luz | Dourado claro | `#E3C78F` |
+| Autoridade e detalhe | Ouro rosa | `#B77A76` |
+| Ouro rosa de luz | Ouro rosa claro | `#E5C6C1` |
 
-O dourado é acento, nunca fundo dominante. Não há azul, verde ou bege como territórios narrativos nesta página.
+O ouro rosa é acento, nunca fundo dominante. Não há azul, verde ou bege como territórios narrativos nesta página.
 
 ## Primeiro quadro — teste dos três segundos
 

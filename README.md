@@ -2,6 +2,8 @@
 
 Landing editorial trilingüe de Nina Quisinski. Construye autoridad pública con fotografía documental, roles verificables, pensamiento propio y prueba institucional, sin fabricar notoriedad ni endorsements.
 
+Registro operativo: [docs/PROJECT_REGISTRY.md](docs/PROJECT_REGISTRY.md).
+
 ## Rutas canónicas
 
 - `/` — español (`es-PA`)

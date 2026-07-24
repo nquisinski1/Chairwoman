@@ -12,6 +12,7 @@ export type LandingCopy = {
   skip: string;
   hero: {
     eyebrow: string;
+    title: string;
     descriptor: string;
     thesis: string;
     primary: string;
@@ -106,6 +107,7 @@ export const landingCopy: Record<Language, LandingCopy> = {
     skip: "Ir al contenido",
     hero: {
       eyebrow: "FUNDADORA Y PRESIDENTA · CCI BRASIL–PANAMÁ / SOCIA · STEPUP & COMPANY",
+      title: "Liderazgo que conecta estrategias con resultados sostenibles.",
       descriptor: "Liderazgo institucional · Relaciones estratégicas · Expansión empresarial",
       thesis: "Las oportunidades cruzan fronteras cuando existe confianza para sostenerlas.",
       primary: "Ver el mandato",
@@ -207,6 +209,7 @@ export const landingCopy: Record<Language, LandingCopy> = {
     skip: "Ir para o conteúdo",
     hero: {
       eyebrow: "FUNDADORA E PRESIDENTE · CCI BRASIL–PANAMÁ / SÓCIA · STEPUP & COMPANY",
+      title: "Liderança que conecta estratégias a resultados sustentáveis.",
       descriptor: "Liderança institucional · Relações estratégicas · Expansão empresarial",
       thesis: "Oportunidades atravessam fronteiras quando existe confiança para sustentá-las.",
       primary: "Ver o mandato",
@@ -308,6 +311,7 @@ export const landingCopy: Record<Language, LandingCopy> = {
     skip: "Skip to content",
     hero: {
       eyebrow: "FOUNDER & PRESIDENT · CCI BRAZIL–PANAMA / PARTNER · STEPUP & COMPANY",
+      title: "Leadership that connects strategy to sustainable results.",
       descriptor: "Institutional leadership · Strategic relationships · Business expansion",
       thesis: "Opportunities cross borders when trust is strong enough to sustain them.",
       primary: "See the mandate",
@@ -428,7 +432,7 @@ export function metadataFor(language: Language, path: string): Metadata {
       url: path,
       title: titles[language],
       description: descriptions[language],
-      images: [{ url: "/images/nina-chairwoman-podium.jpg", width: 1920, height: 1280, alt: landingCopy[language].hero.alt }],
+      images: [{ url: "/images/nina-hero-original.jpg", width: 2400, height: 1600, alt: landingCopy[language].hero.alt }],
     },
   };
 }

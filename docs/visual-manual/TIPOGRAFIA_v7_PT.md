@@ -2,21 +2,22 @@
 
 **Estado:** combinação aprovada por Nina em 23 de julho de 2026 e aplicada globalmente ao site.
 
-## Assinatura do nome
+## Aplicações do nome
 
-| Parte | Fonte | Uso |
+| Aplicação | Fonte | Uso |
 |---|---|---|
-| `Nina` | `Pinyon Script` | gesto caligráfico do wordmark |
-| `QUISINSKI` | `Noto Serif Display` | sobrenome em caixa-alta e contraste editorial |
+| `NINA QUISINSKI` | `Noto Serif Display` | wordmark institucional serifado |
+| `Nina Quisinski` | `Pinyon Script` | assinatura caligráfica completa |
+| `NQ` | `Noto Serif Display` | monograma independente |
 
-A construção traduz a relação visual da referência recebida: caligrafia sobre uma serifada editorial. O desenho, as proporções e o nome são próprios de Nina; os logotipos da prancha de referência não são reproduzidos.
+Wordmark, assinatura e monograma são aplicações independentes. O monograma nunca aparece acompanhado do nome no mesmo logo.
 
 ## Sistema do site
 
 | Papel fixo | Token técnico | Fonte | Aplicação |
 |---|---|---|---|
 | Display editorial | `--font-display` | `Noto Serif Display` | títulos, nomes, números de destaque e citações curtas |
-| Assinatura | `--font-signature` | `Pinyon Script` | `Nina` no wordmark e um acento caligráfico controlado |
+| Assinatura | `--font-signature` | `Pinyon Script` | nome completo `Nina Quisinski` como acento caligráfico controlado |
 | Leitura | `--font-body` | `Inter` | parágrafos, legendas, metadados e formulários |
 | Interface | `--font-interface` | `Inter` | navegação, botões, links, seletores de idioma e categorias |
 
@@ -26,13 +27,14 @@ Esses quatro papéis formam um único contrato global. Toda página — Home, Ch
 
 - ativo de origem: `1.svg`, fornecido por Nina;
 - função: selo exclusivo da página Chairwoman, junto à assinatura e ao mandato;
-- aplicação cromática: bordô ou dourado por máscara CSS, preservando o desenho original;
+- aplicação cromática: bordô ou ouro rosa por máscara CSS, preservando o desenho original;
 - não é monograma `NQ`, brasão governamental nem símbolo de endosso institucional.
 
 ## Regras
 
-- A caligrafia aparece somente em `Nina`, no cabeçalho, hero e rodapé.
-- `QUISINSKI` permanece em caixa-alta.
+- A caligrafia sempre escreve o nome completo `Nina Quisinski`.
+- O wordmark serifado usa `NINA QUISINSKI`.
+- O monograma `NQ` aparece sozinho, sem nome escrito ao lado.
 - A caligrafia nunca substitui textos de interface ou conteúdo.
 - Títulos combinam `Noto Serif Display` com, no máximo, uma palavra em `Pinyon Script`.
 - Parágrafos, legendas, botões e navegação usam somente `Inter`.

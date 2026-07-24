@@ -1,24 +1,13 @@
 import type { ReactNode } from "react";
-
-const navigation = [
-  { label: "Home", href: "/", key: "home" },
-  { label: "My Story", href: "/my-story", key: "story" },
-  { label: "Chairwoman", href: "/chairwoman", key: "chairwoman" },
-  { label: "A Sócia", href: "/la-socia", key: "partner" },
-  { label: "Lifestyle", href: "/lifestyle", key: "lifestyle" },
-  { label: "My Newsletter", href: "/newsletter", key: "newsletter" },
-  { label: "My Book", href: "/my-book", key: "book" },
-  { label: "Press", href: "/press", key: "press" },
-] as const;
+import { NinaLogo } from "./NinaLogo";
+import { getPrimaryNavigation } from "./NinaHeader";
 
 export function SiteHeader({ active }: { active: string }) {
+  const navigation = getPrimaryNavigation("es");
+
   return (
     <header className="site-header">
-      <a className="brand" href="/" aria-label="Nina Quisinski — Inicio">
-        <span className="brand-script">Nina</span>
-        <span className="brand-name">Quisinski</span>
-        <span className="brand-subline">Leadership · Business · Lifestyle</span>
-      </a>
+      <NinaLogo className="brand" variant="wordmark" />
 
       <nav className="desktop-nav" aria-label="Navegación principal">
         {navigation.map((item) => (
@@ -53,10 +42,7 @@ export function SiteHeader({ active }: { active: string }) {
 export function SiteFooter() {
   return (
     <footer className="site-footer">
-      <div className="footer-statement">
-        <span className="section-kicker">Nina Quisinski</span>
-        <p>Capital relacional · Diplomacia empresarial · Expansión</p>
-      </div>
+      <NinaLogo className="footer-logo nina-logo-large" variant="wordmark" />
       <div className="footer-links" aria-label="Canales oficiales">
         <a href="https://www.linkedin.com/in/ninaquisinski/?locale=es" target="_blank" rel="noreferrer">
           LinkedIn
@@ -120,7 +106,6 @@ export function EditorialHero({
           <span>Archivo oficial</span>
         </div>
         <p className="section-kicker">{kicker}</p>
-        <span className="editorial-script" aria-hidden="true">Nina</span>
         <h1>{title}</h1>
         <p className="editorial-intro">{intro}</p>
       </div>

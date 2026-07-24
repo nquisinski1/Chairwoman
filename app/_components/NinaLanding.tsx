@@ -1,4 +1,6 @@
 import { landingCopy, type Language } from "../_content/landing";
+import { NinaFooter } from "./NinaFooter";
+import { getPrimaryNavigation, NinaHeader } from "./NinaHeader";
 
 const languagePaths: Record<Language, string> = { es: "/", pt: "/pt/", en: "/en/" };
 const chairwomanPaths: Record<Language, string> = {
@@ -22,48 +24,27 @@ const sourceLinks = [
   },
 ];
 
-const institutionalContexts = ["CCI Brasil–Panamá", "MICI Panamá", "Embajada de Brasil", "Embajada de Panamá"];
-
-const proofMarks = [
-  { copyIndex: 1, src: "/logos/stepup-co-white.png", className: "nq-proof-logo-stepup" },
-  { copyIndex: 0, src: "/logos/cci-brasil-panama-white-horizontal.png", className: "nq-proof-logo-cci" },
-  { copyIndex: 2, src: "/logos/investor-lifestyle.png", className: "nq-proof-logo-investor" },
-  { copyIndex: 3, src: "/logos/telemetro-white-on-charcoal.png", className: "nq-proof-logo-telemetro" },
-] as const;
+const institutionalContexts: Record<Language, string[]> = {
+  es: ["CCI Brasil–Panamá", "MICI Panamá", "Embajada de Brasil", "Embajada de Panamá"],
+  pt: ["CCI Brasil–Panamá", "MICI Panamá", "Embaixada do Brasil", "Embaixada do Panamá"],
+  en: ["Brazil–Panama Chamber", "MICI Panama", "Embassy of Brazil", "Embassy of Panama"],
+};
 
 function Arrow() {
   return <span aria-hidden="true">↗</span>;
 }
 
-function LanguageSwitcher({ language, compact = false }: { language: Language; compact?: boolean }) {
-  return (
-    <nav className={compact ? "language-switcher language-switcher-compact" : "language-switcher"} aria-label="Language">
-      {(["es", "pt", "en"] as const).map((item) => (
-        <a key={item} href={languagePaths[item]} hrefLang={item} aria-current={language === item ? "page" : undefined}>
-          {item.toUpperCase()}
-        </a>
-      ))}
-    </nav>
-  );
-}
-
 export function NinaLanding({ language }: { language: Language }) {
   const copy = landingCopy[language];
   const locale = language === "es" ? "es-PA" : language === "pt" ? "pt-BR" : "en-US";
-  const navItems = [
-    [copy.nav.mandate, chairwomanPaths[language]],
-    [copy.nav.stepup, "#stepup"],
-    [copy.nav.ideas, "#ideas"],
-    [copy.nav.media, "#prensa"],
-    [copy.nav.lifestyle, "#lifestyle"],
-  ];
+  const navItems = getPrimaryNavigation(language);
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Nina Quisinski",
     alternateName: "Janaina Tobia Quisinski",
     url: "https://ninaquisinski.com/",
-    image: "https://ninaquisinski.com/images/nina-chairwoman-podium.jpg",
+    image: "https://ninaquisinski.com/images/nina-hero-original.jpg",
     jobTitle: language === "en" ? "Founder and President" : language === "pt" ? "Fundadora e Presidente" : "Fundadora y Presidenta",
     worksFor: {
       "@type": "Organization",
@@ -82,69 +63,30 @@ export function NinaLanding({ language }: { language: Language }) {
     <div className="nq-site" lang={locale}>
       <a className="skip-link" href="#contenido">{copy.skip}</a>
 
-      <header className="nq-header">
-        <a className="nq-brand" href={languagePaths[language]} aria-label="Nina Quisinski — Home">
-          <span>Nina</span>
-          <strong>QUISINSKI</strong>
-          <i aria-hidden="true" />
-        </a>
-
-        <nav className="nq-nav" aria-label={copy.menu}>
-          {navItems.map(([label, href]) => <a href={href} key={href}>{label}</a>)}
-        </nav>
-
-        <LanguageSwitcher language={language} />
-
-        <details className="nq-mobile-menu">
-          <summary>{copy.menu}<span aria-hidden="true">＋</span></summary>
-          <div>
-            <nav aria-label={copy.menu}>
-              {navItems.map(([label, href]) => <a href={href} key={href}>{label}</a>)}
-            </nav>
-            <LanguageSwitcher language={language} compact />
-          </div>
-        </details>
-      </header>
+      <NinaHeader
+        language={language}
+        languagePaths={languagePaths}
+        brandHref={languagePaths[language]}
+        menuLabel={copy.menu}
+        navigation={navItems}
+        variant="home"
+      />
 
       <main id="contenido">
         <section className="nq-hero" aria-labelledby="hero-title">
           <div className="nq-hero-copy">
-            <p className="nq-eyebrow">{copy.hero.eyebrow}</p>
-            <h1 id="hero-title"><span>Nina</span><strong>QUISINSKI</strong></h1>
+            <p className="nq-hero-role">{copy.hero.eyebrow}</p>
+            <h1 id="hero-title">{copy.hero.title}</h1>
             <p className="nq-descriptor">{copy.hero.descriptor}</p>
             <p className="nq-hero-thesis">{copy.hero.thesis}</p>
             <div className="nq-actions">
               <a className="nq-button nq-button-primary" href={chairwomanPaths[language]}>{copy.hero.primary}<Arrow /></a>
-              <a className="nq-button nq-button-quiet" href="#ideas">{copy.hero.secondary}<Arrow /></a>
             </div>
           </div>
 
           <figure className="nq-hero-visual">
-            <img src="/images/nina-chairwoman-podium.jpg" alt={copy.hero.alt} fetchPriority="high" />
-            <figcaption>{copy.hero.caption}</figcaption>
-            <span className="nq-hero-signal">{copy.hero.signal}</span>
+            <img src="/images/nina-hero-original.jpg" alt={copy.hero.alt} fetchPriority="high" />
           </figure>
-        </section>
-
-        <section className="nq-proof" aria-label={copy.proofLabel}>
-          <p>{copy.proofLabel}</p>
-          <div className="nq-proof-window">
-            <div className="nq-proof-track">
-              {[0, 1].map((group) => (
-                <div className="nq-proof-group" key={group} aria-hidden={group === 1 ? "true" : undefined}>
-                  {proofMarks.map((mark) => {
-                    const item = copy.proof[mark.copyIndex];
-                    return (
-                      <a href={item.href} key={`${group}-${item.label}`} target="_blank" rel="noreferrer" tabIndex={group === 1 ? -1 : undefined}>
-                        <img className={`nq-proof-logo ${mark.className}`} src={mark.src} alt={item.label} />
-                        <span>{item.detail}</span>
-                      </a>
-                    );
-                  })}
-                </div>
-              ))}
-            </div>
-          </div>
         </section>
 
         <section className="nq-executive nq-section" aria-labelledby="executive-title">
@@ -164,7 +106,7 @@ export function NinaLanding({ language }: { language: Language }) {
 
         <section className="nq-mandate nq-section" id="presidencia" aria-labelledby="mandate-title">
           <figure className="nq-documentary-photo">
-            <img src="/images/nina-press-hero.jpg" alt={copy.mandate.alt} loading="lazy" />
+            <img src="/images/nina-chairwoman-original.jpg" alt={copy.mandate.alt} loading="lazy" />
             <figcaption>{copy.mandate.caption}</figcaption>
           </figure>
           <div className="nq-mandate-copy">
@@ -179,7 +121,7 @@ export function NinaLanding({ language }: { language: Language }) {
           <aside className="nq-institutional-archive">
             <p className="nq-eyebrow">{copy.mandate.archiveTitle}</p>
             <p>{copy.mandate.archiveBody}</p>
-            <ul>{institutionalContexts.map((item) => <li key={item}>{item}</li>)}</ul>
+            <ul>{institutionalContexts[language].map((item) => <li key={item}>{item}</li>)}</ul>
             <small>{copy.mandate.archiveNote}</small>
           </aside>
         </section>
@@ -192,7 +134,7 @@ export function NinaLanding({ language }: { language: Language }) {
             <a className="nq-text-link" href="https://site.stepup10x.com/" target="_blank" rel="noreferrer">{copy.stepup.cta}<Arrow /></a>
           </div>
           <figure>
-            <img src="/images/nina-business-speaking.jpg" alt={copy.stepup.alt} loading="lazy" />
+            <img src="/images/nina-stepup-original.jpg" alt={copy.stepup.alt} loading="lazy" />
             <figcaption>{copy.stepup.caption}</figcaption>
           </figure>
           <div className="nq-stepup-pillars">
@@ -204,7 +146,6 @@ export function NinaLanding({ language }: { language: Language }) {
         </section>
 
         <section className="nq-ideas nq-section" id="ideas" aria-labelledby="ideas-title">
-          <div className="nq-ideas-name" aria-hidden="true">NQ</div>
           <div className="nq-ideas-copy">
             <p className="nq-eyebrow nq-eyebrow-terra">{copy.ideas.eyebrow}</p>
             <h2 id="ideas-title">{copy.ideas.title}</h2>
@@ -235,7 +176,7 @@ export function NinaLanding({ language }: { language: Language }) {
         </section>
 
         <section className="nq-lifestyle nq-section" id="lifestyle" aria-labelledby="lifestyle-title">
-          <figure><img src="/images/nina-lifestyle-dinner.jpg" alt={copy.lifestyle.alt} loading="lazy" /></figure>
+          <figure><img src="/images/nina-lifestyle-original.jpg" alt={copy.lifestyle.alt} loading="lazy" /></figure>
           <div className="nq-lifestyle-copy">
             <p className="nq-eyebrow">{copy.lifestyle.eyebrow}</p>
             <h2 id="lifestyle-title">{copy.lifestyle.title}</h2>
@@ -257,11 +198,11 @@ export function NinaLanding({ language }: { language: Language }) {
         </section>
       </main>
 
-      <footer className="nq-footer">
-        <div className="nq-footer-brand"><span>Nina</span><strong>QUISINSKI</strong><i aria-hidden="true" /></div>
-        <p>{copy.footer.statement}</p>
-        <div><span>{copy.footer.evidence}</span><span>{copy.footer.rights}</span><span>© 2026 Nina Quisinski</span></div>
-      </footer>
+      <NinaFooter
+        language={language}
+        evidence={copy.footer.evidence}
+        rights={copy.footer.rights}
+      />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
     </div>
