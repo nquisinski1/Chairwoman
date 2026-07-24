@@ -49,7 +49,7 @@ export default function PressPage() {
           </p>
           <div className="stacked-links">
             <SourceLink href="https://ccibrasilpanama.org/">Fuente institucional CCI</SourceLink>
-            <SourceLink href="https://site.stepup10x.com/">Perfil corporativo StepUp</SourceLink>
+            <SourceLink href="https://stepupandco.com/">Perfil corporativo StepUp</SourceLink>
           </div>
         </div>
       </section>

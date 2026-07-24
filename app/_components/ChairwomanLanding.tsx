@@ -45,7 +45,6 @@ export function ChairwomanLanding({ language }: { language: Language }) {
         brandHref={homePaths[language]}
         menuLabel={copy.menu}
         navigation={navigation}
-        variant="chairwoman"
       />
 
       <main id="conteudo">
@@ -191,12 +190,7 @@ export function ChairwomanLanding({ language }: { language: Language }) {
         </section>
       </main>
 
-      <NinaFooter
-        language={language}
-        evidence={copy.footer.evidence}
-        rights={copy.footer.rights}
-        hideLegal
-      />
+      <NinaFooter language={language} />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
     </div>

@@ -48,7 +48,7 @@ CEOs, propietarios, boards, inversores y líderes institucionales de Europa, Est
 3. Tesis ejecutiva: confianza, preparación y relaciones entre mercados.
 4. Presidencia: mandato, fuentes y archivo institucional.
 5. StepUp & Company: relaciones, internacionalización y preparación para conversaciones de capital.
-6. Ideas: `Capital & Ownership Brief` como nombre editorial de trabajo.
+6. Ideas: `Executive Insights` como nombre editorial aprobado.
 7. Prensa: piezas independientes verificadas.
 8. Lifestyle y colaboraciones: afinidad real, sin inventar contratos.
 9. Canales oficiales y cierre.

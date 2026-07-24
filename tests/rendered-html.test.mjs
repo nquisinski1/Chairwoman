@@ -19,11 +19,15 @@ test("exports a complete Spanish landing at the canonical root", async () => {
   assert.match(source, /<html lang="es-PA">/i);
   assert.match(source, /Nina/);
   assert.match(source, /QUISINSKI/);
-  assert.match(source, /FUNDADORA Y PRESIDENTA/);
-  assert.match(source, /SOCIA · STEPUP &amp; COMPANY/);
+  assert.doesNotMatch(source, /FUNDADORA Y PRESIDENTA/);
+  assert.doesNotMatch(source, /SOCIA · STEPUP &amp; COMPANY/);
   assert.match(source, /Liderazgo institucional · Relaciones estratégicas · Expansión empresarial/);
-  assert.match(source, /Capital &amp; Ownership Brief/);
+  assert.match(source, /Executive Insights/);
+  assert.doesNotMatch(source, /class="nq-topic-list"/);
+  assert.doesNotMatch(source, /Lifestyle &amp; Cultural Capital/);
   assert.match(source, /Investor Lifestyle/);
+  assert.match(source, /https:\/\/stepupandco\.com\//);
+  assert.doesNotMatch(source, /site\.stepup10x\.com/);
   assert.doesNotMatch(source, /class="nq-proof/);
   assert.match(source, /Instagram/);
   assert.match(source, /YouTube/);
@@ -34,14 +38,14 @@ test("exports Portuguese and English routes with equivalent authority", async ()
   const [pt, en] = await Promise.all([html("pt/index.html"), html("en/index.html")]);
 
   assert.match(pt, /<html lang="pt-BR">/i);
-  assert.match(pt, /FUNDADORA E PRESIDENTE/);
+  assert.doesNotMatch(pt, /FUNDADORA E PRESIDENTE/);
   assert.match(pt, /Liderança institucional · Relações estratégicas · Expansão empresarial/);
-  assert.match(pt, /Este site não oferece intermediação financeira/);
+  assert.doesNotMatch(pt, /Este site não oferece intermediação financeira/);
 
   assert.match(en, /<html lang="en-US">/i);
-  assert.match(en, /FOUNDER &amp; PRESIDENT/);
+  assert.doesNotMatch(en, /FOUNDER &amp; PRESIDENT/);
   assert.match(en, /Institutional leadership · Strategic relationships · Business expansion/);
-  assert.match(en, /This site does not offer financial intermediation/);
+  assert.doesNotMatch(en, /This site does not offer financial intermediation/);
 
   assert.equal(count(pt, /<h1\b/gi), 1);
   assert.equal(count(en, /<h1\b/gi), 1);
@@ -108,12 +112,20 @@ test("keeps the approved color territories explicit in the design system", async
   assert.match(css, /--lux-off-white:\s*#dad0b8/i);
   assert.match(css, /\.nq-header\s*\{[^}]*background:\s*rgba\(247,\s*242,\s*235,\s*0\.97\)/s);
   assert.match(css, /\.nq-nav a\s*\{[^}]*color:\s*rgba\(15,\s*20,\s*30,\s*0\.68\)/s);
+  assert.match(css, /\.nq-hero h1\s*\{[^}]*color:\s*var\(--blue-deep\)/s);
+  assert.doesNotMatch(css, /\.nq-hero-role\s*\{/);
+  assert.match(css, /\.nq-hero \.nq-button-primary\s*\{[^}]*background:\s*var\(--rose-gold\)/s);
   assert.doesNotMatch(css, /\.nq-proof(?:\s|[-{])/);
   assert.match(css, /\.site-header\s*\{[^}]*background:\s*var\(--lux-navy\)/s);
   assert.match(css, /\.nq-mandate\s*\{[^}]*background:\s*var\(--burgundy-deep\)/s);
   assert.match(css, /\.nq-stepup\s*\{[^}]*background:\s*var\(--beige\)/s);
-  assert.match(css, /\.nq-ideas\s*\{[^}]*background:\s*var\(--green\)/s);
+  assert.match(css, /\.nq-ideas\s*\{[^}]*background:\s*var\(--lux-navy\)/s);
+  assert.match(css, /\.nq-ideas \.nq-button-primary\s*\{[^}]*background:\s*var\(--rose-gold\)/s);
+  assert.match(css, /\.nq-executive\s*\{[^}]*background:\s*var\(--lux-navy\)/s);
+  assert.match(css, /\.nq-executive li > span\s*\{[^}]*color:\s*var\(--rose-gold\)/s);
   assert.match(css, /\.nq-media\s*\{[^}]*background:\s*var\(--paper\)/s);
+  assert.match(css, /\.nq-media-heading h2\s*\{[^}]*color:\s*var\(--blue-deep\)/s);
+  assert.match(css, /\.nq-media-list span\s*\{[^}]*color:\s*var\(--rose-gold-dark\)/s);
   assert.match(css, /\.nq-lifestyle\s*\{[^}]*background:\s*var\(--lux-navy\)/s);
   assert.doesNotMatch(css, /--(?:lux-)?gold(?:-light|-ink)?:/i);
   assert.doesNotMatch(css, /rgba\(194,\s*163,\s*103,/i);
@@ -211,10 +223,11 @@ test("links each home language to its dedicated Chairwoman route", async () => {
   assert.match(en, /href="\/en\/chairwoman\/"/);
 });
 
-test("renders the parameterized header and shared editorial footer", async () => {
-  const [home, chairwoman, headerComponent, siteChrome] = await Promise.all([
+test("renders the standardized header and shared editorial footer", async () => {
+  const [home, chairwoman, lifestyle, headerComponent, siteChrome] = await Promise.all([
     html("pt/index.html"),
     html("pt/chairwoman/index.html"),
+    html("lifestyle/index.html"),
     readFile(new URL("app/_components/NinaHeader.tsx", project), "utf8"),
     readFile(new URL("app/_components/SiteChrome.tsx", project), "utf8"),
   ]);
@@ -227,27 +240,36 @@ test("renders the parameterized header and shared editorial footer", async () =>
     assert.match(source, /Canais/);
   }
 
-  assert.match(home, /class="nina-footer-legal"/);
+  assert.doesNotMatch(home, /class="nina-footer-legal"/);
   assert.doesNotMatch(home, /class="nina-footer-display"/);
   assert.doesNotMatch(home, /class="nina-footer-statement"/);
   assert.doesNotMatch(chairwoman, /class="nina-footer-display"/);
   assert.doesNotMatch(chairwoman, /class="nina-footer-statement"/);
   assert.doesNotMatch(chairwoman, /class="nina-footer-legal"/);
+  assert.doesNotMatch(home, /class="nq-stepup-pillars"/);
+  assert.doesNotMatch(home, /CONVERSA EMPRESARIAL/);
   assert.doesNotMatch(chairwoman, /class="cw-hero-role"/);
   assert.doesNotMatch(chairwoman, /class="cw-emblem/);
 
   assert.match(headerComponent, /navigation:\s*HeaderNavigationItem\[\]/);
-  assert.match(headerComponent, /variant:\s*"home"\s*\|\s*"chairwoman"/);
+  assert.doesNotMatch(headerComponent, /variant:\s*"home"\s*\|\s*"chairwoman"/);
   assert.match(headerComponent, /languagePaths:\s*Record<Language,\s*string>/);
   assert.match(headerComponent, /export function getPrimaryNavigation/);
+  assert.match(siteChrome, /<NinaHeader/);
   assert.match(siteChrome, /getPrimaryNavigation\("es"\)/);
 
-  for (const source of [home, chairwoman]) {
+  for (const [source, pressLabel] of [
+    [home, "Imprensa"],
+    [chairwoman, "Imprensa"],
+    [lifestyle, "Prensa"],
+  ]) {
+    assert.match(source, /<header class="nq-header">/);
+    assert.doesNotMatch(source, /<header class="(?:cw-header|site-header)">/);
     const chairwomanIndex = source.indexOf(">Chairwoman<");
     const stepupIndex = source.indexOf(">StepUp &amp; Co<");
     const insightsIndex = source.indexOf(">Insights &amp; Newsletter<");
     const lifestyleIndex = source.indexOf(">Lifestyle<");
-    const pressIndex = source.indexOf(">Imprensa<");
+    const pressIndex = source.indexOf(`>${pressLabel}<`);
 
     assert.ok(chairwomanIndex >= 0);
     assert.ok(chairwomanIndex < stepupIndex);

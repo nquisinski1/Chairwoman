@@ -14,7 +14,6 @@ type NinaHeaderProps = {
   brandHref: string;
   menuLabel: string;
   navigation: HeaderNavigationItem[];
-  variant: "home" | "chairwoman";
 };
 
 const languages = ["es", "pt", "en"] as const;
@@ -48,15 +47,7 @@ export function NinaHeader({
   brandHref,
   menuLabel,
   navigation,
-  variant,
 }: NinaHeaderProps) {
-  const isHome = variant === "home";
-  const headerClass = isHome ? "nq-header" : "cw-header";
-  const brandClass = isHome ? "nq-brand" : "cw-wordmark";
-  const desktopClass = isHome ? "nq-nav" : "cw-desktop-nav";
-  const languagesClass = isHome ? "language-switcher" : "cw-languages";
-  const mobileClass = isHome ? "nq-mobile-menu" : "cw-mobile-menu";
-
   const renderNavigationLinks = () => navigation.map((item) => (
     <a
       href={item.href}
@@ -70,7 +61,7 @@ export function NinaHeader({
 
   const languageLinks = (compact = false) => (
     <nav
-      className={`${languagesClass}${compact && isHome ? " language-switcher-compact" : ""}`}
+      className={`language-switcher${compact ? " language-switcher-compact" : ""}`}
       aria-label="Language"
     >
       {languages.map((item) => (
@@ -87,16 +78,16 @@ export function NinaHeader({
   );
 
   return (
-    <header className={headerClass}>
-      <NinaLogo className={brandClass} href={brandHref} variant="wordmark" />
+    <header className="nq-header">
+      <NinaLogo className="nq-brand" href={brandHref} variant="wordmark" />
 
-      <nav className={desktopClass} aria-label={menuLabel}>
+      <nav className="nq-nav" aria-label={menuLabel}>
         {renderNavigationLinks()}
       </nav>
 
       {languageLinks()}
 
-      <details className={mobileClass}>
+      <details className="nq-mobile-menu">
         <summary>{menuLabel}<span aria-hidden="true">＋</span></summary>
         <div>
           <nav aria-label={menuLabel}>{renderNavigationLinks()}</nav>

@@ -38,7 +38,7 @@ export default function PartnerPage() {
             mirada sobre cómo las organizaciones convierten intención en movimiento. Este espacio describe
             su rol público; no atribuye clientes, resultados o métricas que no estén documentados.
           </p>
-          <SourceLink href="https://site.stepup10x.com/">Conocer StepUp & Company</SourceLink>
+          <SourceLink href="https://stepupandco.com/">Conocer StepUp & Company</SourceLink>
         </div>
       </section>
 

@@ -11,7 +11,6 @@ export type LandingCopy = {
   menu: string;
   skip: string;
   hero: {
-    eyebrow: string;
     title: string;
     descriptor: string;
     thesis: string;
@@ -54,7 +53,6 @@ export type LandingCopy = {
     eyebrow: string;
     title: string;
     body: string;
-    topics: string[];
     primary: string;
     secondary: string;
   };
@@ -106,7 +104,6 @@ export const landingCopy: Record<Language, LandingCopy> = {
     menu: "Menú",
     skip: "Ir al contenido",
     hero: {
-      eyebrow: "FUNDADORA Y PRESIDENTA · CCI BRASIL–PANAMÁ / SOCIA · STEPUP & COMPANY",
       title: "Liderazgo que conecta estrategias con resultados sostenibles.",
       descriptor: "Liderazgo institucional · Relaciones estratégicas · Expansión empresarial",
       thesis: "Las oportunidades cruzan fronteras cuando existe confianza para sostenerlas.",
@@ -119,7 +116,7 @@ export const landingCopy: Record<Language, LandingCopy> = {
     proofLabel: "Evidencia y canales",
     proof: [
       { label: "CCI Brasil–Panamá", detail: "Fundadora y presidenta", href: "https://ccibrasilpanama.org/2026-lid-nina/" },
-      { label: "StepUp & Company", detail: "Socia", href: "https://site.stepup10x.com/" },
+      { label: "StepUp & Company", detail: "Socia", href: "https://stepupandco.com/" },
       { label: "Investor Lifestyle", detail: "Perspectiva publicada", href: sharedMedia[0].href },
       { label: "Telemetro", detail: "Agenda empresarial", href: sharedMedia[1].href },
     ],
@@ -161,9 +158,8 @@ export const landingCopy: Record<Language, LandingCopy> = {
     },
     ideas: {
       eyebrow: "PENSAMIENTO RECURRENTE",
-      title: "Capital & Ownership Brief",
+      title: "Executive Insights",
       body: "Un briefing editorial para CEOs, propietarios, boards, inversores y líderes institucionales que necesitan pensar mejor antes de moverse entre mercados.",
-      topics: ["Capital & Ownership", "Institutional Trust", "Across Markets", "Women & Economic Agency", "Lifestyle & Cultural Capital"],
       primary: "Suscribirse en LinkedIn",
       secondary: "Ver conversaciones en YouTube",
     },
@@ -208,7 +204,6 @@ export const landingCopy: Record<Language, LandingCopy> = {
     menu: "Menu",
     skip: "Ir para o conteúdo",
     hero: {
-      eyebrow: "FUNDADORA E PRESIDENTE · CCI BRASIL–PANAMÁ / SÓCIA · STEPUP & COMPANY",
       title: "Liderança que conecta estratégias a resultados sustentáveis.",
       descriptor: "Liderança institucional · Relações estratégicas · Expansão empresarial",
       thesis: "Oportunidades atravessam fronteiras quando existe confiança para sustentá-las.",
@@ -221,7 +216,7 @@ export const landingCopy: Record<Language, LandingCopy> = {
     proofLabel: "Evidências e canais",
     proof: [
       { label: "CCI Brasil–Panamá", detail: "Fundadora e presidente", href: "https://ccibrasilpanama.org/2026-lid-nina/" },
-      { label: "StepUp & Company", detail: "Sócia", href: "https://site.stepup10x.com/" },
+      { label: "StepUp & Company", detail: "Sócia", href: "https://stepupandco.com/" },
       { label: "Investor Lifestyle", detail: "Perspectiva publicada", href: sharedMedia[0].href },
       { label: "Telemetro", detail: "Agenda empresarial", href: sharedMedia[1].href },
     ],
@@ -263,9 +258,8 @@ export const landingCopy: Record<Language, LandingCopy> = {
     },
     ideas: {
       eyebrow: "PENSAMENTO RECORRENTE",
-      title: "Capital & Ownership Brief",
+      title: "Executive Insights",
       body: "Um briefing editorial para CEOs, proprietários, boards, investidores e líderes institucionais que precisam pensar melhor antes de se mover entre mercados.",
-      topics: ["Capital & Ownership", "Institutional Trust", "Across Markets", "Women & Economic Agency", "Lifestyle & Cultural Capital"],
       primary: "Assinar no LinkedIn",
       secondary: "Ver conversas no YouTube",
     },
@@ -310,7 +304,6 @@ export const landingCopy: Record<Language, LandingCopy> = {
     menu: "Menu",
     skip: "Skip to content",
     hero: {
-      eyebrow: "FOUNDER & PRESIDENT · CCI BRAZIL–PANAMA / PARTNER · STEPUP & COMPANY",
       title: "Leadership that connects strategy to sustainable results.",
       descriptor: "Institutional leadership · Strategic relationships · Business expansion",
       thesis: "Opportunities cross borders when trust is strong enough to sustain them.",
@@ -323,7 +316,7 @@ export const landingCopy: Record<Language, LandingCopy> = {
     proofLabel: "Evidence and channels",
     proof: [
       { label: "CCI Brazil–Panama", detail: "Founder and president", href: "https://ccibrasilpanama.org/2026-lid-nina/" },
-      { label: "StepUp & Company", detail: "Partner", href: "https://site.stepup10x.com/" },
+      { label: "StepUp & Company", detail: "Partner", href: "https://stepupandco.com/" },
       { label: "Investor Lifestyle", detail: "Published perspective", href: sharedMedia[0].href },
       { label: "Telemetro", detail: "Business agenda", href: sharedMedia[1].href },
     ],
@@ -365,9 +358,8 @@ export const landingCopy: Record<Language, LandingCopy> = {
     },
     ideas: {
       eyebrow: "RECURRENT THINKING",
-      title: "Capital & Ownership Brief",
+      title: "Executive Insights",
       body: "An editorial briefing for CEOs, owners, boards, investors and institutional leaders who need to think more clearly before moving across markets.",
-      topics: ["Capital & Ownership", "Institutional Trust", "Across Markets", "Women & Economic Agency", "Lifestyle & Cultural Capital"],
       primary: "Subscribe on LinkedIn",
       secondary: "Watch conversations on YouTube",
     },

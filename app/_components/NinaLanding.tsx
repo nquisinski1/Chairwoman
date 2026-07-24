@@ -51,7 +51,7 @@ export function NinaLanding({ language }: { language: Language }) {
       name: language === "en" ? "Brazil–Panama Chamber of Commerce and Industry" : language === "pt" ? "Câmara de Comércio e Indústria Brasil–Panamá" : "Cámara de Comercio e Industria Brasil–Panamá",
       url: "https://ccibrasilpanama.org/",
     },
-    affiliation: { "@type": "Organization", name: "StepUp & Company", url: "https://site.stepup10x.com/" },
+    affiliation: { "@type": "Organization", name: "StepUp & Company", url: "https://stepupandco.com/" },
     sameAs: [
       "https://www.linkedin.com/in/ninaquisinski/",
       "https://www.instagram.com/ninaquisinski/",
@@ -69,13 +69,11 @@ export function NinaLanding({ language }: { language: Language }) {
         brandHref={languagePaths[language]}
         menuLabel={copy.menu}
         navigation={navItems}
-        variant="home"
       />
 
       <main id="contenido">
         <section className="nq-hero" aria-labelledby="hero-title">
           <div className="nq-hero-copy">
-            <p className="nq-hero-role">{copy.hero.eyebrow}</p>
             <h1 id="hero-title">{copy.hero.title}</h1>
             <p className="nq-descriptor">{copy.hero.descriptor}</p>
             <p className="nq-hero-thesis">{copy.hero.thesis}</p>
@@ -131,18 +129,11 @@ export function NinaLanding({ language }: { language: Language }) {
             <p className="nq-eyebrow">{copy.stepup.eyebrow}</p>
             <h2 id="stepup-title">{copy.stepup.title}</h2>
             <p className="nq-lead">{copy.stepup.body}</p>
-            <a className="nq-text-link" href="https://site.stepup10x.com/" target="_blank" rel="noreferrer">{copy.stepup.cta}<Arrow /></a>
+            <a className="nq-text-link" href="https://stepupandco.com/" target="_blank" rel="noreferrer">{copy.stepup.cta}<Arrow /></a>
           </div>
           <figure>
             <img src="/images/nina-stepup-original.jpg" alt={copy.stepup.alt} loading="lazy" />
-            <figcaption>{copy.stepup.caption}</figcaption>
           </figure>
-          <div className="nq-stepup-pillars">
-            {copy.stepup.pillars.map((pillar, index) => (
-              <article key={pillar.title}><span>0{index + 1}</span><h3>{pillar.title}</h3><p>{pillar.body}</p></article>
-            ))}
-            <small>{copy.stepup.note}</small>
-          </div>
         </section>
 
         <section className="nq-ideas nq-section" id="ideas" aria-labelledby="ideas-title">
@@ -155,9 +146,6 @@ export function NinaLanding({ language }: { language: Language }) {
               <a className="nq-button nq-button-quiet" href="https://www.youtube.com/@NinaQuisinski" target="_blank" rel="noreferrer">{copy.ideas.secondary}<Arrow /></a>
             </div>
           </div>
-          <ol className="nq-topic-list">
-            {copy.ideas.topics.map((topic, index) => <li key={topic}><span>0{index + 1}</span><strong>{topic}</strong></li>)}
-          </ol>
         </section>
 
         <section className="nq-media nq-section" id="prensa" aria-labelledby="media-title">
@@ -198,11 +186,7 @@ export function NinaLanding({ language }: { language: Language }) {
         </section>
       </main>
 
-      <NinaFooter
-        language={language}
-        evidence={copy.footer.evidence}
-        rights={copy.footer.rights}
-      />
+      <NinaFooter language={language} />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
     </div>

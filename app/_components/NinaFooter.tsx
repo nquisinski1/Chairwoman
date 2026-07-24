@@ -8,9 +8,6 @@ type FooterLink = {
 
 type NinaFooterProps = {
   language: Language;
-  evidence: string;
-  rights: string;
-  hideLegal?: boolean;
 };
 
 const homePaths: Record<Language, string> = { es: "/", pt: "/pt/", en: "/en/" };
@@ -67,9 +64,6 @@ const labels = {
 
 export function NinaFooter({
   language,
-  evidence,
-  rights,
-  hideLegal = false,
 }: NinaFooterProps) {
   const copy = labels[language];
   const columns: Array<{ title: string; links: FooterLink[] }> = [
@@ -103,7 +97,7 @@ export function NinaFooter({
           href: "https://ccibrasilpanama.org/2026-lid-nina/",
           external: true,
         },
-        { label: copy.stepup, href: "https://site.stepup10x.com/", external: true },
+        { label: copy.stepup, href: "https://stepupandco.com/", external: true },
       ],
     },
     {
@@ -139,14 +133,6 @@ export function NinaFooter({
           </nav>
         ))}
       </div>
-
-      {!hideLegal && (
-        <div className="nina-footer-legal">
-          <span>© 2026 Nina Quisinski</span>
-          <span>{evidence}</span>
-          <span>{rights}</span>
-        </div>
-      )}
     </footer>
   );
 }

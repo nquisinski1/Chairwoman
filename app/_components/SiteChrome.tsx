@@ -1,41 +1,20 @@
 import type { ReactNode } from "react";
 import { NinaLogo } from "./NinaLogo";
-import { getPrimaryNavigation } from "./NinaHeader";
+import { getPrimaryNavigation, NinaHeader } from "./NinaHeader";
 
-export function SiteHeader({ active }: { active: string }) {
+const languagePaths = { es: "/", pt: "/pt/", en: "/en/" } as const;
+
+export function SiteHeader() {
   const navigation = getPrimaryNavigation("es");
 
   return (
-    <header className="site-header">
-      <NinaLogo className="brand" variant="wordmark" />
-
-      <nav className="desktop-nav" aria-label="Navegación principal">
-        {navigation.map((item) => (
-          <a
-            className={active === item.key ? "active" : undefined}
-            href={item.href}
-            key={item.key}
-          >
-            {item.label}
-          </a>
-        ))}
-      </nav>
-
-      <details className="mobile-nav">
-        <summary aria-label="Abrir menú"><span>Menú</span><i aria-hidden="true">＋</i></summary>
-        <nav aria-label="Navegación móvil">
-          {navigation.map((item) => (
-            <a
-              className={active === item.key ? "active" : undefined}
-              href={item.href}
-              key={item.key}
-            >
-              {item.label}
-            </a>
-          ))}
-        </nav>
-      </details>
-    </header>
+    <NinaHeader
+      language="es"
+      languagePaths={languagePaths}
+      brandHref="/"
+      menuLabel="Menú"
+      navigation={navigation}
+    />
   );
 }
 
@@ -53,7 +32,7 @@ export function SiteFooter() {
         <a href="https://ccibrasilpanama.org/" target="_blank" rel="noreferrer">
           CCI Brasil–Panamá
         </a>
-        <a href="https://site.stepup10x.com/" target="_blank" rel="noreferrer">
+        <a href="https://stepupandco.com/" target="_blank" rel="noreferrer">
           StepUp & Company
         </a>
       </div>
@@ -74,8 +53,8 @@ export function PageShell({
 }) {
   return (
     <>
-      <SiteHeader active={active} />
-      <main>{children}</main>
+      <SiteHeader />
+      <main data-page={active}>{children}</main>
       <SiteFooter />
     </>
   );
