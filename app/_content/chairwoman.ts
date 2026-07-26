@@ -32,6 +32,7 @@ export type ChairwomanCopy = {
     record: string;
     letters: string;
     protocol: string;
+    press: string;
     chamber: string;
   };
   hero: {
@@ -43,11 +44,15 @@ export type ChairwomanCopy = {
     primary: string;
     secondary: string;
     alt: string;
+    portraitAlt: string;
   };
+  authorityLabel: string;
+  authority: string[];
   mandate: {
     title: string;
     lead: string;
     body: string;
+    alt: string;
     pillars: Pillar[];
   };
   record: {
@@ -70,7 +75,15 @@ export type ChairwomanCopy = {
     labels: Pillar[];
     note: string;
   };
+  press: {
+    title: string;
+    body: string;
+    alt: string;
+    action: string;
+    href: string;
+  };
   chamber: {
+    organization: string;
     title: string;
     body: string;
     primary: string;
@@ -121,22 +134,27 @@ export const chairwomanCopy: Record<Language, ChairwomanCopy> = {
       record: "Trayectoria",
       letters: "Cartas",
       protocol: "Criterio",
+      press: "Prensa",
       chamber: "Cámara oficial",
     },
     hero: {
-      role: "Fundadora y presidenta · Cámara de Comercio e Industria Brasil–Panamá",
+      role: "Fundadora y presidenta de la Cámara de Comercio e Industria Brasil–Panamá",
       titleBefore: "Liderar es hacer que la",
       titleAccent: "confianza",
       titleAfter: "llegue antes que la oportunidad.",
       descriptor: "Relaciones institucionales al servicio de una agenda empresarial entre Brasil y Panamá.",
       primary: "Conocer el mandato",
       secondary: "Ir a la Cámara oficial",
-      alt: "Nina Quisinski hablando en un encuentro institucional en Panamá",
+      alt: "Nina Quisinski atendiendo a la prensa durante Panama Business & Investors’ Day 2025",
+      portraitAlt: "Retrato oficial de Nina Quisinski",
     },
+    authorityLabel: "Territorios de autoridad institucional",
+    authority: ["Fundación y presidencia", "Agenda Brasil–Panamá", "Relaciones institucionales", "Evidencia documental"],
     mandate: {
       title: "Una presidencia construida para conectar dos mercados.",
       lead: "La Cámara existe para convertir proximidad entre países en una agenda empresarial con continuidad.",
       body: "Como fundadora y presidenta, Nina ocupa una posición institucional: convoca conversaciones, articula contextos y representa una agenda bilateral. Esta página presenta ese trabajo por medio de hechos documentados, no de promesas de acceso ni de avales personales.",
+      alt: "Nina Quisinski representando una agenda institucional junto a la bandera de Panamá",
       pillars: [
         {
           title: "Agenda bilateral",
@@ -269,7 +287,15 @@ export const chairwomanCopy: Record<Language, ChairwomanCopy> = {
       ],
       note: "Criterio editorial permanente para publicaciones, prensa, redes y colaboraciones vinculadas con la Presidencia.",
     },
+    press: {
+      title: "Una agenda que también queda registrada.",
+      body: "La cobertura pública permite evaluar el mandato en su contexto original: relaciones bilaterales, encuentros institucionales y conversaciones empresariales documentadas.",
+      alt: "Nina Quisinski hablando durante Panama Business & Investors’ Day 2025",
+      action: "Ver registro original",
+      href: sources.pbid,
+    },
     chamber: {
+      organization: "Cámara de Comercio e Industria Brasil–Panamá",
       title: "La historia completa pertenece al archivo oficial de la Cámara.",
       body: "Nina amplifica esa agenda desde su marca personal y dirige siempre al originador para preservar la integridad de documentos, reconocimientos y actividades institucionales.",
       primary: "Visitar la Cámara oficial",
@@ -290,22 +316,27 @@ export const chairwomanCopy: Record<Language, ChairwomanCopy> = {
       record: "Histórico",
       letters: "Cartas",
       protocol: "Critério",
+      press: "Imprensa",
       chamber: "Câmara oficial",
     },
     hero: {
-      role: "Fundadora e presidente · Câmara de Comércio e Indústria Brasil–Panamá",
+      role: "Fundadora e presidente da Câmara de Comércio e Indústria Brasil–Panamá",
       titleBefore: "Liderar é fazer a",
       titleAccent: "confiança",
       titleAfter: "chegar antes da oportunidade.",
       descriptor: "Relações institucionais a serviço de uma agenda empresarial entre Brasil e Panamá.",
       primary: "Conhecer o mandato",
       secondary: "Ir para a Câmara oficial",
-      alt: "Nina Quisinski falando em um encontro institucional no Panamá",
+      alt: "Nina Quisinski atendendo à imprensa durante o Panama Business & Investors’ Day 2025",
+      portraitAlt: "Retrato oficial de Nina Quisinski",
     },
+    authorityLabel: "Territórios de autoridade institucional",
+    authority: ["Fundação e presidência", "Agenda Brasil–Panamá", "Relações institucionais", "Evidência documental"],
     mandate: {
       title: "Uma presidência construída para conectar dois mercados.",
       lead: "A Câmara existe para transformar proximidade entre países em uma agenda empresarial com continuidade.",
       body: "Como fundadora e presidente, Nina ocupa uma posição institucional: convoca conversas, articula contextos e representa uma agenda bilateral. Esta página apresenta esse trabalho por meio de fatos documentados, não de promessas de acesso nem de endossos pessoais.",
+      alt: "Nina Quisinski representando uma agenda institucional junto à bandeira do Panamá",
       pillars: [
         {
           title: "Agenda bilateral",
@@ -438,7 +469,15 @@ export const chairwomanCopy: Record<Language, ChairwomanCopy> = {
       ],
       note: "Critério editorial permanente para publicações, imprensa, redes e colaborações ligadas à Presidência.",
     },
+    press: {
+      title: "Uma agenda que também fica registrada.",
+      body: "A cobertura pública permite avaliar o mandato em seu contexto original: relações bilaterais, encontros institucionais e conversas empresariais documentadas.",
+      alt: "Nina Quisinski falando durante o Panama Business & Investors’ Day 2025",
+      action: "Ver registro original",
+      href: sources.pbid,
+    },
     chamber: {
+      organization: "Câmara de Comércio e Indústria Brasil–Panamá",
       title: "A história completa pertence ao arquivo oficial da Câmara.",
       body: "Nina amplifica essa agenda a partir da sua marca pessoal e remete sempre ao originador para preservar a integridade de documentos, reconhecimentos e atividades institucionais.",
       primary: "Visitar a Câmara oficial",
@@ -459,22 +498,27 @@ export const chairwomanCopy: Record<Language, ChairwomanCopy> = {
       record: "Record",
       letters: "Letters",
       protocol: "Standard",
+      press: "Press",
       chamber: "Official Chamber",
     },
     hero: {
-      role: "Founder and president · Brazil–Panama Chamber of Commerce and Industry",
+      role: "Founder and president of the Brazil–Panama Chamber of Commerce and Industry",
       titleBefore: "Leadership makes",
       titleAccent: "trust",
       titleAfter: "arrive before opportunity.",
       descriptor: "Institutional relationships in service of a business agenda between Brazil and Panama.",
       primary: "Explore the mandate",
       secondary: "Go to the official Chamber",
-      alt: "Nina Quisinski speaking at an institutional event in Panama",
+      alt: "Nina Quisinski speaking with the press at Panama Business & Investors’ Day 2025",
+      portraitAlt: "Official portrait of Nina Quisinski",
     },
+    authorityLabel: "Institutional authority territories",
+    authority: ["Foundation and presidency", "Brazil–Panama agenda", "Institutional relations", "Documentary evidence"],
     mandate: {
       title: "A presidency built to connect two markets.",
       lead: "The Chamber exists to turn proximity between countries into a business agenda with continuity.",
       body: "As founder and president, Nina holds an institutional position: she convenes conversations, connects contexts and represents a bilateral agenda. This page presents that work through documented facts—not promises of access or personal endorsement.",
+      alt: "Nina Quisinski representing an institutional agenda beside the flag of Panama",
       pillars: [
         {
           title: "Bilateral agenda",
@@ -607,7 +651,15 @@ export const chairwomanCopy: Record<Language, ChairwomanCopy> = {
       ],
       note: "A permanent editorial standard for publications, press, social channels and collaborations connected with the Presidency.",
     },
+    press: {
+      title: "An agenda that is also placed on record.",
+      body: "Public coverage makes it possible to assess the mandate in its original context: bilateral relations, institutional meetings and documented business conversations.",
+      alt: "Nina Quisinski speaking during Panama Business & Investors’ Day 2025",
+      action: "View original record",
+      href: sources.pbid,
+    },
     chamber: {
+      organization: "Brazil–Panama Chamber of Commerce and Industry",
       title: "The full history belongs to the Chamber’s official archive.",
       body: "Nina amplifies that agenda through her personal brand and always points back to the originator, preserving the integrity of documents, recognitions and institutional activity.",
       primary: "Visit the official Chamber",
@@ -653,9 +705,9 @@ export function chairwomanMetadata(language: Language): Metadata {
       description: descriptions[language],
       images: [
         {
-          url: "/images/nina-chairwoman-original.jpg",
-          width: 2400,
-          height: 1800,
+          url: "/images/nina-chairwoman-opening-2025.jpg",
+          width: 1440,
+          height: 1349,
           alt: chairwomanCopy[language].hero.alt,
         },
       ],

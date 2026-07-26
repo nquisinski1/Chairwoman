@@ -18,6 +18,7 @@
 /.next/
 /.vinext/
 /out/
+/node_modules.partial-*/
 
 # misc
 .DS_Store

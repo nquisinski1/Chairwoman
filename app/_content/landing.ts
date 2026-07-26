@@ -53,6 +53,7 @@ export type LandingCopy = {
     eyebrow: string;
     title: string;
     body: string;
+    alt: string;
     primary: string;
     secondary: string;
   };
@@ -60,6 +61,7 @@ export type LandingCopy = {
     eyebrow: string;
     title: string;
     intro: string;
+    alt: string;
     items: Array<{ outlet: string; date: string; title: string; href: string }>;
   };
   lifestyle: {
@@ -160,6 +162,7 @@ export const landingCopy: Record<Language, LandingCopy> = {
       eyebrow: "PENSAMIENTO RECURRENTE",
       title: "Executive Insights",
       body: "Un briefing editorial para CEOs, propietarios, boards, inversores y líderes institucionales que necesitan pensar mejor antes de moverse entre mercados.",
+      alt: "Nina Quisinski en una conversación editorial sobre liderazgo y mercados",
       primary: "Suscribirse en LinkedIn",
       secondary: "Ver conversaciones en YouTube",
     },
@@ -167,6 +170,7 @@ export const landingCopy: Record<Language, LandingCopy> = {
       eyebrow: "PRENSA Y REGISTRO",
       title: "Presencia que deja evidencia.",
       intro: "Apariciones verificadas que permiten evaluar el mandato y el pensamiento de Nina en su contexto original.",
+      alt: "Nina Quisinski presentando una agenda empresarial durante Panama Business & Investors’ Day",
       items: [
         { ...sharedMedia[0], title: "Panamá y Brasil construyen un puente estratégico global" },
         { ...sharedMedia[1], title: "Panamá y Brasil anuncian su primer foro comercial" },
@@ -260,6 +264,7 @@ export const landingCopy: Record<Language, LandingCopy> = {
       eyebrow: "PENSAMENTO RECORRENTE",
       title: "Executive Insights",
       body: "Um briefing editorial para CEOs, proprietários, boards, investidores e líderes institucionais que precisam pensar melhor antes de se mover entre mercados.",
+      alt: "Nina Quisinski em uma conversa editorial sobre liderança e mercados",
       primary: "Assinar no LinkedIn",
       secondary: "Ver conversas no YouTube",
     },
@@ -267,6 +272,7 @@ export const landingCopy: Record<Language, LandingCopy> = {
       eyebrow: "IMPRENSA E REGISTRO",
       title: "Presença que deixa evidência.",
       intro: "Aparições verificadas que permitem avaliar o mandato e o pensamento de Nina em seu contexto original.",
+      alt: "Nina Quisinski apresentando uma agenda empresarial durante o Panama Business & Investors’ Day",
       items: [
         { ...sharedMedia[0], title: "Panamá e Brasil constroem uma ponte estratégica global" },
         { ...sharedMedia[1], title: "Panamá e Brasil anunciam seu primeiro fórum comercial" },
@@ -331,7 +337,7 @@ export const landingCopy: Record<Language, LandingCopy> = {
       ],
     },
     mandate: {
-      eyebrow: "CHAIRMANSHIP",
+      eyebrow: "PRESIDENCY",
       title: "A business agenda between Brazil and Panama.",
       body: "Nina is founder and president of the Brazil–Panama Chamber of Commerce and Industry. Through that mandate, she connects companies, institutions and conversations that demand fluency in both markets.",
       alt: "Nina Quisinski speaking with the press during a CCI Brazil–Panama agenda",
@@ -360,6 +366,7 @@ export const landingCopy: Record<Language, LandingCopy> = {
       eyebrow: "RECURRENT THINKING",
       title: "Executive Insights",
       body: "An editorial briefing for CEOs, owners, boards, investors and institutional leaders who need to think more clearly before moving across markets.",
+      alt: "Nina Quisinski in an editorial conversation about leadership and markets",
       primary: "Subscribe on LinkedIn",
       secondary: "Watch conversations on YouTube",
     },
@@ -367,6 +374,7 @@ export const landingCopy: Record<Language, LandingCopy> = {
       eyebrow: "PRESS AND RECORD",
       title: "Presence that leaves evidence.",
       intro: "Verified appearances that allow readers to evaluate Nina's mandate and thinking in their original context.",
+      alt: "Nina Quisinski presenting a business agenda during Panama Business & Investors’ Day",
       items: [
         { ...sharedMedia[0], title: "Panama and Brazil build a strategic global bridge" },
         { ...sharedMedia[1], title: "Panama and Brazil announce their first trade forum" },
@@ -424,7 +432,7 @@ export function metadataFor(language: Language, path: string): Metadata {
       url: path,
       title: titles[language],
       description: descriptions[language],
-      images: [{ url: "/images/nina-hero-original.jpg", width: 2400, height: 1600, alt: landingCopy[language].hero.alt }],
+      images: [{ url: "/images/nina-official-portrait.jpg", width: 1142, height: 1600, alt: landingCopy[language].hero.alt }],
     },
   };
 }

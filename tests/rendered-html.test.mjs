@@ -60,7 +60,7 @@ test("contains multilingual SEO, structured data and launch safety", async () =>
   assert.match(source, /application\/ld\+json/i);
   assert.match(source, /"@type":"Person"/);
   assert.match(source, /name="robots" content="noindex, nofollow, noarchive"/i);
-  assert.match(source, /nina-hero-original\.jpg/);
+  assert.match(source, /nina-official-portrait\.jpg/);
 });
 
 test("does not publish blocked claims, fake metrics or template debris", async () => {
@@ -82,6 +82,12 @@ test("ships required real assets and static Hostinger output", async () => {
     "images/nina-chairwoman-original.jpg",
     "images/nina-stepup-original.jpg",
     "images/nina-lifestyle-original.jpg",
+    "images/nina-official-portrait.jpg",
+    "images/nina-chairwoman-mandate.jpg",
+    "images/nina-stepup-meeting.jpg",
+    "images/nina-insights-stage.jpg",
+    "images/nina-lifestyle-bilateral.jpg",
+    "images/nina-press-pbid.jpg",
     "logos/stepup-co-white.png",
     "logos/cci-brasil-panama-white-horizontal.png",
     "logos/investor-lifestyle.png",
@@ -98,35 +104,30 @@ test("keeps the approved color territories explicit in the design system", async
   const css = await readFile(new URL("app/globals.css", project), "utf8");
 
   assert.match(css, /--burgundy:\s*#4b1f2a/i);
-  assert.match(css, /--beige:\s*#ebe0d3/i);
-  assert.match(css, /--green:\s*#17351f/i);
+  assert.match(css, /--ivory:\s*#f7f2eb/i);
+  assert.match(css, /--forest-green:\s*#17351f/i);
   assert.match(css, /--rose-gold:\s*#b77a76/i);
   assert.match(css, /--rose-gold-light:\s*#e5c6c1/i);
   assert.match(css, /--rose-gold-dark:\s*#8f5552/i);
-  assert.match(css, /--blue:\s*#aec1d3/i);
-  assert.match(css, /--lux-black:\s*#090909/i);
-  assert.match(css, /--lux-charcoal:\s*#212121/i);
-  assert.match(css, /--lux-navy:\s*#0f141e/i);
-  assert.match(css, /--lux-purple:\s*#28191e/i);
-  assert.match(css, /--lux-saddle:\s*#302013/i);
-  assert.match(css, /--lux-off-white:\s*#dad0b8/i);
+  assert.match(css, /--mineral-blue:\s*#2d4f5a/i);
+  assert.match(css, /--graphite:\s*#212121/i);
   assert.match(css, /\.nq-header\s*\{[^}]*background:\s*rgba\(247,\s*242,\s*235,\s*0\.97\)/s);
   assert.match(css, /\.nq-nav a\s*\{[^}]*color:\s*rgba\(15,\s*20,\s*30,\s*0\.68\)/s);
   assert.match(css, /\.nq-hero h1\s*\{[^}]*color:\s*var\(--blue-deep\)/s);
-  assert.doesNotMatch(css, /\.nq-hero-role\s*\{/);
+  assert.match(css, /\.cw-hero-role\s*\{/);
   assert.match(css, /\.nq-hero \.nq-button-primary\s*\{[^}]*background:\s*var\(--rose-gold\)/s);
   assert.doesNotMatch(css, /\.nq-proof(?:\s|[-{])/);
-  assert.match(css, /\.site-header\s*\{[^}]*background:\s*var\(--lux-navy\)/s);
+  assert.match(css, /\.site-header\s*\{[^}]*background:\s*var\(--graphite\)/s);
   assert.match(css, /\.nq-mandate\s*\{[^}]*background:\s*var\(--burgundy-deep\)/s);
-  assert.match(css, /\.nq-stepup\s*\{[^}]*background:\s*var\(--beige\)/s);
-  assert.match(css, /\.nq-ideas\s*\{[^}]*background:\s*var\(--lux-navy\)/s);
+  assert.match(css, /\.nq-stepup\s*\{[^}]*background:\s*var\(--ivory-deep\)/s);
+  assert.match(css, /\.nq-ideas\s*\{[^}]*background:\s*var\(--forest-green\)/s);
   assert.match(css, /\.nq-ideas \.nq-button-primary\s*\{[^}]*background:\s*var\(--rose-gold\)/s);
-  assert.match(css, /\.nq-executive\s*\{[^}]*background:\s*var\(--lux-navy\)/s);
+  assert.match(css, /\.nq-executive\s*\{[^}]*background:\s*var\(--graphite\)/s);
   assert.match(css, /\.nq-executive li > span\s*\{[^}]*color:\s*var\(--rose-gold\)/s);
   assert.match(css, /\.nq-media\s*\{[^}]*background:\s*var\(--paper\)/s);
   assert.match(css, /\.nq-media-heading h2\s*\{[^}]*color:\s*var\(--blue-deep\)/s);
   assert.match(css, /\.nq-media-list span\s*\{[^}]*color:\s*var\(--rose-gold-dark\)/s);
-  assert.match(css, /\.nq-lifestyle\s*\{[^}]*background:\s*var\(--lux-navy\)/s);
+  assert.match(css, /\.nq-lifestyle\s*\{[^}]*background:\s*var\(--forest-green\)/s);
   assert.doesNotMatch(css, /--(?:lux-)?gold(?:-light|-ink)?:/i);
   assert.doesNotMatch(css, /rgba\(194,\s*163,\s*103,/i);
 });
@@ -171,22 +172,28 @@ test("exports the Chairwoman page in Spanish, Portuguese and English", async () 
   assert.match(es.slice(0, 80), /<html lang="es-PA">/i);
   assert.match(es, /Liderar es hacer que la/);
   assert.match(es, /Cuando una institución escribe, el contexto importa/);
-  assert.match(es, /Una fotografía registra una agenda/);
+  assert.match(es, /Una agenda que también queda registrada/);
+  assert.match(es, /Fundación y presidencia/);
   assert.match(es, /\/pt\/chairwoman\//);
   assert.match(es, /\/en\/chairwoman\//);
 
   assert.match(pt.slice(0, 80), /<html lang="pt-BR">/i);
   assert.match(pt, /Liderar é fazer a/);
   assert.match(pt, /Quando uma instituição escreve, o contexto importa/);
-  assert.match(pt, /Uma fotografia registra uma agenda/);
+  assert.match(pt, /Uma agenda que também fica registrada/);
+  assert.match(pt, /Fundação e presidência/);
 
   assert.match(en.slice(0, 80), /<html lang="en-US">/i);
   assert.match(en, /Leadership makes/);
   assert.match(en, /When an institution writes, context matters/);
-  assert.match(en, /A photograph records an agenda/);
+  assert.match(en, /An agenda that is also placed on record/);
+  assert.match(en, /Foundation and presidency/);
 
   for (const source of [es, pt, en]) {
-    assert.match(source, /nina-chairwoman-original\.jpg/);
+    assert.match(source, /nina-chairwoman-opening-2025\.jpg/);
+    assert.match(source, /nina-official-portrait\.jpg/);
+    assert.match(source, /nina-chairwoman-mandate\.jpg/);
+    assert.match(source, /nina-press-pbid\.jpg/);
     assert.match(source, /ccibrasilpanama\.org\/2026-lid-nina/);
     assert.match(source, /ccibrasilpanama\.org\/2026-camara\/#honras/);
     assert.match(source, /mici\.gob\.pa\/2025\/08\/18/);
@@ -204,10 +211,12 @@ test("exports the Chairwoman page in Spanish, Portuguese and English", async () 
     assert.doesNotMatch(source, /(?:Cargo, trayectoria|Cargo, trajetória|Role, record).*revisad|reviewed against/i);
     assert.equal(count(source, /class="cw-emblem(?:\s|")/g), 0);
     assert.equal(count(source, /class="nq-monogram(?:\s|")/g), 0);
-    assert.match(source, /class="nina-logo__wordmark"[^>]*><span>NINA<\/span><strong>QUISINSKI<\/strong>/);
-    assert.doesNotMatch(source, /class="nina-logo__signature"/);
+    assert.match(source, /class="cw-signature">Nina Quisinski<\/p>/);
+    assert.doesNotMatch(source, /class="nina-logo__(?:wordmark|signature)"/);
+    assert.ok(count(source, /nina-chairwoman-mark\.svg/g) >= 2);
+    assert.doesNotMatch(source, /StepUp|Lifestyle|Newsletter|collaboration/i);
     assert.equal(count(source, /<h1\b/gi), 1);
-    assert.equal(count(source, /<img\b/gi), 1);
+    assert.equal(count(source, /<img\b/gi), 6);
   }
 });
 
@@ -223,22 +232,18 @@ test("links each home language to its dedicated Chairwoman route", async () => {
   assert.match(en, /href="\/en\/chairwoman\/"/);
 });
 
-test("renders the standardized header and shared editorial footer", async () => {
-  const [home, chairwoman, lifestyle, headerComponent, siteChrome] = await Promise.all([
+test("renders the shared home shell and the dedicated Chairwoman institutional shell", async () => {
+  const [home, chairwoman, headerComponent] = await Promise.all([
     html("pt/index.html"),
     html("pt/chairwoman/index.html"),
-    html("lifestyle/index.html"),
     readFile(new URL("app/_components/NinaHeader.tsx", project), "utf8"),
-    readFile(new URL("app/_components/SiteChrome.tsx", project), "utf8"),
   ]);
 
-  for (const source of [home, chairwoman]) {
-    assert.match(source, /class="nina-footer"/);
-    assert.match(source, /Explorar/);
-    assert.match(source, /Conteúdo/);
-    assert.match(source, /Institucional/);
-    assert.match(source, /Canais/);
-  }
+  assert.match(home, /class="nina-footer"/);
+  assert.match(home, /Explorar/);
+  assert.match(home, /Conteúdo/);
+  assert.match(home, /Institucional/);
+  assert.match(home, /Canais/);
 
   assert.doesNotMatch(home, /class="nina-footer-legal"/);
   assert.doesNotMatch(home, /class="nina-footer-display"/);
@@ -246,37 +251,42 @@ test("renders the standardized header and shared editorial footer", async () => 
   assert.doesNotMatch(chairwoman, /class="nina-footer-display"/);
   assert.doesNotMatch(chairwoman, /class="nina-footer-statement"/);
   assert.doesNotMatch(chairwoman, /class="nina-footer-legal"/);
+  assert.doesNotMatch(chairwoman, /class="nina-footer"/);
+  assert.match(chairwoman, /<header class="cw-chair-header">/);
+  assert.match(chairwoman, /<footer class="cw-chair-footer">/);
+  assert.match(chairwoman, /nina-chairwoman-mark\.svg/);
   assert.doesNotMatch(home, /class="nq-stepup-pillars"/);
   assert.doesNotMatch(home, /CONVERSA EMPRESARIAL/);
-  assert.doesNotMatch(chairwoman, /class="cw-hero-role"/);
+  assert.match(chairwoman, /class="cw-hero-role"/);
   assert.doesNotMatch(chairwoman, /class="cw-emblem/);
 
   assert.match(headerComponent, /navigation:\s*HeaderNavigationItem\[\]/);
   assert.doesNotMatch(headerComponent, /variant:\s*"home"\s*\|\s*"chairwoman"/);
   assert.match(headerComponent, /languagePaths:\s*Record<Language,\s*string>/);
   assert.match(headerComponent, /export function getPrimaryNavigation/);
-  assert.match(siteChrome, /<NinaHeader/);
-  assert.match(siteChrome, /getPrimaryNavigation\("es"\)/);
+  assert.match(home, /<header class="nq-header">/);
+  const chairwomanIndex = home.indexOf(">Chairwoman<");
+  const stepupIndex = home.indexOf(">StepUp &amp; Co<");
+  const insightsIndex = home.indexOf(">Insights &amp; Newsletter<");
+  const lifestyleIndex = home.indexOf(">Lifestyle<");
+  const pressIndex = home.indexOf(">Imprensa<");
+  assert.ok(chairwomanIndex >= 0);
+  assert.ok(chairwomanIndex < stepupIndex);
+  assert.ok(stepupIndex < insightsIndex);
+  assert.ok(insightsIndex < lifestyleIndex);
+  assert.ok(lifestyleIndex < pressIndex);
 
-  for (const [source, pressLabel] of [
-    [home, "Imprensa"],
-    [chairwoman, "Imprensa"],
-    [lifestyle, "Prensa"],
-  ]) {
-    assert.match(source, /<header class="nq-header">/);
-    assert.doesNotMatch(source, /<header class="(?:cw-header|site-header)">/);
-    const chairwomanIndex = source.indexOf(">Chairwoman<");
-    const stepupIndex = source.indexOf(">StepUp &amp; Co<");
-    const insightsIndex = source.indexOf(">Insights &amp; Newsletter<");
-    const lifestyleIndex = source.indexOf(">Lifestyle<");
-    const pressIndex = source.indexOf(`>${pressLabel}<`);
-
-    assert.ok(chairwomanIndex >= 0);
-    assert.ok(chairwomanIndex < stepupIndex);
-    assert.ok(stepupIndex < insightsIndex);
-    assert.ok(insightsIndex < lifestyleIndex);
-    assert.ok(lifestyleIndex < pressIndex);
-  }
+  const mandateIndex = chairwoman.indexOf(">O mandato<");
+  const recordIndex = chairwoman.indexOf(">Histórico<");
+  const lettersIndex = chairwoman.indexOf(">Cartas<");
+  const chairPressIndex = chairwoman.indexOf(">Imprensa<");
+  const chamberIndex = chairwoman.indexOf(">Câmara oficial");
+  assert.ok(mandateIndex >= 0);
+  assert.ok(mandateIndex < recordIndex);
+  assert.ok(recordIndex < lettersIndex);
+  assert.ok(lettersIndex < chairPressIndex);
+  assert.ok(chairPressIndex < chamberIndex);
+  assert.doesNotMatch(chairwoman, /StepUp|Lifestyle|Newsletter|collaboration/i);
 });
 
 test("keeps the Chairwoman page inside the burgundy ivory and rose-gold territory", async () => {

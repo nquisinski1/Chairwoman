@@ -1,4 +1,4 @@
-import { readFile, writeFile } from "node:fs/promises";
+import { readFile, readdir, rm, writeFile } from "node:fs/promises";
 
 const pages = [
   ["out/index.html", "es-PA"],
@@ -20,3 +20,16 @@ for (const [path, language] of pages) {
   const localized = source.replace(htmlTag[0], `<html lang="${language}">`);
   await writeFile(path, localized);
 }
+
+async function removeAppleDouble(directory) {
+  for (const entry of await readdir(directory, { withFileTypes: true })) {
+    const path = `${directory}/${entry.name}`;
+    if (entry.name.startsWith("._")) {
+      await rm(path, { force: true });
+    } else if (entry.isDirectory()) {
+      await removeAppleDouble(path);
+    }
+  }
+}
+
+await removeAppleDouble("out");

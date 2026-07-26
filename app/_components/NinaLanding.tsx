@@ -44,7 +44,7 @@ export function NinaLanding({ language }: { language: Language }) {
     name: "Nina Quisinski",
     alternateName: "Janaina Tobia Quisinski",
     url: "https://ninaquisinski.com/",
-    image: "https://ninaquisinski.com/images/nina-hero-original.jpg",
+    image: "https://ninaquisinski.com/images/nina-official-portrait.jpg",
     jobTitle: language === "en" ? "Founder and President" : language === "pt" ? "Fundadora e Presidente" : "Fundadora y Presidenta",
     worksFor: {
       "@type": "Organization",
@@ -83,7 +83,7 @@ export function NinaLanding({ language }: { language: Language }) {
           </div>
 
           <figure className="nq-hero-visual">
-            <img src="/images/nina-hero-original.jpg" alt={copy.hero.alt} fetchPriority="high" />
+            <img src="/images/nina-official-portrait.jpg" alt={copy.hero.alt} fetchPriority="high" />
           </figure>
         </section>
 
@@ -104,7 +104,7 @@ export function NinaLanding({ language }: { language: Language }) {
 
         <section className="nq-mandate nq-section" id="presidencia" aria-labelledby="mandate-title">
           <figure className="nq-documentary-photo">
-            <img src="/images/nina-chairwoman-original.jpg" alt={copy.mandate.alt} loading="lazy" />
+            <img src="/images/nina-chairwoman-mandate.jpg" alt={copy.mandate.alt} loading="lazy" />
             <figcaption>{copy.mandate.caption}</figcaption>
           </figure>
           <div className="nq-mandate-copy">
@@ -132,11 +132,14 @@ export function NinaLanding({ language }: { language: Language }) {
             <a className="nq-text-link" href="https://stepupandco.com/" target="_blank" rel="noreferrer">{copy.stepup.cta}<Arrow /></a>
           </div>
           <figure>
-            <img src="/images/nina-stepup-original.jpg" alt={copy.stepup.alt} loading="lazy" />
+            <img src="/images/nina-stepup-meeting.jpg" alt={copy.stepup.alt} loading="lazy" />
           </figure>
         </section>
 
         <section className="nq-ideas nq-section" id="ideas" aria-labelledby="ideas-title">
+          <figure className="nq-ideas-visual">
+            <img src="/images/nina-insights-stage.jpg" alt={copy.ideas.alt} loading="lazy" />
+          </figure>
           <div className="nq-ideas-copy">
             <p className="nq-eyebrow nq-eyebrow-terra">{copy.ideas.eyebrow}</p>
             <h2 id="ideas-title">{copy.ideas.title}</h2>
@@ -153,6 +156,9 @@ export function NinaLanding({ language }: { language: Language }) {
             <p className="nq-eyebrow nq-eyebrow-terra">{copy.media.eyebrow}</p>
             <h2 id="media-title">{copy.media.title}</h2>
             <p>{copy.media.intro}</p>
+            <figure className="nq-media-evidence">
+              <img src="/images/nina-press-pbid.jpg" alt={copy.media.alt} loading="lazy" />
+            </figure>
           </div>
           <div className="nq-media-list">
             {copy.media.items.map((item) => (
@@ -164,7 +170,7 @@ export function NinaLanding({ language }: { language: Language }) {
         </section>
 
         <section className="nq-lifestyle nq-section" id="lifestyle" aria-labelledby="lifestyle-title">
-          <figure><img src="/images/nina-lifestyle-original.jpg" alt={copy.lifestyle.alt} loading="lazy" /></figure>
+          <figure><img src="/images/nina-lifestyle-bilateral.jpg" alt={copy.lifestyle.alt} loading="lazy" /></figure>
           <div className="nq-lifestyle-copy">
             <p className="nq-eyebrow">{copy.lifestyle.eyebrow}</p>
             <h2 id="lifestyle-title">{copy.lifestyle.title}</h2>
