@@ -1,8 +1,8 @@
-import { NinaLanding } from "./_components/NinaLanding";
-import { metadataFor } from "./_content/landing";
+import { ChairwomanLanding } from "./_components/ChairwomanLanding";
+import { chairwomanMetadata } from "./_content/chairwoman";
 
-export const metadata = metadataFor("es", "/");
+export const metadata = chairwomanMetadata("es");
 
 export default function Home() {
-  return <NinaLanding language="es" />;
+  return <ChairwomanLanding language="es" />;
 }

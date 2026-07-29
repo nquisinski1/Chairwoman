@@ -1,8 +1,5 @@
-import { ChairwomanLanding } from "../_components/ChairwomanLanding";
-import { chairwomanMetadata } from "../_content/chairwoman";
-
-export const metadata = chairwomanMetadata("es");
+import { redirect } from "next/navigation";
 
 export default function ChairwomanPage() {
-  return <ChairwomanLanding language="es" />;
+  redirect("/");
 }

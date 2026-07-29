@@ -1,36 +1,34 @@
-# ninaquisinski.com
+# Nina Quisinski — Chairwoman
 
-Landing editorial trilingüe de Nina Quisinski. Construye autoridad pública con fotografía documental, roles verificables, pensamiento propio y prueba institucional, sin fabricar notoriedad ni endorsements.
+Site institucional e editorial exclusivo da presidência de Nina Quisinski na Câmara de Comércio e Indústria Brasil–Panamá.
 
-Registro operativo: [docs/PROJECT_REGISTRY.md](docs/PROJECT_REGISTRY.md).
+**Domínio canônico:** `https://chairwoman.ninaquisinski.com`
 
-## Rutas canónicas
+## Rotas públicas
 
-- `/` — español (`es-PA`)
-- `/pt/` — portugués (`pt-BR`)
-- `/en/` — inglés (`en-US`)
+- `/` — espanhol (`es-PA`)
+- `/pt/` — português (`pt-BR`)
+- `/en/` — inglês (`en-US`)
 
-Las rutas editoriales anteriores siguen exportándose como archivo, pero la landing es la experiencia canónica de lanzamiento.
+As rotas anteriores são mantidas apenas como redirecionamentos de compatibilidade. O projeto não publica StepUp, Lifestyle, Newsletter ou outras vertentes da marca pessoal.
 
-## Desarrollo
+## Desenvolvimento e validação
 
-Requiere Node.js 22.13 o superior.
+Requer Node.js 22.13 ou superior.
 
 ```bash
 npm ci
-npm run dev
-```
-
-## Validación y exportación
-
-```bash
 npm test
 ```
 
-El build estático queda en `out/`. El postprocesado de build garantiza el atributo `lang` correcto en cada HTML exportado.
+O build estático fica em `out/` e é o conteúdo que deve ser publicado na Hostinger.
 
-## Estado de publicación
+## Indexação
 
-La versión actual conserva `noindex`. Solo debe compilarse con `NEXT_PUBLIC_SITE_INDEXABLE=true` después de completar derechos fotográficos, claims, privacidad, analítica, Search Console y revisión final del dominio.
+Por segurança, o build normal permanece com `noindex`. Para gerar a versão aprovada para produção:
 
-Véanse [docs/PROJECT_BRIEF.md](docs/PROJECT_BRIEF.md), [docs/PUBLICATION_GATES.md](docs/PUBLICATION_GATES.md) y [docs/HOSTINGER_DEPLOYMENT.md](docs/HOSTINGER_DEPLOYMENT.md).
+```bash
+NEXT_PUBLIC_SITE_INDEXABLE=true npm run build
+```
+
+Instruções operacionais: [docs/HOSTINGER_DEPLOYMENT.md](docs/HOSTINGER_DEPLOYMENT.md).
