@@ -85,3 +85,12 @@ test("uses the approved standard circular source icon", async () => {
   assert.match(css, /\.ne-record li > a span\s*\{[^}]*position:\s*absolute[^}]*top:\s*13px[^}]*left:\s*11px/s);
   assert.match(css, /\.ne-record li > a:hover span\s*\{[^}]*translate\(3px,\s*-3px\)/s);
 });
+
+test("renders the institutional record as a responsive timeline", async () => {
+  const css = await source("app/globals.css");
+  assert.match(css, /\.ne-record ol\s*\{[^}]*grid-template-columns:\s*repeat\(6,\s*minmax\(185px,\s*1fr\)\)/s);
+  assert.match(css, /\.ne-record li::before\s*\{[^}]*height:\s*1px/s);
+  assert.match(css, /\.ne-record li::after\s*\{[^}]*border-radius:\s*50%[^}]*background:\s*var\(--ne-copper-deep\)/s);
+  assert.match(css, /@media \(max-width:\s*760px\)[\s\S]*?\.ne-record ol\s*\{[^}]*display:\s*block/s);
+  assert.match(css, /@media \(max-width:\s*760px\)[\s\S]*?\.ne-record li::before\s*\{[^}]*width:\s*1px/s);
+});

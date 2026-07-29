@@ -2066,6 +2066,64 @@ summary:focus-visible {
 .ne-record { background: var(--ne-paper-deep); }
 .ne-record li > span,
 .ne-record small { color: var(--ne-copper-deep); }
+.ne-record ol {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(185px, 1fr));
+  overflow-x: auto;
+  border: 0;
+  scrollbar-color: var(--ne-copper) transparent;
+  scrollbar-width: thin;
+}
+.ne-record li,
+.ne-record li:nth-child(2n),
+.ne-record li:nth-child(3n) {
+  position: relative;
+  display: flex;
+  min-height: 440px;
+  flex-direction: column;
+  gap: 0;
+  padding: 0 28px 6px 0;
+  border: 0;
+}
+.ne-record li::before {
+  position: absolute;
+  top: 54px;
+  right: 0;
+  left: 0;
+  height: 1px;
+  background: rgba(72, 66, 65, .35);
+  content: "";
+}
+.ne-record li::after {
+  position: absolute;
+  top: 49px;
+  left: 0;
+  width: 11px;
+  height: 11px;
+  border: 2px solid var(--ne-paper-deep);
+  border-radius: 50%;
+  background: var(--ne-copper-deep);
+  box-shadow: 0 0 0 1px rgba(72, 66, 65, .3);
+  content: "";
+}
+.ne-record li > span { display: none; }
+.ne-record time {
+  color: var(--ne-ink-deep);
+  font-family: "Bodoni Moda", serif;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+}
+.ne-record li > div {
+  display: block;
+  margin-top: 78px;
+}
+.ne-record h3 {
+  margin: 13px 0 14px;
+  color: var(--ne-ink-deep);
+  font-size: clamp(1.45rem, 1.85vw, 2rem);
+}
+.ne-record li p { color: var(--ne-stone); }
 .ne-record li > a {
   position: relative;
   display: block;
@@ -2125,6 +2183,7 @@ summary:focus-visible {
 
 @media (max-width: 980px) {
   .ne-proof-strip div:nth-child(-n+2) { border-bottom-color: rgba(255, 255, 255, .18); }
+  .ne-record ol { grid-template-columns: repeat(6, 220px); }
 }
 
 @media (max-width: 760px) {
@@ -2132,6 +2191,24 @@ summary:focus-visible {
   .ne-mobile-menu summary { color: var(--ne-ink); }
   .ne-mobile-menu nav { background: var(--ne-ink-deep); color: var(--ne-white); }
   .ne-mobile-menu nav a { border-color: rgba(255, 255, 255, .18); }
+  .ne-record ol { display: block; overflow: visible; }
+  .ne-record li,
+  .ne-record li:nth-child(2n),
+  .ne-record li:nth-child(3n) {
+    min-height: 0;
+    padding: 0 0 68px 38px;
+  }
+  .ne-record li::before {
+    top: 7px;
+    right: auto;
+    bottom: 0;
+    left: 5px;
+    width: 1px;
+    height: auto;
+  }
+  .ne-record li:last-child::before { bottom: 60px; }
+  .ne-record li::after { top: 2px; left: 0; }
+  .ne-record li > div { margin-top: 30px; }
   .ne-record li > a { width: 56px; min-height: 56px; }
   .ne-record li > a span { top: 11px; left: 10px; font-size: 1.15rem; }
 }
