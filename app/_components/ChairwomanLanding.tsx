@@ -20,28 +20,32 @@ function EditorialHeader({ language }: { language: Language }) {
 
   return (
     <header className="ne-header">
-      <nav className="ne-nav ne-nav--left" aria-label={copy.menu}>
-        {links.slice(0, 2).map(([label, href]) => <a href={href} key={href}>{label}</a>)}
-      </nav>
-      <a className="ne-mark" href={homePaths[language]} aria-label={copy.nav.home}>
-        <Image src="/brand/nina-chairwoman-mark.svg" alt="" width={52} height={40} />
+      <a className="ne-wordmark" href={homePaths[language]} aria-label={copy.nav.home}>
+        Nina Quisinski
       </a>
-      <nav className="ne-nav ne-nav--right" aria-label={copy.menu}>
-        {links.slice(2).map(([label, href]) => <a href={href} key={href}>{label}</a>)}
-        <a href={chamberHome} target="_blank" rel="noreferrer">{copy.nav.chamber}</a>
-      </nav>
-      <div className="ne-languages" aria-label="Language">
-        {(["es", "pt", "en"] as Language[]).map((item) => (
-          <a href={chairwomanPaths[item]} aria-current={item === language ? "page" : undefined} key={item}>{item}</a>
-        ))}
-      </div>
-      <details className="ne-mobile-menu">
-        <summary>{copy.menu}</summary>
-        <nav aria-label={copy.menu}>
+      <div className="ne-header-actions">
+        <nav className="ne-nav ne-nav--all" aria-label={copy.menu}>
           {links.map(([label, href]) => <a href={href} key={href}>{label}</a>)}
-          <a href={chamberHome} target="_blank" rel="noreferrer">{copy.nav.chamber}<Arrow /></a>
+          <a href={chamberHome} target="_blank" rel="noreferrer">{copy.nav.chamber}</a>
         </nav>
-      </details>
+        <div className="ne-languages" aria-label="Language">
+          {(["es", "pt", "en"] as Language[]).map((item) => (
+            <a href={chairwomanPaths[item]} aria-current={item === language ? "page" : undefined} key={item}>{item}</a>
+          ))}
+        </div>
+        <details className="ne-mobile-menu">
+          <summary>{copy.menu}</summary>
+          <nav aria-label={copy.menu}>
+            {links.map(([label, href]) => <a href={href} key={href}>{label}</a>)}
+            <a href={chamberHome} target="_blank" rel="noreferrer">{copy.nav.chamber}<Arrow /></a>
+            <div className="ne-mobile-languages" aria-label="Language">
+              {(["es", "pt", "en"] as Language[]).map((item) => (
+                <a href={chairwomanPaths[item]} aria-current={item === language ? "page" : undefined} key={item}>{item}</a>
+              ))}
+            </div>
+          </nav>
+        </details>
+      </div>
     </header>
   );
 }

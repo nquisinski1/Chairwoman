@@ -9,7 +9,9 @@ test("builds the editorial Chairwoman anatomy", async () => {
   const component = await source("app/_components/ChairwomanLanding.tsx");
 
   assert.match(component, /className="ne-header"/);
-  assert.match(component, /src="\/brand\/nina-chairwoman-mark\.svg"/);
+  assert.match(component, /className="ne-wordmark"[\s\S]*Nina Quisinski/);
+  assert.match(component, /className="ne-nav ne-nav--all"/);
+  assert.doesNotMatch(component, /className="ne-mark"/);
   assert.doesNotMatch(component, /<NinaHeader|<NinaFooter/);
   assert.match(component, /<em>Nina Quisinski<\/em>/);
   assert.match(component, /nina-chairwoman-opening-2025\.jpg/);
@@ -103,4 +105,12 @@ test("renders the institutional record as a responsive timeline", async () => {
   assert.match(css, /\.ne-record li::after\s*\{[^}]*border-radius:\s*50%[^}]*background:\s*var\(--ne-copper-deep\)/s);
   assert.match(css, /@media \(max-width:\s*760px\)[\s\S]*?\.ne-record ol\s*\{[^}]*display:\s*block/s);
   assert.match(css, /@media \(max-width:\s*760px\)[\s\S]*?\.ne-record li::before\s*\{[^}]*width:\s*1px/s);
+});
+
+test("places the Nina Quisinski wordmark opposite the navigation", async () => {
+  const css = await source("app/globals.css");
+  assert.match(css, /Chairwoman header — name left, navigation right/);
+  assert.match(css, /\.ne-header\s*\{[^}]*grid-template-columns:\s*auto minmax\(0,\s*1fr\)/s);
+  assert.match(css, /\.ne-header-actions\s*\{[^}]*justify-content:\s*flex-end/s);
+  assert.match(css, /@media \(max-width:\s*760px\)[\s\S]*?\.ne-nav--all,[\s\S]*?\.ne-header-actions > \.ne-languages\s*\{[^}]*display:\s*none/s);
 });
