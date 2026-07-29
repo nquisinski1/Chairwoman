@@ -16,10 +16,9 @@ test("builds the editorial Chairwoman anatomy", async () => {
   assert.match(component, /<em>Nina Quisinski<\/em>/);
   assert.match(component, /nina-chairwoman-opening-2025\.jpg/);
   assert.match(component, /nina-official-portrait\.jpg/);
-  assert.match(component, /className="ne-proof-strip"/);
+  assert.doesNotMatch(component, /className="ne-proof-strip"|strip\.map|const strip/);
   assert.doesNotMatch(component, /className="ne-hero-foot"/);
   assert.doesNotMatch(component, /copy\.hero\.descriptor|copy\.mandate\.lead|copy\.hero\.primary/);
-  assert.match(component, /strip\.map/);
   assert.match(component, /className="ne-story"/);
   assert.match(component, /className="ne-story-body"/);
   assert.doesNotMatch(component, /copy\.mandate\.body\}<\/p>/);
@@ -58,7 +57,6 @@ test("uses the centered editorial residence with the approved light palette", as
   assert.match(css, /\.ne-frame\s*\{[^}]*max-width:\s*1120px[^}]*border:\s*0[^}]*border-radius:\s*0/s);
   assert.match(css, /\.ne-hero-images\s*\{[^}]*display:\s*grid/s);
   assert.match(css, /\.ne-hero-main img\s*\{[^}]*filter:\s*grayscale\(1\)/s);
-  assert.match(css, /\.ne-proof-strip\s*\{[^}]*background:\s*var\(--ne-ink\)/s);
   assert.match(css, /url\("\/images\/nina-chairwoman-mandate\.jpg"\)/);
   assert.match(css, /Chairwoman refinement — minimal hierarchy/);
   assert.match(css, /Chairwoman — white, warm graphite and copper palette/);

@@ -71,11 +71,6 @@ function EditorialFooter({ language }: { language: Language }) {
 export function ChairwomanLanding({ language }: { language: Language }) {
   const copy = chairwomanCopy[language];
   const locale = language === "es" ? "es-PA" : language === "pt" ? "pt-BR" : "en-US";
-  const strip = language === "es"
-    ? [["2024", "Fundación de la Cámara"], ["BR ↔ PA", "Agenda bilateral"], ["CCI", "Presidencia institucional"], ["OFICIAL", "Fuentes documentadas"]]
-    : language === "pt"
-      ? [["2024", "Fundação da Câmara"], ["BR ↔ PA", "Agenda bilateral"], ["CCI", "Presidência institucional"], ["OFICIAL", "Fontes documentadas"]]
-      : [["2024", "Chamber founded"], ["BR ↔ PA", "Bilateral agenda"], ["CCI", "Institutional presidency"], ["OFFICIAL", "Documented sources"]];
   const identity = language === "es"
     ? { quote: "El respeto se construye.", script: "El legado se cultiva.", section: "Ser parte de la historia de la Cámara es construir hoy el legado que otros continuarán mañana.", record: "Registro institucional", letters: "Cartas y reconocimientos", press: "Prensa y presencia pública" }
     : language === "pt"
@@ -112,10 +107,6 @@ export function ChairwomanLanding({ language }: { language: Language }) {
               </figure>
               <span className="ne-orbit" aria-hidden="true" />
             </div>
-          </section>
-
-          <section className="ne-proof-strip" aria-label={copy.authorityLabel}>
-            {strip.map(([value, label]) => <div key={value}><strong>{value}</strong><span>{label}</span></div>)}
           </section>
 
           <section className="ne-story" id="mandato" aria-labelledby="ne-story-title">
