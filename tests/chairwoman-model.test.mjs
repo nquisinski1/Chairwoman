@@ -14,8 +14,7 @@ test("builds the editorial Chairwoman anatomy", async () => {
   assert.doesNotMatch(component, /className="ne-mark"/);
   assert.doesNotMatch(component, /<NinaHeader|<NinaFooter/);
   assert.match(component, /<em>Nina Quisinski<\/em>/);
-  assert.match(component, /nina-chairwoman-opening-2025\.jpg/);
-  assert.match(component, /nina-official-portrait\.jpg/);
+  assert.doesNotMatch(component, /<Image|\/images\//);
   assert.doesNotMatch(component, /className="ne-proof-strip"|strip\.map|const strip/);
   assert.doesNotMatch(component, /className="ne-hero-foot"/);
   assert.doesNotMatch(component, /copy\.hero\.descriptor|copy\.mandate\.lead|copy\.hero\.primary/);
@@ -55,9 +54,7 @@ test("uses the centered editorial residence with the approved light palette", as
   const css = await source("app/globals.css");
 
   assert.match(css, /\.ne-frame\s*\{[^}]*max-width:\s*1120px[^}]*border:\s*0[^}]*border-radius:\s*0/s);
-  assert.match(css, /\.ne-hero-images\s*\{[^}]*display:\s*grid/s);
-  assert.match(css, /\.ne-hero-main img\s*\{[^}]*filter:\s*grayscale\(1\)/s);
-  assert.match(css, /url\("\/images\/nina-chairwoman-mandate\.jpg"\)/);
+  assert.match(css, /Chairwoman — image-free institutional composition/);
   assert.match(css, /Chairwoman refinement — minimal hierarchy/);
   assert.match(css, /Chairwoman — white, warm graphite and copper palette/);
   assert.match(css, /\.ne-record ol\s*\{[^}]*grid-template-columns:\s*repeat\(2/s);
@@ -80,7 +77,7 @@ test("keeps readable controls and a true iPad single-column composition", async 
   assert.match(component, /<h1 id="ne-hero-title"><em>Nina Quisinski<\/em><\/h1>/);
   assert.doesNotMatch(component, /identity\.label|identity\.intro/);
   assert.match(css, /@media \(max-width:\s*760px\)[\s\S]*?\.ne-story\s*\{[^}]*grid-template-columns:\s*1fr/s);
-  assert.match(css, /@media \(max-width:\s*760px\)[\s\S]*?\.ne-press\s*\{[^}]*grid-template-columns:\s*1fr/s);
+  assert.match(css, /\.ne-press\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)/s);
   assert.match(css, /\.ne-mobile-menu summary\s*\{[^}]*min-height:\s*44px/s);
   assert.doesNotMatch(css, /inset-right/);
 });
@@ -113,9 +110,7 @@ test("places the Nina Quisinski wordmark opposite the navigation", async () => {
   assert.match(css, /@media \(max-width:\s*760px\)[\s\S]*?\.ne-nav--all,[\s\S]*?\.ne-header-actions > \.ne-languages\s*\{[^}]*display:\s*none/s);
 });
 
-test("shows the complete first-slide photograph without cropping", async () => {
-  const css = await source("app/globals.css");
-  assert.match(css, /Chairwoman hero — preserve the complete documentary photograph/);
-  assert.match(css, /\.ne-hero-main\s*\{[^}]*min-height:\s*0[^}]*aspect-ratio:\s*1440\s*\/\s*1349/s);
-  assert.match(css, /\.ne-hero-main img\s*\{[^}]*object-fit:\s*contain[^}]*object-position:\s*center/s);
+test("removes all photography from the rendered Chairwoman page", async () => {
+  const component = await source("app/_components/ChairwomanLanding.tsx");
+  assert.doesNotMatch(component, /next\/image|<Image|<figure|\/images\//);
 });

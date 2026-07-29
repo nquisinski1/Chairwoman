@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { chairwomanCopy, chairwomanPaths, homePaths, type Language } from "../_content/chairwoman";
 
 const chamberHome = "https://ccibrasilpanama.org/";
@@ -82,7 +81,6 @@ export function ChairwomanLanding({ language }: { language: Language }) {
     name: "Nina Quisinski",
     alternateName: "Janaina Tobia Quisinski",
     url: `https://chairwoman.ninaquisinski.com${chairwomanPaths[language]}`,
-    image: "https://chairwoman.ninaquisinski.com/images/nina-chairwoman-opening-2025.jpg",
     jobTitle: copy.hero.role,
     memberOf: { "@type": "Organization", name: copy.chamber.organization, url: chamberHome },
   };
@@ -98,22 +96,9 @@ export function ChairwomanLanding({ language }: { language: Language }) {
             <div className="ne-hero-title-row">
               <h1 id="ne-hero-title"><em>Nina Quisinski</em></h1>
             </div>
-            <div className="ne-hero-images">
-              <figure className="ne-hero-main">
-                <Image src="/images/nina-chairwoman-opening-2025.jpg" alt={copy.hero.alt} fill priority sizes="(max-width: 760px) 100vw, 72vw" />
-              </figure>
-              <figure className="ne-hero-portrait">
-                <Image src="/images/nina-official-portrait.jpg" alt={copy.hero.portraitAlt} fill sizes="(max-width: 760px) 38vw, 210px" />
-              </figure>
-              <span className="ne-orbit" aria-hidden="true" />
-            </div>
           </section>
 
           <section className="ne-story" id="mandato" aria-labelledby="ne-story-title">
-            <div className="ne-story-photo">
-              <figure><Image src="/images/nina-chairwoman-mandate.jpg" alt={copy.mandate.alt} fill sizes="(max-width: 760px) 100vw, 45vw" /></figure>
-              <span className="ne-story-orbit" aria-hidden="true" />
-            </div>
             <div className="ne-story-copy">
               <h2 id="ne-story-title">{identity.quote}<em>{identity.script}</em></h2>
               <div className="ne-story-body">
@@ -121,7 +106,6 @@ export function ChairwomanLanding({ language }: { language: Language }) {
               </div>
             </div>
             <blockquote>{identity.section}</blockquote>
-            <figure className="ne-story-detail"><Image src="/images/nina-press-pbid.jpg" alt={copy.press.alt} fill sizes="(max-width: 760px) 42vw, 280px" /></figure>
           </section>
 
           <section className="ne-record" id="historico" aria-labelledby="ne-record-title">
@@ -160,7 +144,6 @@ export function ChairwomanLanding({ language }: { language: Language }) {
           </section>
 
           <section className="ne-press" id="imprensa" aria-labelledby="ne-press-title">
-            <figure><Image src="/images/nina-press-pbid.jpg" alt={copy.press.alt} fill sizes="(max-width: 760px) 100vw, 48vw" /></figure>
             <div>
               <p className="ne-kicker">{identity.press}</p>
               <h2 id="ne-press-title">{copy.press.title}</h2>

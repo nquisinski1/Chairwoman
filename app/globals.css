@@ -1681,9 +1681,7 @@ summary:focus-visible {
   --ne-coral: #b79272;
   --ne-line: rgba(13, 14, 12, .2);
   padding: clamp(34px, 6vw, 92px) clamp(16px, 10vw, 160px);
-  background:
-    linear-gradient(90deg, rgba(7, 10, 8, .92), rgba(7, 10, 8, .7) 48%, rgba(7, 10, 8, .94)),
-    url("/images/nina-chairwoman-mandate.jpg") center 34% / cover fixed;
+  background: #161814;
   color: var(--ne-ink);
 }
 
@@ -2296,17 +2294,33 @@ summary:focus-visible {
   .ne-mobile-languages a[aria-current="page"] { color: var(--ne-copper); }
 }
 
-/* Chairwoman hero — preserve the complete documentary photograph. */
-.ne-hero-main {
-  min-height: 0;
-  aspect-ratio: 1440 / 1349;
-  background: var(--ne-white);
+/* Chairwoman — image-free institutional composition. */
+.ne-hero {
+  display: grid;
+  min-height: clamp(420px, 58vw, 660px);
+  place-items: center;
 }
-.ne-hero-main img {
-  object-fit: contain;
-  object-position: center;
+.ne-hero-title-row { margin: 0; }
+.ne-story {
+  grid-template-columns: minmax(0, 1fr);
+  min-height: 0;
+}
+.ne-story-copy {
+  max-width: 880px;
+  padding: 0;
+}
+.ne-story blockquote {
+  max-width: 920px;
+  margin-top: clamp(64px, 9vw, 110px);
+}
+.ne-press { grid-template-columns: minmax(0, 1fr); }
+.ne-press > div {
+  min-height: 520px;
+  border-left: 0;
 }
 
 @media (max-width: 760px) {
-  .ne-hero-main { min-height: 0; }
+  .ne-hero { min-height: 390px; }
+  .ne-story-copy { padding-top: 0; }
+  .ne-press > div { min-height: 0; }
 }
