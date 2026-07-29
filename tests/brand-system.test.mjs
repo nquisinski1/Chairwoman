@@ -18,14 +18,15 @@ test("uses the approved Chairwoman editorial typography", async () => {
   assert.match(layout, /family=Montserrat/);
 });
 
-test("keeps the approved institutional palette", async () => {
+test("uses the approved white graphite and copper Chairwoman palette", async () => {
   const css = await source("app/globals.css");
-  assert.match(css, /--ivory:\s*#f7f2eb/i);
-  assert.match(css, /--burgundy:\s*#4b1f2a/i);
-  assert.match(css, /--rose-gold:\s*#b77a76/i);
-  assert.match(css, /--mineral-blue:\s*#2d4f5a/i);
-  assert.match(css, /--forest-green:\s*#17351f/i);
-  assert.match(css, /--graphite:\s*#212121/i);
+  assert.match(css, /--ne-white:\s*#ffffff/i);
+  assert.match(css, /--ne-paper-deep:\s*#f5f2f0/i);
+  assert.match(css, /--ne-ink:\s*#484241/i);
+  assert.match(css, /--ne-ink-deep:\s*#302c2c/i);
+  assert.match(css, /--ne-copper:\s*#c68d80/i);
+  assert.match(css, /--ne-copper-deep:\s*#8d5f56/i);
+  assert.match(css, /Chairwoman — white, warm graphite and copper palette/);
 });
 
 test("makes every public root exclusively Chairwoman", async () => {

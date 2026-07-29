@@ -5,7 +5,7 @@ import test from "node:test";
 const project = new URL("../", import.meta.url);
 const source = (path) => readFile(new URL(path, project), "utf8");
 
-test("builds the dark editorial Chairwoman anatomy", async () => {
+test("builds the editorial Chairwoman anatomy", async () => {
   const component = await source("app/_components/ChairwomanLanding.tsx");
 
   assert.match(component, /className="ne-header"/);
@@ -45,7 +45,7 @@ test("ships four verified authority territories in every language", async () => 
   assert.match(content, /press:\s*\{/);
 });
 
-test("uses the centered black ivory editorial residence", async () => {
+test("uses the centered editorial residence with the approved light palette", async () => {
   const css = await source("app/globals.css");
 
   assert.match(css, /\.ne-frame\s*\{[^}]*max-width:\s*1120px[^}]*border:\s*0[^}]*border-radius:\s*0/s);
@@ -54,6 +54,7 @@ test("uses the centered black ivory editorial residence", async () => {
   assert.match(css, /\.ne-proof-strip\s*\{[^}]*background:\s*var\(--ne-ink\)/s);
   assert.match(css, /url\("\/images\/nina-chairwoman-mandate\.jpg"\)/);
   assert.match(css, /Chairwoman refinement — minimal hierarchy/);
+  assert.match(css, /Chairwoman — white, warm graphite and copper palette/);
   assert.match(css, /\.ne-record ol\s*\{[^}]*grid-template-columns:\s*repeat\(2/s);
 });
 
@@ -62,7 +63,7 @@ test("includes the approved Chairwoman mark as a real asset", async () => {
   const mark = await source("public/brand/nina-chairwoman-mark.svg");
   assert.match(mark, />N<\/text>/);
   assert.match(mark, />Q<\/text>/);
-  assert.match(mark, /#B77A76/i);
+  assert.match(mark, /#C68D80/i);
   assert.doesNotMatch(mark, /#9f7453/i);
 });
 
