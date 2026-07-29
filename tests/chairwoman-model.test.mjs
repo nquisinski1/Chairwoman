@@ -26,7 +26,7 @@ test("builds the editorial Chairwoman anatomy", async () => {
   assert.match(component, /className="ne-record"/);
   assert.match(component, /className="ne-letters"/);
   assert.match(component, /className="ne-press"/);
-  assert.match(component, /className="ne-chamber"/);
+  assert.doesNotMatch(component, /className="ne-chamber"|Brasil &amp; Panamá/);
   assert.doesNotMatch(component, /StepUp|Lifestyle|Newsletter|collaboration/i);
 });
 

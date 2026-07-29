@@ -169,12 +169,6 @@ export function ChairwomanLanding({ language }: { language: Language }) {
             </div>
           </section>
 
-          <section className="ne-chamber" aria-labelledby="ne-chamber-title">
-            <p className="ne-script-line">Brasil &amp; Panamá</p>
-            <h2 id="ne-chamber-title">{copy.chamber.title}</h2>
-            <p>{copy.chamber.body}</p>
-            <div><a href={chamberHome} target="_blank" rel="noreferrer">{copy.chamber.primary}<Arrow /></a><a href={chamberProfile} target="_blank" rel="noreferrer">{copy.chamber.secondary}<Arrow /></a></div>
-          </section>
         </main>
 
         <EditorialFooter language={language} />
