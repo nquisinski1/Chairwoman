@@ -78,3 +78,10 @@ test("keeps readable controls and a true iPad single-column composition", async 
   assert.match(css, /\.ne-mobile-menu summary\s*\{[^}]*min-height:\s*44px/s);
   assert.doesNotMatch(css, /inset-right/);
 });
+
+test("uses the approved standard circular source icon", async () => {
+  const css = await source("app/globals.css");
+  assert.match(css, /\.ne-record li > a\s*\{[^}]*width:\s*64px[^}]*min-height:\s*64px[^}]*border-radius:\s*50%/s);
+  assert.match(css, /\.ne-record li > a span\s*\{[^}]*position:\s*absolute[^}]*top:\s*13px[^}]*left:\s*11px/s);
+  assert.match(css, /\.ne-record li > a:hover span\s*\{[^}]*translate\(3px,\s*-3px\)/s);
+});
