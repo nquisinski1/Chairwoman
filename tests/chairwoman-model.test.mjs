@@ -15,6 +15,8 @@ test("builds the editorial Chairwoman anatomy", async () => {
   assert.match(component, /nina-chairwoman-opening-2025\.jpg/);
   assert.match(component, /nina-official-portrait\.jpg/);
   assert.match(component, /className="ne-proof-strip"/);
+  assert.doesNotMatch(component, /className="ne-hero-foot"/);
+  assert.doesNotMatch(component, /copy\.hero\.descriptor|copy\.mandate\.lead|copy\.hero\.primary/);
   assert.match(component, /strip\.map/);
   assert.match(component, /className="ne-story"/);
   assert.match(component, /className="ne-story-body"/);

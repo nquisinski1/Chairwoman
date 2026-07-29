@@ -110,11 +110,6 @@ export function ChairwomanLanding({ language }: { language: Language }) {
               </figure>
               <span className="ne-orbit" aria-hidden="true" />
             </div>
-            <div className="ne-hero-foot">
-              <p>{copy.hero.descriptor}</p>
-              <p>{copy.mandate.lead}</p>
-              <a href="#mandato">{copy.hero.primary}<Arrow /></a>
-            </div>
           </section>
 
           <section className="ne-proof-strip" aria-label={copy.authorityLabel}>
