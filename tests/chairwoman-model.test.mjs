@@ -114,3 +114,11 @@ test("removes all photography from the rendered Chairwoman page", async () => {
   const component = await source("app/_components/ChairwomanLanding.tsx");
   assert.doesNotMatch(component, /next\/image|<Image|<figure|\/images\//);
 });
+
+test("uses the approved centered editorial site organization", async () => {
+  const css = await source("app/globals.css");
+  assert.match(css, /Chairwoman — centered editorial residence based on the approved composition/);
+  assert.match(css, /\.ne-frame\s*\{[^}]*width:\s*min\(calc\(100% - 40px\),\s*980px\)[^}]*margin-inline:\s*auto/s);
+  assert.match(css, /\.ne-story-copy\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*\.9fr\) minmax\(280px,\s*1\.1fr\)/s);
+  assert.match(css, /\.ne-press\s*\{[^}]*background:\s*var\(--ne-ink-deep\)/s);
+});
