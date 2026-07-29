@@ -73,10 +73,10 @@ export function ChairwomanLanding({ language }: { language: Language }) {
       ? [["2024", "Fundação da Câmara"], ["BR ↔ PA", "Agenda bilateral"], ["CCI", "Presidência institucional"], ["OFICIAL", "Fontes documentadas"]]
       : [["2024", "Chamber founded"], ["BR ↔ PA", "Bilateral agenda"], ["CCI", "Institutional presidency"], ["OFFICIAL", "Documented sources"]];
   const identity = language === "es"
-    ? { label: "Presidencia institucional", intro: "PRESIDENTA", quote: "La autoridad no se declara.", script: "Se demuestra con trabajo, contexto y fuentes.", section: "Una trayectoria construida entre dos países.", record: "Registro institucional", letters: "Cartas y reconocimientos", press: "Prensa y presencia pública" }
+    ? { label: "Presidencia institucional", intro: "PRESIDENTA", quote: "El respeto se construye.", script: "El legado se cultiva.", section: "Ser parte de la historia de la Cámara es construir hoy el legado que otros continuarán mañana.", record: "Registro institucional", letters: "Cartas y reconocimientos", press: "Prensa y presencia pública" }
     : language === "pt"
-      ? { label: "Presidência institucional", intro: "PRESIDENTE", quote: "Autoridade não se declara.", script: "Demonstra-se com trabalho, contexto e fontes.", section: "Uma trajetória construída entre dois países.", record: "Registro institucional", letters: "Cartas e reconhecimentos", press: "Imprensa e presença pública" }
-      : { label: "Institutional presidency", intro: "CHAIRWOMAN", quote: "Authority is not declared.", script: "It is demonstrated through work, context and sources.", section: "A record built between two countries.", record: "Institutional record", letters: "Letters and recognition", press: "Press and public presence" };
+      ? { label: "Presidência institucional", intro: "PRESIDENTE", quote: "Respeito se constrói.", script: "Legado se cultiva.", section: "Fazer parte da história da Câmara é construir hoje o legado que outros continuarão amanhã.", record: "Registro institucional", letters: "Cartas e reconhecimentos", press: "Imprensa e presença pública" }
+      : { label: "Institutional presidency", intro: "CHAIRWOMAN", quote: "Respect is earned.", script: "Legacy is cultivated.", section: "To be part of the Chamber’s history is to build today the legacy that others will carry forward tomorrow.", record: "Institutional record", letters: "Letters and recognition", press: "Press and public presence" };
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -127,10 +127,10 @@ export function ChairwomanLanding({ language }: { language: Language }) {
               <span className="ne-story-orbit" aria-hidden="true" />
             </div>
             <div className="ne-story-copy">
-              <p className="ne-kicker">{copy.nav.mandate}</p>
               <h2 id="ne-story-title">{identity.quote}<em>{identity.script}</em></h2>
-              <p>{copy.mandate.body}</p>
-              <a href={chamberProfile} target="_blank" rel="noreferrer">{copy.chamber.secondary}<Arrow /></a>
+              <div className="ne-story-body">
+                {copy.mandate.body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+              </div>
             </div>
             <blockquote>{identity.section}</blockquote>
             <figure className="ne-story-detail"><Image src="/images/nina-press-pbid.jpg" alt={copy.press.alt} fill sizes="(max-width: 760px) 42vw, 280px" /></figure>

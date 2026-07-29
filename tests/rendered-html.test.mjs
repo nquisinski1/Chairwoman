@@ -14,16 +14,21 @@ test("exports Chairwoman as the canonical trilingual root experience", async () 
 
   assert.match(es.slice(0, 100), /<html lang="es-PA">/i);
   assert.match(es, /PRESIDENTA/);
-  assert.match(es, /Relaciones que construyen historia y dejan legado/);
+  assert.match(es, /El respeto se construye/);
+  assert.match(es, /El legado se cultiva/);
+  assert.match(es, /La admiración y el respeto no se imponen/);
   assert.match(pt.slice(0, 100), /<html lang="pt-BR">/i);
   assert.match(pt, /PRESIDENTE/);
-  assert.match(pt, /Relações que constroem histórias e deixam legados/);
+  assert.match(pt, /Respeito se constrói/);
+  assert.match(pt, /Legado se cultiva/);
   assert.match(en.slice(0, 100), /<html lang="en-US">/i);
   assert.match(en, /CHAIRWOMAN/);
-  assert.match(en, /Relationships that shape history and leave a legacy/);
+  assert.match(en, /Respect is earned/);
+  assert.match(en, /Legacy is cultivated/);
 
   for (const source of [es, pt, en]) {
     assert.match(source, /class="ne-site"/);
+    assert.match(source, /class="ne-story-body"/);
     assert.match(source, /<em>Nina Quisinski<\/em>/);
     assert.match(source, /nina-chairwoman-opening-2025\.jpg/);
     assert.match(source, /ccibrasilpanama\.org\/2026-lid-nina/);

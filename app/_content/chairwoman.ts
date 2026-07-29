@@ -52,7 +52,7 @@ export type ChairwomanCopy = {
   mandate: {
     title: string;
     lead: string;
-    body: string;
+    body: string[];
     alt: string;
     pillars: Pillar[];
   };
@@ -154,7 +154,13 @@ export const chairwomanCopy: Record<Language, ChairwomanCopy> = {
     mandate: {
       title: "Una presidencia construida para conectar dos mercados.",
       lead: "La Cámara existe para convertir proximidad entre países en una agenda empresarial con continuidad.",
-      body: "Como fundadora y presidenta, Nina ocupa una posición institucional: convoca conversaciones, articula contextos y representa una agenda bilateral. Esta página presenta ese trabajo por medio de hechos documentados, no de promesas de acceso ni de avales personales.",
+      body: [
+        "La admiración y el respeto no se imponen: se construyen con trabajo, compromiso y la disciplina de convertir la visión en ejecución.",
+        "Desde la Cámara, trabajamos para unir países y construir legados. Diseñamos, planificamos y ejecutamos una agenda que conecta oportunidades entre Brasil y Panamá.",
+        "Ese trabajo se fortalece con manifestaciones documentadas de apoyo institucional y diplomático, y con la participación del sector privado: empresas nacionales e internacionales, de diferentes tamaños y trayectorias, convocadas a pensar, participar y cocrear.",
+        "Presidir es representar, pero ante todo servir: crear condiciones para que empresarios, colaboradores, inversionistas, clientes, proveedores y sus familias puedan prosperar y multiplicar ese progreso.",
+        "Trabajamos con la mirada de quien cultiva: comprendemos el terreno, sembramos confianza y acompañamos cada etapa con la paciencia de quien ya puede imaginar la cosecha.",
+      ],
       alt: "Nina Quisinski representando una agenda institucional junto a la bandera de Panamá",
       pillars: [
         {
@@ -336,7 +342,13 @@ export const chairwomanCopy: Record<Language, ChairwomanCopy> = {
     mandate: {
       title: "Uma presidência construída para conectar dois mercados.",
       lead: "A Câmara existe para transformar proximidade entre países em uma agenda empresarial com continuidade.",
-      body: "Como fundadora e presidente, Nina ocupa uma posição institucional: convoca conversas, articula contextos e representa uma agenda bilateral. Esta página apresenta esse trabalho por meio de fatos documentados, não de promessas de acesso nem de endossos pessoais.",
+      body: [
+        "Admiração e respeito não se impõem: constroem-se com trabalho, compromisso e a disciplina de transformar visão em execução.",
+        "Desde a Câmara, trabalhamos para unir países e construir legados. Desenhamos, planejamos e executamos uma agenda que conecta oportunidades entre Brasil e Panamá.",
+        "Esse trabalho se fortalece com manifestações documentadas de apoio institucional e diplomático e com a participação do setor privado: empresas nacionais e internacionais, de diferentes portes e trajetórias, convidadas a pensar, participar e cocriar.",
+        "Presidir é representar, mas sobretudo servir: criar condições para que empresários, colaboradores, investidores, clientes, fornecedores e suas famílias possam prosperar e multiplicar esse progresso.",
+        "Trabalhamos com o olhar de quem cultiva: compreendemos o terreno, semeamos confiança e acompanhamos cada etapa com a paciência de quem já consegue imaginar a colheita.",
+      ],
       alt: "Nina Quisinski representando uma agenda institucional junto à bandeira do Panamá",
       pillars: [
         {
@@ -518,7 +530,13 @@ export const chairwomanCopy: Record<Language, ChairwomanCopy> = {
     mandate: {
       title: "A presidency built to connect two markets.",
       lead: "The Chamber exists to turn proximity between countries into a business agenda with continuity.",
-      body: "As founder and president, Nina holds an institutional position: she convenes conversations, connects contexts and represents a bilateral agenda. This page presents that work through documented facts—not promises of access or personal endorsement.",
+      body: [
+        "Admiration and respect cannot be imposed. They are built through work, commitment and the discipline to turn vision into execution.",
+        "Through the Chamber, we work to bring countries together and build lasting legacies. We design, plan and execute an agenda that connects opportunities between Brazil and Panama.",
+        "This work is strengthened by documented expressions of institutional and diplomatic support and by the participation of the private sector: national and international companies of different sizes and trajectories, invited to think, participate and co-create.",
+        "To preside is to represent, but above all to serve: to create the conditions for business leaders, employees, investors, clients, suppliers and their families to prosper and multiply that progress.",
+        "We work with the perspective of those who cultivate: understanding the terrain, sowing trust and accompanying each stage with the patience of those who can already imagine the harvest.",
+      ],
       alt: "Nina Quisinski representing an institutional agenda beside the flag of Panama",
       pillars: [
         {

@@ -17,6 +17,9 @@ test("builds the editorial Chairwoman anatomy", async () => {
   assert.match(component, /className="ne-proof-strip"/);
   assert.match(component, /strip\.map/);
   assert.match(component, /className="ne-story"/);
+  assert.match(component, /className="ne-story-body"/);
+  assert.doesNotMatch(component, /copy\.mandate\.body\}<\/p>/);
+  assert.doesNotMatch(component, /copy\.chamber\.secondary<Arrow \/><\/a>/);
   assert.match(component, /className="ne-record"/);
   assert.match(component, /className="ne-letters"/);
   assert.match(component, /className="ne-press"/);
