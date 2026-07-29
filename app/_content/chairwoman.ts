@@ -172,8 +172,8 @@ export const chairwomanCopy: Record<Language, ChairwomanCopy> = {
       ],
     },
     record: {
-      title: "Autoridad que puede ser comprobada.",
-      intro: "La cronología separa cargo, reconocimiento y participación pública. Cada registro abre la página oficial que sustenta su formulación.",
+      title: "Relaciones que construyen historia y dejan legado.",
+      intro: "Más que estar presente, el propósito es construir puentes, conectar oportunidades y contribuir a transformar los negocios internacionales entre Brasil y Panamá. Esta línea de tiempo reúne hitos documentados de una trayectoria institucional construida con intención y continuidad.",
       sourceAction: "Ver fuente original",
       items: [
         {
@@ -354,8 +354,8 @@ export const chairwomanCopy: Record<Language, ChairwomanCopy> = {
       ],
     },
     record: {
-      title: "Autoridade que pode ser comprovada.",
-      intro: "A cronologia separa cargo, reconhecimento e participação pública. Cada registro abre a página oficial que sustenta a formulação.",
+      title: "Relações que constroem histórias e deixam legados.",
+      intro: "Mais do que estar presente, o propósito é construir pontes, conectar oportunidades e contribuir para transformar os negócios internacionais entre Brasil e Panamá. Esta linha do tempo reúne marcos documentados de uma trajetória institucional construída com intenção e continuidade.",
       sourceAction: "Ver fonte original",
       items: [
         {
@@ -536,8 +536,8 @@ export const chairwomanCopy: Record<Language, ChairwomanCopy> = {
       ],
     },
     record: {
-      title: "Authority that can be verified.",
-      intro: "The timeline separates role, recognition and public participation. Each record opens the official page supporting its wording.",
+      title: "Relationships that shape history and leave a legacy.",
+      intro: "More than being present, the purpose is to build bridges, connect opportunities and contribute to transforming international business between Brazil and Panama. This timeline brings together documented milestones in an institutional journey built with intention and continuity.",
       sourceAction: "View original source",
       items: [
         {

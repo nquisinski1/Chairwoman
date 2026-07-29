@@ -14,13 +14,13 @@ test("exports Chairwoman as the canonical trilingual root experience", async () 
 
   assert.match(es.slice(0, 100), /<html lang="es-PA">/i);
   assert.match(es, /PRESIDENTA/);
-  assert.match(es, /Autoridad que puede ser comprobada/);
+  assert.match(es, /Relaciones que construyen historia y dejan legado/);
   assert.match(pt.slice(0, 100), /<html lang="pt-BR">/i);
   assert.match(pt, /PRESIDENTE/);
-  assert.match(pt, /Autoridade que pode ser comprovada/);
+  assert.match(pt, /Relações que constroem histórias e deixam legados/);
   assert.match(en.slice(0, 100), /<html lang="en-US">/i);
   assert.match(en, /CHAIRWOMAN/);
-  assert.match(en, /Authority that can be verified/);
+  assert.match(en, /Relationships that shape history and leave a legacy/);
 
   for (const source of [es, pt, en]) {
     assert.match(source, /class="ne-site"/);
