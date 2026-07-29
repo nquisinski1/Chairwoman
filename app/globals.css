@@ -2295,3 +2295,18 @@ summary:focus-visible {
   }
   .ne-mobile-languages a[aria-current="page"] { color: var(--ne-copper); }
 }
+
+/* Chairwoman hero — preserve the complete documentary photograph. */
+.ne-hero-main {
+  min-height: 0;
+  aspect-ratio: 1440 / 1349;
+  background: var(--ne-white);
+}
+.ne-hero-main img {
+  object-fit: contain;
+  object-position: center;
+}
+
+@media (max-width: 760px) {
+  .ne-hero-main { min-height: 0; }
+}

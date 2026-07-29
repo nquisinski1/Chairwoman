@@ -114,3 +114,10 @@ test("places the Nina Quisinski wordmark opposite the navigation", async () => {
   assert.match(css, /\.ne-header-actions\s*\{[^}]*justify-content:\s*flex-end/s);
   assert.match(css, /@media \(max-width:\s*760px\)[\s\S]*?\.ne-nav--all,[\s\S]*?\.ne-header-actions > \.ne-languages\s*\{[^}]*display:\s*none/s);
 });
+
+test("shows the complete first-slide photograph without cropping", async () => {
+  const css = await source("app/globals.css");
+  assert.match(css, /Chairwoman hero — preserve the complete documentary photograph/);
+  assert.match(css, /\.ne-hero-main\s*\{[^}]*min-height:\s*0[^}]*aspect-ratio:\s*1440\s*\/\s*1349/s);
+  assert.match(css, /\.ne-hero-main img\s*\{[^}]*object-fit:\s*contain[^}]*object-position:\s*center/s);
+});
