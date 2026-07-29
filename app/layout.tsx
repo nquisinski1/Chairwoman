@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   },
   description:
     "Presidencia institucional y agenda empresarial documentada entre Brasil y Panamá.",
+  icons: {
+    icon: "/brand/nina-chairwoman-mark.svg",
+  },
   robots: process.env.NEXT_PUBLIC_SITE_INDEXABLE === "true"
     ? { index: true, follow: true }
     : { index: false, follow: false, noarchive: true },
