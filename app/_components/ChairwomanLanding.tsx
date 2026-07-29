@@ -73,10 +73,10 @@ export function ChairwomanLanding({ language }: { language: Language }) {
       ? [["2024", "Fundação da Câmara"], ["BR ↔ PA", "Agenda bilateral"], ["CCI", "Presidência institucional"], ["OFICIAL", "Fontes documentadas"]]
       : [["2024", "Chamber founded"], ["BR ↔ PA", "Bilateral agenda"], ["CCI", "Institutional presidency"], ["OFFICIAL", "Documented sources"]];
   const identity = language === "es"
-    ? { label: "Presidencia institucional", intro: "PRESIDENTA", quote: "El respeto se construye.", script: "El legado se cultiva.", section: "Ser parte de la historia de la Cámara es construir hoy el legado que otros continuarán mañana.", record: "Registro institucional", letters: "Cartas y reconocimientos", press: "Prensa y presencia pública" }
+    ? { quote: "El respeto se construye.", script: "El legado se cultiva.", section: "Ser parte de la historia de la Cámara es construir hoy el legado que otros continuarán mañana.", record: "Registro institucional", letters: "Cartas y reconocimientos", press: "Prensa y presencia pública" }
     : language === "pt"
-      ? { label: "Presidência institucional", intro: "PRESIDENTE", quote: "Respeito se constrói.", script: "Legado se cultiva.", section: "Fazer parte da história da Câmara é construir hoje o legado que outros continuarão amanhã.", record: "Registro institucional", letters: "Cartas e reconhecimentos", press: "Imprensa e presença pública" }
-      : { label: "Institutional presidency", intro: "CHAIRWOMAN", quote: "Respect is earned.", script: "Legacy is cultivated.", section: "To be part of the Chamber’s history is to build today the legacy that others will carry forward tomorrow.", record: "Institutional record", letters: "Letters and recognition", press: "Press and public presence" };
+      ? { quote: "Respeito se constrói.", script: "Legado se cultiva.", section: "Fazer parte da história da Câmara é construir hoje o legado que outros continuarão amanhã.", record: "Registro institucional", letters: "Cartas e reconhecimentos", press: "Imprensa e presença pública" }
+      : { quote: "Respect is earned.", script: "Legacy is cultivated.", section: "To be part of the Chamber’s history is to build today the legacy that others will carry forward tomorrow.", record: "Institutional record", letters: "Letters and recognition", press: "Press and public presence" };
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -96,10 +96,8 @@ export function ChairwomanLanding({ language }: { language: Language }) {
 
         <main id="conteudo">
           <section className="ne-hero" aria-labelledby="ne-hero-title">
-            <p className="ne-kicker">{identity.label}</p>
             <div className="ne-hero-title-row">
-              <h1 id="ne-hero-title"><span>{identity.intro}</span><em>Nina Quisinski</em></h1>
-              <p>{copy.hero.role}</p>
+              <h1 id="ne-hero-title"><em>Nina Quisinski</em></h1>
             </div>
             <div className="ne-hero-images">
               <figure className="ne-hero-main">

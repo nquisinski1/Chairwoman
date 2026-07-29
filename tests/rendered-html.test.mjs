@@ -13,16 +13,16 @@ test("exports Chairwoman as the canonical trilingual root experience", async () 
   ]);
 
   assert.match(es.slice(0, 100), /<html lang="es-PA">/i);
-  assert.match(es, /PRESIDENTA/);
+  assert.doesNotMatch(es, /PRESIDENCIA INSTITUCIONAL|PRESIDENTA/);
   assert.match(es, /El respeto se construye/);
   assert.match(es, /El legado se cultiva/);
   assert.match(es, /La admiración y el respeto no se imponen/);
   assert.match(pt.slice(0, 100), /<html lang="pt-BR">/i);
-  assert.match(pt, /PRESIDENTE/);
+  assert.doesNotMatch(pt, /PRESIDÊNCIA INSTITUCIONAL|PRESIDENTE/);
   assert.match(pt, /Respeito se constrói/);
   assert.match(pt, /Legado se cultiva/);
   assert.match(en.slice(0, 100), /<html lang="en-US">/i);
-  assert.match(en, /CHAIRWOMAN/);
+  assert.doesNotMatch(en, />CHAIRWOMAN</);
   assert.match(en, /Respect is earned/);
   assert.match(en, /Legacy is cultivated/);
 

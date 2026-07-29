@@ -77,7 +77,8 @@ test("keeps readable controls and a true iPad single-column composition", async 
     source("app/_components/ChairwomanLanding.tsx"),
     source("app/globals.css"),
   ]);
-  assert.match(component, /<h1 id="ne-hero-title"><span>\{identity\.intro\}<\/span><em>Nina Quisinski<\/em><\/h1>/);
+  assert.match(component, /<h1 id="ne-hero-title"><em>Nina Quisinski<\/em><\/h1>/);
+  assert.doesNotMatch(component, /identity\.label|identity\.intro/);
   assert.match(css, /@media \(max-width:\s*760px\)[\s\S]*?\.ne-story\s*\{[^}]*grid-template-columns:\s*1fr/s);
   assert.match(css, /@media \(max-width:\s*760px\)[\s\S]*?\.ne-press\s*\{[^}]*grid-template-columns:\s*1fr/s);
   assert.match(css, /\.ne-mobile-menu summary\s*\{[^}]*min-height:\s*44px/s);
