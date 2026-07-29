@@ -32,7 +32,27 @@ test("exports Chairwoman as the canonical trilingual root experience", async () 
     assert.match(source, /<em>Nina Quisinski<\/em>/);
     assert.match(source, /nina-chairwoman-opening-2025\.jpg/);
     assert.match(source, /href="https:\/\/ccibrasilpanama\.org\/"/);
-    assert.doesNotMatch(source, /StepUp|Lifestyle|Newsletter|collaboration/i);
+    assert.match(source, /StepUp &amp; Company/);
+    assert.doesNotMatch(source, /Lifestyle|Newsletter|collaboration/i);
+    assert.equal((source.match(/<h1\b/gi) ?? []).length, 1);
+  }
+});
+
+test("exports the trilingual StepUp chapter without photography", async () => {
+  const pages = await Promise.all([
+    html("stepup-company/index.html"),
+    html("pt/stepup-company/index.html"),
+    html("en/stepup-company/index.html"),
+  ]);
+
+  for (const source of pages) {
+    assert.match(source, /class="ne-site su-site"/);
+    assert.match(source, /StepUp &amp; Company/);
+    assert.match(source, /id="perspectiva"/);
+    assert.match(source, /id="relaciones"/);
+    assert.match(source, /id="expansion"/);
+    assert.match(source, /id="socia"/);
+    assert.doesNotMatch(source, /<img\b/i);
     assert.equal((source.match(/<h1\b/gi) ?? []).length, 1);
   }
 });

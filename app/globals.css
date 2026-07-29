@@ -2481,3 +2481,76 @@ summary:focus-visible {
   .ne-header-actions { gap: 14px; }
   .ne-chairwoman-menu nav { right: -20px; }
 }
+
+/* StepUp & Company — Nina as partner in international business. */
+.su-hero .ne-hero-title-row {
+  display: grid;
+  max-width: 840px;
+  gap: 32px;
+  justify-items: center;
+  text-align: center;
+}
+.su-role {
+  max-width: 680px;
+  margin: 0;
+  color: var(--ne-copper);
+  font-size: .6rem;
+  font-weight: 600;
+  letter-spacing: .15em;
+  line-height: 1.7;
+  text-transform: uppercase;
+}
+.su-hero h1 em {
+  font-size: clamp(4rem, 9vw, 7.7rem);
+  text-transform: none;
+}
+.su-thesis {
+  max-width: 620px;
+  margin: 0;
+  color: rgba(255, 255, 255, .66);
+  font-family: "Bodoni Moda", serif;
+  font-size: clamp(1rem, 1.7vw, 1.3rem);
+  line-height: 1.65;
+}
+.su-perspective .ne-story-body .ne-kicker {
+  margin-bottom: 26px;
+  color: var(--ne-copper);
+  font-family: "Montserrat", sans-serif;
+  font-size: .58rem;
+  letter-spacing: .15em;
+  line-height: 1.4;
+}
+.su-record ol { grid-template-columns: repeat(4, minmax(190px, 1fr)); }
+.su-record li { min-height: 390px; }
+.su-expansion ol { align-self: start; }
+.su-expansion li { grid-template-columns: 34px 1fr; }
+.su-expansion li small,
+.su-expansion h3,
+.su-expansion li p { grid-column: 2; }
+.su-partner .su-boundary {
+  padding-top: 26px;
+  border-top: 1px solid rgba(255, 255, 255, .14);
+  color: rgba(255, 255, 255, .54);
+  font-family: "Montserrat", sans-serif;
+  font-size: .72rem;
+  line-height: 1.7;
+}
+
+@media (max-width: 760px) {
+  .ne-header {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+    padding-block: 16px;
+  }
+  .ne-header-actions {
+    width: 100%;
+    justify-content: space-between;
+    justify-self: stretch;
+  }
+  .ne-chairwoman-menu summary { gap: 8px; font-size: .5rem; }
+  .ne-chairwoman-menu nav { right: auto; left: 0; }
+  .ne-stepup-menu nav { right: 0; left: auto; }
+  .su-hero h1 em { font-size: clamp(3.4rem, 16vw, 5.5rem); }
+  .su-record ol { display: block; }
+  .su-expansion li { grid-template-columns: 28px 1fr; }
+}

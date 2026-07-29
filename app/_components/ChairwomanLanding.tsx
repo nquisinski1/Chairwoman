@@ -1,4 +1,5 @@
 import { chairwomanCopy, chairwomanPaths, homePaths, type Language } from "../_content/chairwoman";
+import { stepUpPaths } from "../_content/stepup";
 
 const chamberHome = "https://ccibrasilpanama.org/";
 const chamberHonours = "https://ccibrasilpanama.org/2026-camara/#honras";
@@ -7,15 +8,25 @@ function Arrow() {
   return <span aria-hidden="true">↗</span>;
 }
 
-function EditorialHeader({ language }: { language: Language }) {
+export function EditorialHeader({ language, area = "chairwoman" }: { language: Language; area?: "chairwoman" | "stepup" }) {
   const copy = chairwomanCopy[language];
+  const languagePaths = area === "stepup" ? stepUpPaths : chairwomanPaths;
   const links = [
-    { label: copy.nav.mandate, href: "#mandato" },
-    { label: copy.nav.record, href: "#historico" },
-    { label: copy.nav.letters, href: "#cartas" },
-    { label: copy.nav.press, href: "#imprensa" },
+    { label: copy.nav.mandate, href: `${chairwomanPaths[language]}#mandato` },
+    { label: copy.nav.record, href: `${chairwomanPaths[language]}#historico` },
+    { label: copy.nav.letters, href: `${chairwomanPaths[language]}#cartas` },
+    { label: copy.nav.press, href: `${chairwomanPaths[language]}#imprensa` },
     { label: copy.nav.chamber, href: chamberHome, external: true },
   ];
+  const stepUpLabels = language === "es"
+    ? ["Perspectiva", "Relaciones estratégicas", "Expansión internacional", "La socia"]
+    : language === "pt"
+      ? ["Perspectiva", "Relações estratégicas", "Expansão internacional", "A sócia"]
+      : ["Perspective", "Strategic relations", "International expansion", "The partner"];
+  const stepUpLinks = ["#perspectiva", "#relaciones", "#expansion", "#socia"].map((anchor, index) => ({
+    label: stepUpLabels[index],
+    href: `${stepUpPaths[language]}${anchor}`,
+  }));
 
   return (
     <header className="ne-header">
@@ -33,9 +44,16 @@ function EditorialHeader({ language }: { language: Language }) {
             ))}
           </nav>
         </details>
+        <details className="ne-chairwoman-menu ne-stepup-menu">
+          <summary>StepUp &amp; Company <span aria-hidden="true">+</span></summary>
+          <nav aria-label="StepUp & Company">
+            {stepUpLinks.map((link) => <a href={link.href} key={link.href}>{link.label}</a>)}
+            <a href="https://stepupandco.com/" target="_blank" rel="noreferrer">StepUp oficial<Arrow /></a>
+          </nav>
+        </details>
         <div className="ne-languages" aria-label="Language">
           {(["es", "pt", "en"] as Language[]).map((item) => (
-            <a href={chairwomanPaths[item]} aria-current={item === language ? "page" : undefined} key={item}>{item}</a>
+            <a href={languagePaths[item]} aria-current={item === language ? "page" : undefined} key={item}>{item}</a>
           ))}
         </div>
       </div>

@@ -9,7 +9,7 @@
     "dev": "next dev",
     "build": "NEXT_TELEMETRY_DISABLED=1 next build --webpack && node scripts/postprocess-static.mjs",
     "start": "python3 -m http.server 4173 -d out",
-    "test": "npm run build && node --test tests/rendered-html.test.mjs tests/brand-system.test.mjs tests/chairwoman-model.test.mjs",
+    "test": "npm run build && node --test tests/rendered-html.test.mjs tests/brand-system.test.mjs tests/chairwoman-model.test.mjs tests/stepup-company.test.mjs",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
     "db:generate": "drizzle-kit generate"
   },
