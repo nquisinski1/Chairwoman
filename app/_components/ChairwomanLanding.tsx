@@ -1,7 +1,6 @@
 import { chairwomanCopy, chairwomanPaths, homePaths, type Language } from "../_content/chairwoman";
 
 const chamberHome = "https://ccibrasilpanama.org/";
-const chamberProfile = "https://ccibrasilpanama.org/2026-lid-nina/";
 const chamberHonours = "https://ccibrasilpanama.org/2026-camara/#honras";
 
 function Arrow() {
@@ -11,10 +10,11 @@ function Arrow() {
 function EditorialHeader({ language }: { language: Language }) {
   const copy = chairwomanCopy[language];
   const links = [
-    [copy.nav.mandate, "#mandato"],
-    [copy.nav.record, "#historico"],
-    [copy.nav.letters, "#cartas"],
-    [copy.nav.press, "#imprensa"],
+    { label: copy.nav.mandate, href: "#mandato" },
+    { label: copy.nav.record, href: "#historico" },
+    { label: copy.nav.letters, href: "#cartas" },
+    { label: copy.nav.press, href: "#imprensa" },
+    { label: copy.nav.chamber, href: chamberHome, external: true },
   ];
 
   return (
@@ -23,27 +23,21 @@ function EditorialHeader({ language }: { language: Language }) {
         Nina Quisinski
       </a>
       <div className="ne-header-actions">
-        <nav className="ne-nav ne-nav--all" aria-label={copy.menu}>
-          {links.map(([label, href]) => <a href={href} key={href}>{label}</a>)}
-          <a href={chamberHome} target="_blank" rel="noreferrer">{copy.nav.chamber}</a>
-        </nav>
+        <details className="ne-chairwoman-menu">
+          <summary>Chairwoman <span aria-hidden="true">+</span></summary>
+          <nav aria-label="Chairwoman">
+            {links.map((link) => (
+              <a href={link.href} target={link.external ? "_blank" : undefined} rel={link.external ? "noreferrer" : undefined} key={link.href}>
+                {link.label}{link.external ? <Arrow /> : null}
+              </a>
+            ))}
+          </nav>
+        </details>
         <div className="ne-languages" aria-label="Language">
           {(["es", "pt", "en"] as Language[]).map((item) => (
             <a href={chairwomanPaths[item]} aria-current={item === language ? "page" : undefined} key={item}>{item}</a>
           ))}
         </div>
-        <details className="ne-mobile-menu">
-          <summary>{copy.menu}</summary>
-          <nav aria-label={copy.menu}>
-            {links.map(([label, href]) => <a href={href} key={href}>{label}</a>)}
-            <a href={chamberHome} target="_blank" rel="noreferrer">{copy.nav.chamber}<Arrow /></a>
-            <div className="ne-mobile-languages" aria-label="Language">
-              {(["es", "pt", "en"] as Language[]).map((item) => (
-                <a href={chairwomanPaths[item]} aria-current={item === language ? "page" : undefined} key={item}>{item}</a>
-              ))}
-            </div>
-          </nav>
-        </details>
       </div>
     </header>
   );
@@ -58,11 +52,6 @@ function EditorialFooter({ language }: { language: Language }) {
         <p>{copy.footer.statement}</p>
         <small>Brasil · Panamá</small>
       </div>
-      <nav aria-label={copy.nav.chamber}>
-        <a href={chamberHome} target="_blank" rel="noreferrer">{copy.chamber.primary}</a>
-        <a href={chamberProfile} target="_blank" rel="noreferrer">{copy.chamber.secondary}</a>
-        <a href={chamberHonours} target="_blank" rel="noreferrer">{copy.letters.archiveAction}</a>
-      </nav>
     </footer>
   );
 }

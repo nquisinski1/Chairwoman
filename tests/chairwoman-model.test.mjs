@@ -10,7 +10,11 @@ test("builds the editorial Chairwoman anatomy", async () => {
 
   assert.match(component, /className="ne-header"/);
   assert.match(component, /className="ne-wordmark"[\s\S]*Nina Quisinski/);
-  assert.match(component, /className="ne-nav ne-nav--all"/);
+  assert.match(component, /className="ne-chairwoman-menu"/);
+  assert.match(component, /<summary>Chairwoman/);
+  assert.doesNotMatch(component, /className="ne-nav ne-nav--all"|className="ne-mobile-menu"/);
+  assert.doesNotMatch(component, /<footer[\s\S]*?<nav/);
+  assert.match(component, /copy\.nav\.mandate[\s\S]*copy\.nav\.record[\s\S]*copy\.nav\.letters[\s\S]*copy\.nav\.press[\s\S]*copy\.nav\.chamber/);
   assert.doesNotMatch(component, /className="ne-mark"/);
   assert.doesNotMatch(component, /<NinaHeader|<NinaFooter/);
   assert.match(component, /<em>Nina Quisinski<\/em>/);
@@ -80,7 +84,7 @@ test("keeps readable controls and a true iPad single-column composition", async 
   assert.doesNotMatch(component, /identity\.label|identity\.intro/);
   assert.match(css, /@media \(max-width:\s*760px\)[\s\S]*?\.ne-story\s*\{[^}]*grid-template-columns:\s*1fr/s);
   assert.match(css, /\.ne-press\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)/s);
-  assert.match(css, /\.ne-mobile-menu summary\s*\{[^}]*min-height:\s*44px/s);
+  assert.match(css, /\.ne-chairwoman-menu summary\s*\{[^}]*min-height:\s*44px/s);
   assert.doesNotMatch(css, /inset-right/);
 });
 
@@ -104,12 +108,14 @@ test("renders the institutional record as a responsive timeline", async () => {
   assert.match(css, /@media \(max-width:\s*760px\)[\s\S]*?\.ne-record li::before\s*\{[^}]*width:\s*1px/s);
 });
 
-test("places the Nina Quisinski wordmark opposite the navigation", async () => {
+test("places the Nina Quisinski wordmark opposite one unified Chairwoman menu", async () => {
   const css = await source("app/globals.css");
   assert.match(css, /Chairwoman header — name left, navigation right/);
   assert.match(css, /\.ne-header\s*\{[^}]*grid-template-columns:\s*auto minmax\(0,\s*1fr\)/s);
   assert.match(css, /\.ne-header-actions\s*\{[^}]*justify-content:\s*flex-end/s);
-  assert.match(css, /@media \(max-width:\s*760px\)[\s\S]*?\.ne-nav--all,[\s\S]*?\.ne-header-actions > \.ne-languages\s*\{[^}]*display:\s*none/s);
+  assert.match(css, /Chairwoman — one unified navigation menu/);
+  assert.match(css, /\.ne-chairwoman-menu nav\s*\{[^}]*position:\s*absolute[^}]*display:\s*grid/s);
+  assert.match(css, /@media \(max-width:\s*760px\)[\s\S]*?\.ne-header-actions > \.ne-languages\s*\{[^}]*display:\s*flex/s);
 });
 
 test("removes all photography from the rendered Chairwoman page", async () => {

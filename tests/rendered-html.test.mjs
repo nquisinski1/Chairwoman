@@ -31,7 +31,7 @@ test("exports Chairwoman as the canonical trilingual root experience", async () 
     assert.match(source, /class="ne-story-body"/);
     assert.match(source, /<em>Nina Quisinski<\/em>/);
     assert.match(source, /nina-chairwoman-opening-2025\.jpg/);
-    assert.match(source, /ccibrasilpanama\.org\/2026-lid-nina/);
+    assert.match(source, /href="https:\/\/ccibrasilpanama\.org\/"/);
     assert.doesNotMatch(source, /StepUp|Lifestyle|Newsletter|collaboration/i);
     assert.equal((source.match(/<h1\b/gi) ?? []).length, 1);
   }

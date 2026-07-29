@@ -2422,3 +2422,62 @@ summary:focus-visible {
   .ne-letters { grid-template-columns: 1fr; }
   .ne-letters-head { position: static; }
 }
+
+/* Chairwoman — one unified navigation menu. */
+.ne-chairwoman-menu {
+  position: relative;
+  z-index: 30;
+}
+.ne-chairwoman-menu summary {
+  display: flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 18px;
+  color: var(--ne-white);
+  cursor: pointer;
+  font-size: .58rem;
+  font-weight: 600;
+  letter-spacing: .13em;
+  list-style: none;
+  text-transform: uppercase;
+}
+.ne-chairwoman-menu summary::-webkit-details-marker { display: none; }
+.ne-chairwoman-menu summary span {
+  color: var(--ne-copper);
+  font-size: 1rem;
+  font-weight: 300;
+  transition: transform .2s ease;
+}
+.ne-chairwoman-menu[open] summary span { transform: rotate(45deg); }
+.ne-chairwoman-menu nav {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  display: grid;
+  width: min(300px, 82vw);
+  padding: 16px 24px;
+  border: 1px solid rgba(255, 255, 255, .16);
+  background: var(--ne-ink-deep);
+  box-shadow: 0 22px 44px rgba(0, 0, 0, .24);
+}
+.ne-chairwoman-menu nav a {
+  display: flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, .14);
+  color: rgba(255, 255, 255, .78);
+  font-size: .6rem;
+  font-weight: 500;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+.ne-chairwoman-menu nav a:last-child { border-bottom: 0; }
+.ne-chairwoman-menu nav a:hover { color: var(--ne-white); }
+.ne-footer { grid-template-columns: 120px minmax(0, 1fr); }
+
+@media (max-width: 760px) {
+  .ne-header-actions > .ne-languages { display: flex; }
+  .ne-header-actions { gap: 14px; }
+  .ne-chairwoman-menu nav { right: -20px; }
+}
