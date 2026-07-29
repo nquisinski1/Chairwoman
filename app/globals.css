@@ -1989,18 +1989,18 @@ summary:focus-visible {
   .ne-press > div { padding: 76px 22px; }
 }
 
-/* Chairwoman — white, warm graphite and copper palette. */
+/* Chairwoman — approved monochrome editorial palette. */
 .ne-site {
-  --ne-white: #ffffff;
-  --ne-paper: #ffffff;
-  --ne-paper-deep: #f5f2f0;
-  --ne-ink: #484241;
-  --ne-ink-deep: #302c2c;
-  --ne-stone: #746d6a;
-  --ne-copper: #c68d80;
-  --ne-copper-deep: #8d5f56;
+  --ne-white: #f2f0eb;
+  --ne-paper: #f2f0eb;
+  --ne-paper-deep: #e3e0d9;
+  --ne-ink: #2b2a27;
+  --ne-ink-deep: #171715;
+  --ne-stone: #77736d;
+  --ne-copper: #c9c4bb;
+  --ne-copper-deep: #817c74;
   --ne-coral: var(--ne-copper);
-  --ne-line: rgba(72, 66, 65, .18);
+  --ne-line: rgba(43, 42, 39, .18);
   background: var(--ne-white);
   color: var(--ne-ink);
 }
@@ -2328,7 +2328,7 @@ summary:focus-visible {
 /* Chairwoman — centered editorial residence based on the approved composition. */
 .ne-site {
   padding: clamp(36px, 7vw, 110px) 0;
-  background: #8f8a85;
+  background: #55524d;
 }
 .ne-frame {
   width: min(calc(100% - 40px), 980px);

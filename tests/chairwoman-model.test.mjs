@@ -50,13 +50,15 @@ test("ships four verified authority territories in every language", async () => 
   assert.match(content, /press:\s*\{/);
 });
 
-test("uses the centered editorial residence with the approved light palette", async () => {
+test("uses the centered editorial residence with the approved monochrome palette", async () => {
   const css = await source("app/globals.css");
 
   assert.match(css, /\.ne-frame\s*\{[^}]*max-width:\s*1120px[^}]*border:\s*0[^}]*border-radius:\s*0/s);
   assert.match(css, /Chairwoman — image-free institutional composition/);
   assert.match(css, /Chairwoman refinement — minimal hierarchy/);
-  assert.match(css, /Chairwoman — white, warm graphite and copper palette/);
+  assert.match(css, /Chairwoman — approved monochrome editorial palette/);
+  assert.match(css, /--ne-white:\s*#f2f0eb/);
+  assert.match(css, /--ne-ink-deep:\s*#171715/);
   assert.match(css, /\.ne-record ol\s*\{[^}]*grid-template-columns:\s*repeat\(2/s);
 });
 
@@ -65,7 +67,7 @@ test("includes the approved Chairwoman mark as a real asset", async () => {
   const mark = await source("public/brand/nina-chairwoman-mark.svg");
   assert.match(mark, />N<\/text>/);
   assert.match(mark, />Q<\/text>/);
-  assert.match(mark, /#C68D80/i);
+  assert.match(mark, /#817C74/i);
   assert.doesNotMatch(mark, /#9f7453/i);
 });
 
