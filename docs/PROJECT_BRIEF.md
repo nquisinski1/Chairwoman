@@ -1,65 +1,37 @@
-# Nina Quisinski — brief ejecutivo de la landing
+# Nina Quisinski — Chairwoman
 
-**Fecha:** 22 de julio de 2026
+**Objetivo:** apresentar Nina Quisinski como fundadora e presidente da Câmara de Comércio e Indústria Brasil–Panamá por meio de mandato, trajetória e fontes públicas verificáveis.
 
-**Estado:** construcción local y preparación para GitHub; no equivale a publicación
+## Público
 
-**Objetivo:** convertir `ninaquisinski.com` en la casa institucional y editorial de Nina, capaz de demostrar mandato, criterio y contexto durante los primeros tres segundos.
+CEOs, empresários, investidores, membros de conselhos, diplomatas e líderes institucionais que avaliam interlocutores para agendas empresariais entre Brasil e Panamá.
 
-## Audiencia primaria
+## Leitura obrigatória na primeira tela
 
-CEOs, propietarios, boards, inversores y líderes institucionales de Europa, Estados Unidos y América Latina que evalúan si Nina pertenece a una conversación de nivel peer.
+1. Nina Quisinski.
+2. Fundadora e presidente da Câmara.
+3. Agenda institucional Brasil–Panamá.
+4. Autoridade sustentada por registros e fontes, sem promessas de acesso ou endosso.
 
-## Lectura obligatoria en tres segundos
+## Escopo
 
-1. **Quién es:** Nina Quisinski.
-2. **Qué mandato tiene:** fundadora y presidenta de la Cámara de Comercio e Industria Brasil–Panamá.
-3. **Dónde construye:** socia de StepUp & Company.
-4. **Qué perspectiva aporta:** liderazgo institucional, relaciones estratégicas y expansión empresarial.
-5. **Qué debe ocurrir:** el visitante reconoce una interlocutora seria y puede profundizar en evidencia, ideas o canales oficiales.
+- projeto exclusivo para `chairwoman.ninaquisinski.com`;
+- espanhol, português e inglês;
+- fotografia documental real;
+- cronologia institucional, cartas publicáveis, imprensa e acesso ao arquivo oficial da Câmara;
+- experiência responsiva em telefone, iPad e desktop;
+- exportação estática para Hostinger;
+- SEO técnico e dados estruturados do subdomínio.
 
-## Alcance funcional
+## Fora do escopo
 
-- landing editorial de una página;
-- español, portugués e inglés;
-- teléfono desde 360 px, iPad y desktop amplio;
-- navegación por anclas, selector de idioma y rutas indexables por idioma;
-- newsletter mediante el canal oficial de LinkedIn, sin formulario ficticio;
-- enlaces a Instagram, YouTube, LinkedIn, CCI Brasil–Panamá y StepUp & Company;
-- prueba pública mediante fuentes institucionales y editoriales verificadas;
-- preparación para exportación estática y despliegue posterior en Hostinger.
+StepUp, Lifestyle, Newsletter, livro e demais territórios da marca pessoal de Nina não são publicados neste projeto.
 
-## Dirección visual aprobada para construcción
+## Critérios de aceitação
 
-**Diplomatic Modernism**: estructura institucional, fotografía documental, luz mineral y precisión editorial.
-
-- IBM Plex Serif para tesis y nombre;
-- Inter para navegación, datos y lectura operativa;
-- Papel Mineral `#F2F0E9` — 52%;
-- Azul Atlántico `#173B4B` — 23%;
-- Tinta Carbón `#131A1F` — 15%;
-- Pátina `#667A72` — 7%;
-- Terracota `#B9654B` — 3%.
-
-## Orden de la página
-
-1. Hero: nombre, mandato, contexto, fotografía y dos acciones.
-2. Franja de prueba: CCI, StepUp, Investor Lifestyle, Telemetro y newsletter.
-3. Tesis ejecutiva: confianza, preparación y relaciones entre mercados.
-4. Presidencia: mandato, fuentes y archivo institucional.
-5. StepUp & Company: relaciones, internacionalización y preparación para conversaciones de capital.
-6. Ideas: `Executive Insights` como nombre editorial aprobado.
-7. Prensa: piezas independientes verificadas.
-8. Lifestyle y colaboraciones: afinidad real, sin inventar contratos.
-9. Canales oficiales y cierre.
-
-## Criterios de aceptación
-
-- La primera vista responde quién, mandato y contexto sin hacer scroll.
-- Ninguna afirmación implica licencia financiera, captación o rendimiento.
-- No usa códigos de coach, influencer, belleza, moda o lujo ornamental.
-- Los controles táctiles miden al menos 44 px.
-- Funciona sin animación y respeta `prefers-reduced-motion`.
-- Los tres idiomas contienen la misma arquitectura y nivel de calidad.
-- El build, las pruebas y la revisión visual pasan antes de GitHub.
-- GitHub, Hostinger y dominio se reportan como gates separados.
+- o visitante reconhece nome, cargo e instituição em até três segundos;
+- nenhum claim amplia mandato, influência, acesso a capital ou endorsement;
+- fontes institucionais acompanham os fatos relevantes;
+- os três idiomas preservam a mesma hierarquia;
+- build, testes, lint e revisão visual passam antes do GitHub;
+- GitHub e Hostinger são reportados como estados separados.

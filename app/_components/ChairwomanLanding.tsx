@@ -1,6 +1,5 @@
 import Image from "next/image";
-import { chairwomanCopy, chairwomanPaths, homePaths } from "../_content/chairwoman";
-import type { Language } from "../_content/landing";
+import { chairwomanCopy, chairwomanPaths, homePaths, type Language } from "../_content/chairwoman";
 
 const chamberHome = "https://ccibrasilpanama.org/";
 const chamberProfile = "https://ccibrasilpanama.org/2026-lid-nina/";
@@ -25,7 +24,7 @@ function EditorialHeader({ language }: { language: Language }) {
         {links.slice(0, 2).map(([label, href]) => <a href={href} key={href}>{label}</a>)}
       </nav>
       <a className="ne-mark" href={homePaths[language]} aria-label={copy.nav.home}>
-        <img src="/brand/nina-chairwoman-mark.svg" alt="" width="52" height="40" />
+        <Image src="/brand/nina-chairwoman-mark.svg" alt="" width={52} height={40} />
       </a>
       <nav className="ne-nav ne-nav--right" aria-label={copy.menu}>
         {links.slice(2).map(([label, href]) => <a href={href} key={href}>{label}</a>)}
@@ -83,8 +82,8 @@ export function ChairwomanLanding({ language }: { language: Language }) {
     "@type": "Person",
     name: "Nina Quisinski",
     alternateName: "Janaina Tobia Quisinski",
-    url: `https://ninaquisinski.com${chairwomanPaths[language]}`,
-    image: "https://ninaquisinski.com/images/nina-chairwoman-opening-2025.jpg",
+    url: `https://chairwoman.ninaquisinski.com${chairwomanPaths[language]}`,
+    image: "https://chairwoman.ninaquisinski.com/images/nina-chairwoman-opening-2025.jpg",
     jobTitle: copy.hero.role,
     memberOf: { "@type": "Organization", name: copy.chamber.organization, url: chamberHome },
   };

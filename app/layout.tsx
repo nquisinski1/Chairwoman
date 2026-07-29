@@ -1,24 +1,25 @@
+/* eslint-disable @next/next/no-page-custom-font */
 import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ninaquisinski.com"),
+  metadataBase: new URL("https://chairwoman.ninaquisinski.com"),
   title: {
-    default: "Nina Quisinski",
+    default: "Nina Quisinski — Chairwoman",
     template: "%s | Nina Quisinski",
   },
   description:
-    "Liderazgo institucional, relaciones estratégicas y expansión empresarial entre Brasil, Panamá y América Latina.",
+    "Presidencia institucional y agenda empresarial documentada entre Brasil y Panamá.",
   robots: process.env.NEXT_PUBLIC_SITE_INDEXABLE === "true"
     ? { index: true, follow: true }
     : { index: false, follow: false, noarchive: true },
   openGraph: {
     type: "website",
     locale: "es_PA",
-    siteName: "Nina Quisinski",
-    title: "Nina Quisinski | Capital, relaciones y expansión",
+    siteName: "Nina Quisinski — Chairwoman",
+    title: "Nina Quisinski — Chairwoman",
     description:
-      "Liderazgo institucional y visión empresarial entre Brasil, Panamá y América Latina.",
+      "Fundadora y presidenta de la Cámara de Comercio e Industria Brasil–Panamá.",
   },
 };
 

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import type { Language } from "./landing";
+
+export type Language = "es" | "pt" | "en";
 
 type Pillar = {
   title: string;
@@ -97,9 +98,9 @@ export type ChairwomanCopy = {
 };
 
 export const chairwomanPaths: Record<Language, string> = {
-  es: "/chairwoman/",
-  pt: "/pt/chairwoman/",
-  en: "/en/chairwoman/",
+  es: "/",
+  pt: "/pt/",
+  en: "/en/",
 };
 
 export const homePaths: Record<Language, string> = {
