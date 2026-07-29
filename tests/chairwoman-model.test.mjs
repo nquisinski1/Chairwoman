@@ -82,11 +82,15 @@ test("keeps readable controls and a true iPad single-column composition", async 
   assert.doesNotMatch(css, /inset-right/);
 });
 
-test("uses the approved standard circular source icon", async () => {
-  const css = await source("app/globals.css");
-  assert.match(css, /\.ne-record li > a\s*\{[^}]*width:\s*64px[^}]*min-height:\s*64px[^}]*border-radius:\s*50%/s);
-  assert.match(css, /\.ne-record li > a span\s*\{[^}]*position:\s*absolute[^}]*top:\s*13px[^}]*left:\s*11px/s);
-  assert.match(css, /\.ne-record li > a:hover span\s*\{[^}]*translate\(3px,\s*-3px\)/s);
+test("uses the same textual source action as letters and recognition", async () => {
+  const [component, css] = await Promise.all([
+    source("app/_components/ChairwomanLanding.tsx"),
+    source("app/globals.css"),
+  ]);
+  assert.match(component, /\{copy\.record\.sourceAction\}<Arrow \/>/);
+  assert.match(css, /\.ne-record li > a\s*\{[^}]*width:\s*max-content[^}]*border-bottom:\s*1px solid currentColor[^}]*text-transform:\s*uppercase/s);
+  assert.match(css, /\.ne-record li > a span\s*\{[^}]*position:\s*static[^}]*margin-left:\s*22px/s);
+  assert.doesNotMatch(css, /\.ne-record li > a\s*\{[^}]*width:\s*64px/s);
 });
 
 test("renders the institutional record as a responsive timeline", async () => {

@@ -147,7 +147,7 @@ export function ChairwomanLanding({ language }: { language: Language }) {
                 <li key={`${item.date}-${item.title}`}>
                   <span>0{index + 1}</span><time>{item.date}</time>
                   <div><small>{item.origin}</small><h3>{item.title}</h3><p>{item.body}</p></div>
-                  <a href={item.href} target="_blank" rel="noreferrer" aria-label={`${copy.record.sourceAction}: ${item.title}`}><Arrow /></a>
+                  <a href={item.href} target="_blank" rel="noreferrer" aria-label={`${copy.record.sourceAction}: ${item.title}`}>{copy.record.sourceAction}<Arrow /></a>
                 </li>
               ))}
             </ol>
