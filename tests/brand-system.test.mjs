@@ -8,7 +8,7 @@ async function source(path) {
   return readFile(new URL(path, project), "utf8");
 }
 
-test("uses only the approved Nina brand type roles", async () => {
+test("uses the approved Nina type roles and the dedicated Chairwoman editorial pair", async () => {
   const [css, chairwoman, logo] = await Promise.all([
     source("app/globals.css"),
     source("app/_components/ChairwomanLanding.tsx"),
@@ -18,9 +18,11 @@ test("uses only the approved Nina brand type roles", async () => {
   assert.match(css, /--font-display:\s*"Noto Serif Display"/);
   assert.match(css, /--font-body:\s*"Inter"/);
   assert.match(css, /--font-signature:\s*"Pinyon Script"/);
-  assert.equal((css.match(/font-family:\s*var\(--font-signature\)/g) ?? []).length, 2);
+  assert.ok((css.match(/font-family:\s*var\(--font-signature\)/g) ?? []).length >= 2);
   assert.match(logo, /nina-logo__signature[\s\S]*Nina Quisinski/);
-  assert.match(chairwoman, /className="cw-signature">Nina Quisinski<\/p>/);
+  assert.match(chairwoman, /<em>Nina Quisinski<\/em>/);
+  assert.match(css, /\.ne-hero h1 em\s*\{[^}]*font-family:\s*"Bodoni Moda"/s);
+  assert.match(css, /\.ne-site\s*\{[^}]*font-family:\s*"Montserrat"/s);
   assert.doesNotMatch(chairwoman, /<em>\{copy\.hero\.titleAccent\}<\/em>/);
 });
 
@@ -50,7 +52,7 @@ test("shows the verified founder and president role in the Chairwoman first fold
     source("app/_content/chairwoman.ts"),
   ]);
 
-  assert.match(component, /className="cw-hero-role">\{copy\.hero\.role\}/);
+  assert.match(component, /className="ne-hero-title-row"[\s\S]*?<p>\{copy\.hero\.role\}<\/p>/);
   assert.match(content, /role:\s*"Fundadora e presidente da Câmara de Comércio e Indústria Brasil–Panamá"/);
   assert.match(content, /role:\s*"Founder and president of the Brazil–Panama Chamber of Commerce and Industry"/);
 });

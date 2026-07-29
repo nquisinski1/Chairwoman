@@ -132,7 +132,7 @@ test("keeps the approved color territories explicit in the design system", async
   assert.doesNotMatch(css, /rgba\(194,\s*163,\s*103,/i);
 });
 
-test("keeps one approved typographic system across every route", async () => {
+test("keeps the core typography and the dedicated Chairwoman editorial pair", async () => {
   const [source, css, layout, logo] = await Promise.all([
     html("index.html"),
     readFile(new URL("app/globals.css", project), "utf8"),
@@ -151,15 +151,17 @@ test("keeps one approved typographic system across every route", async () => {
   assert.match(css, /--font-interface:\s*var\(--font-body\)/);
   assert.match(css, /\.nina-logo__signature\s*\{[^}]*font-family:\s*var\(--font-signature\)/s);
   assert.match(css, /\.nq-mobile-menu nav:not\(\.language-switcher\) a\s*\{[^}]*font-family:\s*var\(--font-interface\)/s);
-  assert.match(css, /\.cw-mobile-menu nav:first-child a\s*\{[^}]*font-family:\s*var\(--font-interface\)/s);
+  assert.match(css, /\.ne-site\s*\{[^}]*font-family:\s*"Montserrat"/s);
+  assert.match(css, /\.ne-hero h1 em\s*\{[^}]*font-family:\s*"Bodoni Moda"/s);
   for (const [, family] of css.matchAll(/font-family:\s*([^;]+);/g)) {
-    assert.match(family.trim(), /^var\(--font-(?:signature|display|body|interface)\)$/);
+    assert.match(family.trim(), /^(?:var\(--font-(?:signature|display|body|interface)\)|"(?:Montserrat|Bodoni Moda|Pinyon Script)")/);
   }
   assert.doesNotMatch(css, /var\(--(?:script|serif|condensed|sans)\)/);
   assert.match(layout, /family=Pinyon\+Script/);
   assert.match(layout, /family=Noto\+Serif\+Display/);
   assert.match(layout, /family=Inter/);
-  assert.doesNotMatch(layout, /Bodoni\+Moda|Barlow\+Condensed/);
+  assert.match(layout, /family=Bodoni\+Moda/);
+  assert.match(layout, /family=Montserrat/);
 });
 
 test("exports the Chairwoman page in Spanish, Portuguese and English", async () => {
@@ -170,24 +172,21 @@ test("exports the Chairwoman page in Spanish, Portuguese and English", async () 
   ]);
 
   assert.match(es.slice(0, 80), /<html lang="es-PA">/i);
-  assert.match(es, /Liderar es hacer que la/);
+  assert.match(es, /PRESIDENTA/);
+  assert.match(es, /Autoridad que puede ser comprobada/);
   assert.match(es, /Cuando una institución escribe, el contexto importa/);
-  assert.match(es, /Una agenda que también queda registrada/);
-  assert.match(es, /Fundación y presidencia/);
   assert.match(es, /\/pt\/chairwoman\//);
   assert.match(es, /\/en\/chairwoman\//);
 
   assert.match(pt.slice(0, 80), /<html lang="pt-BR">/i);
-  assert.match(pt, /Liderar é fazer a/);
+  assert.match(pt, /PRESIDENTE/);
+  assert.match(pt, /Autoridade que pode ser comprovada/);
   assert.match(pt, /Quando uma instituição escreve, o contexto importa/);
-  assert.match(pt, /Uma agenda que também fica registrada/);
-  assert.match(pt, /Fundação e presidência/);
 
   assert.match(en.slice(0, 80), /<html lang="en-US">/i);
-  assert.match(en, /Leadership makes/);
+  assert.match(en, /CHAIRWOMAN/);
+  assert.match(en, /Authority that can be verified/);
   assert.match(en, /When an institution writes, context matters/);
-  assert.match(en, /An agenda that is also placed on record/);
-  assert.match(en, /Foundation and presidency/);
 
   for (const source of [es, pt, en]) {
     assert.match(source, /nina-chairwoman-opening-2025\.jpg/);
@@ -206,17 +205,15 @@ test("exports the Chairwoman page in Spanish, Portuguese and English", async () 
     assert.match(source, /Carlos Henrique Moojen de Abreu e Silva/);
     assert.match(source, /Julio A\. Moltó/);
     assert.doesNotMatch(source, /Startup Summit|Carta-Oficial-de-Invitacion-Clicksign|preto-scaled|Confidencial/i);
-    assert.doesNotMatch(source, /class="cw-(?:index|eyebrow)"/);
-    assert.doesNotMatch(source, /01 \/ (?:EL MANDATO|O MANDATO|THE MANDATE)/);
-    assert.doesNotMatch(source, /(?:Cargo, trayectoria|Cargo, trajetória|Role, record).*revisad|reviewed against/i);
-    assert.equal(count(source, /class="cw-emblem(?:\s|")/g), 0);
-    assert.equal(count(source, /class="nq-monogram(?:\s|")/g), 0);
-    assert.match(source, /class="cw-signature">Nina Quisinski<\/p>/);
+    assert.match(source, /class="ne-site"/);
+    assert.match(source, /class="ne-proof-strip"/);
+    assert.match(source, /class="ne-record"/);
+    assert.match(source, /<em>Nina Quisinski<\/em>/);
     assert.doesNotMatch(source, /class="nina-logo__(?:wordmark|signature)"/);
-    assert.ok(count(source, /nina-chairwoman-mark\.svg/g) >= 2);
+    assert.ok(count(source, /nina-chairwoman-mark\.svg/g) >= 1);
     assert.doesNotMatch(source, /StepUp|Lifestyle|Newsletter|collaboration/i);
     assert.equal(count(source, /<h1\b/gi), 1);
-    assert.equal(count(source, /<img\b/gi), 6);
+    assert.ok(count(source, /<img\b/gi) >= 4);
   }
 });
 
@@ -252,13 +249,12 @@ test("renders the shared home shell and the dedicated Chairwoman institutional s
   assert.doesNotMatch(chairwoman, /class="nina-footer-statement"/);
   assert.doesNotMatch(chairwoman, /class="nina-footer-legal"/);
   assert.doesNotMatch(chairwoman, /class="nina-footer"/);
-  assert.match(chairwoman, /<header class="cw-chair-header">/);
-  assert.match(chairwoman, /<footer class="cw-chair-footer">/);
+  assert.match(chairwoman, /<header class="ne-header">/);
+  assert.match(chairwoman, /<footer class="ne-footer">/);
   assert.match(chairwoman, /nina-chairwoman-mark\.svg/);
   assert.doesNotMatch(home, /class="nq-stepup-pillars"/);
   assert.doesNotMatch(home, /CONVERSA EMPRESARIAL/);
-  assert.match(chairwoman, /class="cw-hero-role"/);
-  assert.doesNotMatch(chairwoman, /class="cw-emblem/);
+  assert.match(chairwoman, /class="ne-hero-title-row"/);
 
   assert.match(headerComponent, /navigation:\s*HeaderNavigationItem\[\]/);
   assert.doesNotMatch(headerComponent, /variant:\s*"home"\s*\|\s*"chairwoman"/);

@@ -5,34 +5,35 @@ import test from "node:test";
 const project = new URL("../", import.meta.url);
 const source = (path) => readFile(new URL(path, project), "utf8");
 
-test("builds the approved editorial Chairwoman anatomy", async () => {
+test("builds the dark editorial Chairwoman anatomy", async () => {
   const component = await source("app/_components/ChairwomanLanding.tsx");
 
-  assert.match(component, /className="cw-chair-header"/);
+  assert.match(component, /className="ne-header"/);
   assert.match(component, /src="\/brand\/nina-chairwoman-mark\.svg"/);
   assert.doesNotMatch(component, /<NinaHeader|<NinaFooter/);
-  assert.match(component, /className="cw-signature">Nina Quisinski/);
+  assert.match(component, /<em>Nina Quisinski<\/em>/);
   assert.match(component, /nina-chairwoman-opening-2025\.jpg/);
   assert.match(component, /nina-official-portrait\.jpg/);
-  assert.match(component, /className="cw-authority-strip"/);
-  assert.match(component, /copy\.authority\.map/);
-  assert.match(component, /className="cw-mandate"/);
-  assert.match(component, /className="cw-record"/);
-  assert.match(component, /className="cw-letters"/);
-  assert.match(component, /className="cw-press"/);
-  assert.match(component, /className="cw-chamber"/);
+  assert.match(component, /className="ne-proof-strip"/);
+  assert.match(component, /strip\.map/);
+  assert.match(component, /className="ne-story"/);
+  assert.match(component, /className="ne-record"/);
+  assert.match(component, /className="ne-letters"/);
+  assert.match(component, /className="ne-press"/);
+  assert.match(component, /className="ne-chamber"/);
   assert.doesNotMatch(component, /StepUp|Lifestyle|Newsletter|collaboration/i);
 });
 
-test("keeps the signature script exclusive to the full name", async () => {
+test("uses the full name as the dominant editorial display", async () => {
   const [component, css] = await Promise.all([
     source("app/_components/ChairwomanLanding.tsx"),
     source("app/globals.css"),
   ]);
 
-  assert.match(component, /className="cw-signature">Nina Quisinski<\/p>/);
-  assert.match(css, /\.cw-signature\s*\{[^}]*font-family:\s*var\(--font-signature\)/s);
-  assert.doesNotMatch(css, /\.cw-title-accent\s*\{[^}]*font-family:\s*var\(--font-signature\)/s);
+  assert.match(component, /<em>Nina Quisinski<\/em>/);
+  assert.doesNotMatch(component, /<em>Nina<\/em>|<em>Quisinski<\/em>/);
+  assert.match(css, /Chairwoman — dark editorial residence/);
+  assert.match(css, /\.ne-hero h1 em\s*\{[^}]*font-family:\s*"Bodoni Moda"/s);
 });
 
 test("ships four verified authority territories in every language", async () => {
@@ -44,14 +45,16 @@ test("ships four verified authority territories in every language", async () => 
   assert.match(content, /press:\s*\{/);
 });
 
-test("uses a spacious single-column Chairwoman composition at iPad width", async () => {
+test("uses the centered black ivory editorial residence", async () => {
   const css = await source("app/globals.css");
 
-  assert.match(css, /\.cw-hero-editorial\s*\{[^}]*display:\s*grid/s);
-  assert.match(css, /\.cw-portrait-secondary img\s*\{[^}]*filter:\s*grayscale\(1\)/s);
-  assert.match(css, /\.cw-authority-strip\s*\{[^}]*background:\s*var\(--graphite\)/s);
-  assert.match(css, /@media \(max-width:\s*980px\)[\s\S]*?\.cw-hero-editorial\s*\{[^}]*grid-template-columns:\s*1fr/s);
-  assert.match(css, /\.cw-site\s*\{[^}]*overflow:\s*clip/s);
+  assert.match(css, /\.ne-frame\s*\{[^}]*max-width:\s*1120px[^}]*border:\s*0[^}]*border-radius:\s*0/s);
+  assert.match(css, /\.ne-hero-images\s*\{[^}]*display:\s*grid/s);
+  assert.match(css, /\.ne-hero-main img\s*\{[^}]*filter:\s*grayscale\(1\)/s);
+  assert.match(css, /\.ne-proof-strip\s*\{[^}]*background:\s*var\(--ne-ink\)/s);
+  assert.match(css, /url\("\/images\/nina-chairwoman-mandate\.jpg"\)/);
+  assert.match(css, /Chairwoman refinement — minimal hierarchy/);
+  assert.match(css, /\.ne-record ol\s*\{[^}]*grid-template-columns:\s*repeat\(2/s);
 });
 
 test("includes the approved Chairwoman mark as a real asset", async () => {
@@ -68,10 +71,9 @@ test("keeps readable controls and a true iPad single-column composition", async 
     source("app/_components/ChairwomanLanding.tsx"),
     source("app/globals.css"),
   ]);
-  assert.match(component, /titleBefore\}<\/span>\{" "\}/);
-  assert.match(component, /titleAccent\}<\/span>\{" "\}/);
-  assert.match(css, /\.cw-hero-editorial \.cw-button-outline\s*\{[^}]*color:\s*var\(--burgundy\)/s);
-  assert.match(css, /@media \(max-width:\s*980px\)[\s\S]*?\.cw-pillars\s*\{[^}]*grid-template-columns:\s*1fr/s);
-  assert.match(css, /@media \(max-width:\s*980px\)[\s\S]*?\.cw-letter-list\s*\{[^}]*grid-template-columns:\s*1fr/s);
+  assert.match(component, /<h1 id="ne-hero-title"><span>\{identity\.intro\}<\/span><em>Nina Quisinski<\/em><\/h1>/);
+  assert.match(css, /@media \(max-width:\s*760px\)[\s\S]*?\.ne-story\s*\{[^}]*grid-template-columns:\s*1fr/s);
+  assert.match(css, /@media \(max-width:\s*760px\)[\s\S]*?\.ne-press\s*\{[^}]*grid-template-columns:\s*1fr/s);
+  assert.match(css, /\.ne-mobile-menu summary\s*\{[^}]*min-height:\s*44px/s);
   assert.doesNotMatch(css, /inset-right/);
 });
